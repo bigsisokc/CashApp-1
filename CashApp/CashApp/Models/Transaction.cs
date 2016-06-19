@@ -1,0 +1,28 @@
+﻿using System;
+
+namespace CashApp.Models
+{
+    public class Transaction
+    {
+        public int Id { get; set; }
+        public string Description { get; set; }
+
+        DateTime transDate;
+        public DateTime TransDate
+        {
+            get
+            {
+                return transDate;
+            }
+            set
+            {
+                transDate = value;
+                Period = string.Format("{0:MMM yyyy}", value);
+                PeriodSort = string.Format("{0:yyyyMM}", value);
+            }
+        }
+        public string Period { get; set; }
+        public string PeriodSort { get; set; }
+        public decimal Amount { get; set; }
+    }
+}
