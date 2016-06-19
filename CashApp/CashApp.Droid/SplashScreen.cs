@@ -5,9 +5,7 @@ using Xamarin.Forms;
 
 namespace CashApp.Droid
 {
-    [Activity(
-        Label = "CashApp.Droid"
-        , MainLauncher = true
+    [Activity(MainLauncher = true
         , Icon = "@drawable/cash"
         , Theme = "@style/Theme.Splash"
         , NoHistory = true
