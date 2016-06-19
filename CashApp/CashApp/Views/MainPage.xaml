@@ -4,7 +4,7 @@
              xmlns:local="clr-namespace:CashApp.Converters;assembly=CashApp"
              xmlns:xb="clr-namespace:Xamarin.Forms.Behaviors;assembly=Xamarin.Forms"
              x:Class="CashApp.Views.MainPage"
-             Title="Cash Application">
+             Title="My Cash">
   <ContentPage.Resources>
     <ResourceDictionary>
       <Style TargetType="Label">
@@ -46,54 +46,56 @@
                        AbsoluteLayout.LayoutFlags="PositionProportional"
                        AbsoluteLayout.LayoutBounds="0.5,0.5,-1,-1">
     </ActivityIndicator>
-    <StackLayout Padding="10" Spacing="10" Orientation="Vertical" IsVisible="{Binding IsBusy, Converter={StaticResource not}}"
+    <ScrollView IsVisible="{Binding IsBusy, Converter={StaticResource not}}"
                  AbsoluteLayout.LayoutFlags="All" AbsoluteLayout.LayoutBounds="0,0,1,1">
-      <ListView ItemsSource="{Binding ItemGrouped, Mode=TwoWay}"
-                HasUnevenRows="True"
-                IsGroupingEnabled="true"
-                GroupDisplayBinding="{Binding Key}"
-                GroupShortNameBinding="{Binding Key}"
-                SelectedItem="{Binding SelectedItem, Mode=TwoWay}"
-                IsPullToRefreshEnabled="True"
-                RefreshCommand="{Binding LoadItemCommand}"
-                IsRefreshing="{Binding IsBusy, Mode=OneWay}">
-        <ListView.GroupHeaderTemplate>
-          <DataTemplate>
-            <ViewCell Height="40">
-              <Grid Padding="5" BackgroundColor="#3498DB">
-                <Grid.ColumnDefinitions>
-                  <ColumnDefinition Width="*"></ColumnDefinition>
-                  <ColumnDefinition Width="150"></ColumnDefinition>
-                </Grid.ColumnDefinitions>
-                <Label Grid.Column="0" Text="{Binding KeyDescription}" TextColor="White" VerticalOptions="Center" FontSize="Large"/>
-                <Label Grid.Column="1" Text="{Binding KeyAmount, Converter={StaticResource currencyConverter}}" TextColor="White" VerticalOptions="Center" FontSize="Large"/>
-              </Grid>
-            </ViewCell>
-          </DataTemplate>
-        </ListView.GroupHeaderTemplate>
-        <ListView.ItemTemplate>
-          <DataTemplate>
-            <ViewCell Height="60">
-              <Grid Padding="5">
-                <Grid.RowDefinitions>
-                  <RowDefinition Height="20"></RowDefinition>
-                  <RowDefinition Height="30"></RowDefinition>
-                </Grid.RowDefinitions>
-                <Grid.ColumnDefinitions>
-                  <ColumnDefinition Width="*"></ColumnDefinition>
-                  <ColumnDefinition Width="150"></ColumnDefinition>
-                </Grid.ColumnDefinitions>
+      <StackLayout Padding="10" Spacing="10" Orientation="Vertical" >
+        <ListView ItemsSource="{Binding ItemGrouped, Mode=TwoWay}"
+                  HasUnevenRows="True"
+                  IsGroupingEnabled="true"
+                  GroupDisplayBinding="{Binding Key}"
+                  GroupShortNameBinding="{Binding Key}"
+                  SelectedItem="{Binding SelectedItem, Mode=TwoWay}"
+                  IsPullToRefreshEnabled="True"
+                  RefreshCommand="{Binding LoadItemCommand}"
+                  IsRefreshing="{Binding IsBusy, Mode=OneWay}">
+          <ListView.GroupHeaderTemplate>
+            <DataTemplate>
+              <ViewCell Height="40">
+                <Grid Padding="5" BackgroundColor="#3498DB">
+                  <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*"></ColumnDefinition>
+                    <ColumnDefinition Width="150"></ColumnDefinition>
+                  </Grid.ColumnDefinitions>
+                  <Label Grid.Column="0" Text="{Binding KeyDescription}" TextColor="White" VerticalOptions="Center" FontSize="Large"/>
+                  <Label Grid.Column="1" Text="{Binding KeyAmount, Converter={StaticResource currencyConverter}}" TextColor="White" VerticalOptions="Center" FontSize="Large"/>
+                </Grid>
+              </ViewCell>
+            </DataTemplate>
+          </ListView.GroupHeaderTemplate>
+          <ListView.ItemTemplate>
+            <DataTemplate>
+              <ViewCell Height="70">
+                <Grid Padding="5">
+                  <Grid.RowDefinitions>
+                    <RowDefinition Height="30"></RowDefinition>
+                    <RowDefinition Height="30"></RowDefinition>
+                  </Grid.RowDefinitions>
+                  <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*"></ColumnDefinition>
+                    <ColumnDefinition Width="150"></ColumnDefinition>
+                  </Grid.ColumnDefinitions>
 
-                <StackLayout Grid.Column="0" Grid.Row="1" Grid.ColumnSpan="2">
-                  <Label Text="{Binding Description}" FontSize="Small" LineBreakMode="TailTruncation"></Label>
-                </StackLayout>
-                <Label Grid.Column="0" Grid.Row="0" Text="{Binding TransDate, Converter={StaticResource dateConverter}}" FontSize="Medium" LineBreakMode="TailTruncation"></Label>
-                <Label Grid.Column="1" Grid.Row="0" Text="{Binding Amount, Converter={StaticResource currencyConverter}}" FontSize="Medium" LineBreakMode="TailTruncation"/>
-              </Grid>
-            </ViewCell>
-          </DataTemplate>
-        </ListView.ItemTemplate>
-      </ListView>
-    </StackLayout>
+                  <StackLayout Grid.Column="0" Grid.Row="1" Grid.ColumnSpan="2">
+                    <Label Text="{Binding Description}" FontSize="Small" LineBreakMode="TailTruncation"></Label>
+                  </StackLayout>
+                  <Label Grid.Column="0" Grid.Row="0" Text="{Binding TransDate, Converter={StaticResource dateConverter}}" FontSize="Medium" LineBreakMode="TailTruncation"></Label>
+                  <Label Grid.Column="1" Grid.Row="0" Text="{Binding Amount, Converter={StaticResource currencyConverter}}" FontSize="Medium" LineBreakMode="TailTruncation"/>
+                </Grid>
+              </ViewCell>
+            </DataTemplate>
+          </ListView.ItemTemplate>
+        </ListView>
+      </StackLayout>
+    </ScrollView>
   </AbsoluteLayout>
 </ContentPage>

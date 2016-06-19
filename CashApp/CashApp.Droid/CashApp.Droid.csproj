@@ -179,6 +179,9 @@
     <AndroidResource Include="Resources\layout\MainView.axml">
       <SubType>AndroidResource</SubType>
     </AndroidResource>
+    <AndroidResource Include="Resources\layout\toolbar.axml">
+      <SubType>AndroidResource</SubType>
+    </AndroidResource>
   </ItemGroup>
   <ItemGroup>
     <AndroidResource Include="Resources\drawable\icon.png" />
@@ -201,9 +204,9 @@
     <AndroidResource Include="Resources\values\SplashStyle.xml" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Resources\colors.xml" />
-    <AndroidResource Include="Resources\values-v21\styles.xml" />
-    <AndroidResource Include="Resources\values\styles.xml" />
+    <AndroidResource Include="Resources\values\Colors.xml" />
+    <AndroidResource Include="Resources\values-v21\Styles.xml" />
+    <AndroidResource Include="Resources\values\Styles.xml" />
     <AndroidResource Include="Resources\drawable\cash.png" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\Android\Xamarin.Android.CSharp.targets" />

@@ -14,10 +14,11 @@ using Xamarin.Forms.Platform.Android;
 namespace CashApp.Droid
 {
     [Activity(Label = "MvxFormsApplicationActivity"
-        , Theme = "@style/Theme.Custom"
+        , Theme = "@style/MyTheme"
+        , Icon = "@android:color/transparent"
         , ScreenOrientation = ScreenOrientation.Portrait)]
     public class MvxFormsApplicationActivity
-        : FormsApplicationActivity
+        : FormsAppCompatActivity
     {
         protected override void OnCreate(Bundle bundle)
         {

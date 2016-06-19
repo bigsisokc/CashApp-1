@@ -16,7 +16,7 @@ namespace CashApp.Models
             }
             set
             {
-                transDate = value;
+                transDate = new DateTime(value.Ticks, DateTimeKind.Utc);
                 Period = string.Format("{0:MMM yyyy}", value);
                 PeriodSort = string.Format("{0:yyyyMM}", value);
             }

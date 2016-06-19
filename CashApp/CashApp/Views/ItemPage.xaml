@@ -3,7 +3,7 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:local="clr-namespace:CashApp.Converters;assembly=CashApp"
              x:Class="CashApp.Views.ItemPage"
-             Title="Add/Edit Item">
+             Title="Add/Edit Cash">
   <ContentPage.Resources>
     <ResourceDictionary>
       <Style TargetType="Label">
