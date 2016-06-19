@@ -48,7 +48,7 @@ namespace CashApp.ViewModels
             {
                 Items = new ObservableCollection<Transaction>(result);
                 var sorted = from record in result
-                             orderby record.PeriodSort
+                             orderby record.PeriodSort descending, record.TransDate descending
                              group record by new { record.PeriodSort, record.Period } into gr
                              select new Grouping<string, string, decimal, Transaction>(gr.Key.PeriodSort, gr.Key.Period, gr.Sum(c => c.Amount), gr);
                 ItemGrouped = new ObservableCollection<Grouping<string, string, decimal, Transaction>>(sorted);
