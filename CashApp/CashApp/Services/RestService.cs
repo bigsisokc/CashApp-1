@@ -33,11 +33,17 @@ namespace CashApp.Services
             try
             {
                 var response = await BaseClient.GetAsync(uri);
-                response.EnsureSuccessStatusCode();
-                var json = await response.Content.ReadAsStringAsync();
-                if (string.IsNullOrEmpty(json)) return null;
+                if (response.IsSuccessStatusCode)
+                {
+                    var json = await response.Content.ReadAsStringAsync();
+                    if (string.IsNullOrEmpty(json)) return null;
 
-                return JsonConvert.DeserializeObject<List<Transaction>>(json);
+                    return JsonConvert.DeserializeObject<List<Transaction>>(json);
+                }
+                else
+                {
+                    return null;
+                }
             }
             catch (Exception ex)
             {
@@ -96,7 +102,6 @@ namespace CashApp.Services
                     Mvx.TaggedTrace(typeof(RestService).Name,
                         "Successfully delete the information");
                 }
-
             }
             catch (Exception ex)
             {
@@ -116,11 +121,17 @@ namespace CashApp.Services
             try
             {
                 var response = await BaseClient.GetAsync(uri);
-                response.EnsureSuccessStatusCode();
-                var json = await response.Content.ReadAsStringAsync();
-                if (string.IsNullOrEmpty(json)) return null;
+                if (response.IsSuccessStatusCode)
+                {
+                    var json = await response.Content.ReadAsStringAsync();
+                    if (string.IsNullOrEmpty(json)) return null;
 
-                return JsonConvert.DeserializeObject<Transaction>(json);
+                    return JsonConvert.DeserializeObject<Transaction>(json);
+                }
+                else
+                {
+                    return null;
+                }
             }
             catch (Exception ex)
             {

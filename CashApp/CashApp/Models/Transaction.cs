@@ -6,6 +6,7 @@ namespace CashApp.Models
     {
         public int Id { get; set; }
         public string Description { get; set; }
+        public string Currency { get; set; }
 
         DateTime transDate;
         public DateTime TransDate

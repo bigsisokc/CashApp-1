@@ -93,6 +93,7 @@ namespace CashApp.ViewModels
             bool result = await service.SaveItem(new Transaction
             {
                 Amount = Amount,
+                Currency = "IDR",
                 Description = Description,
                 Id = id,
                 TransDate = TransDate
