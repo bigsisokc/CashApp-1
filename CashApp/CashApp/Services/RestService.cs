@@ -16,33 +16,27 @@ namespace CashApp.Services
         {
 
         }
-
-        HttpClient baseClient;
-        private HttpClient BaseClient
-        {
-            get
-            {
-                return baseClient ?? (baseClient = new HttpClient(new NativeMessageHandler()));
-            }
-        }
-
+        
         public async Task<List<Transaction>> GetAllData()
         {
             var uri = new Uri(string.Format(Constants.RestUrl, string.Empty));
 
             try
             {
-                var response = await BaseClient.GetAsync(uri);
-                if (response.IsSuccessStatusCode)
+                using (var client = new HttpClient(new NativeMessageHandler()))
                 {
-                    var json = await response.Content.ReadAsStringAsync();
-                    if (string.IsNullOrEmpty(json)) return null;
+                    var response = await client.GetAsync(uri);
+                    if (response.IsSuccessStatusCode)
+                    {
+                        var json = await response.Content.ReadAsStringAsync();
+                        if (string.IsNullOrEmpty(json)) return null;
 
-                    return JsonConvert.DeserializeObject<List<Transaction>>(json);
-                }
-                else
-                {
-                    return null;
+                        return JsonConvert.DeserializeObject<List<Transaction>>(json);
+                    }
+                    else
+                    {
+                        return null;
+                    }
                 }
             }
             catch (Exception ex)
@@ -66,19 +60,22 @@ namespace CashApp.Services
                 var json = JsonConvert.SerializeObject(item);
                 var content = new StringContent(json, Encoding.UTF8, "application/json");
                 HttpResponseMessage response = null;
-                if (item.Id == 0)
+                using (var client = new HttpClient(new NativeMessageHandler()))
                 {
-                    response = await BaseClient.PostAsync(uri, content);
-                }
-                else
-                {
-                    response = await BaseClient.PutAsync(uri, content);
-                }
-                if (response.IsSuccessStatusCode)
-                {
-                    Mvx.TaggedTrace(typeof(RestService).Name,
-                        "Successfully save the information");
-                    return true;
+                    if (item.Id == 0)
+                    {
+                        response = await client.PostAsync(uri, content);
+                    }
+                    else
+                    {
+                        response = await client.PutAsync(uri, content);
+                    }
+                    if (response.IsSuccessStatusCode)
+                    {
+                        Mvx.TaggedTrace(typeof(RestService).Name,
+                            "Successfully save the information");
+                        return true;
+                    }
                 }
             }
             catch (Exception ex)
@@ -95,12 +92,15 @@ namespace CashApp.Services
 
             try
             {
-                var response = await BaseClient.DeleteAsync(uri);
-
-                if (response.IsSuccessStatusCode)
+                using (var client = new HttpClient(new NativeMessageHandler()))
                 {
-                    Mvx.TaggedTrace(typeof(RestService).Name,
-                        "Successfully delete the information");
+                    var response = await client.DeleteAsync(uri);
+
+                    if (response.IsSuccessStatusCode)
+                    {
+                        Mvx.TaggedTrace(typeof(RestService).Name,
+                            "Successfully delete the information");
+                    }
                 }
             }
             catch (Exception ex)
@@ -120,17 +120,20 @@ namespace CashApp.Services
 
             try
             {
-                var response = await BaseClient.GetAsync(uri);
-                if (response.IsSuccessStatusCode)
+                using (var client = new HttpClient(new NativeMessageHandler()))
                 {
-                    var json = await response.Content.ReadAsStringAsync();
-                    if (string.IsNullOrEmpty(json)) return null;
+                    var response = await client.GetAsync(uri);
+                    if (response.IsSuccessStatusCode)
+                    {
+                        var json = await response.Content.ReadAsStringAsync();
+                        if (string.IsNullOrEmpty(json)) return null;
 
-                    return JsonConvert.DeserializeObject<Transaction>(json);
-                }
-                else
-                {
-                    return null;
+                        return JsonConvert.DeserializeObject<Transaction>(json);
+                    }
+                    else
+                    {
+                        return null;
+                    }
                 }
             }
             catch (Exception ex)
