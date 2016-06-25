@@ -4,8 +4,8 @@ using CashApp.Services;
 using MvvmCross.Core.ViewModels;
 using MvvmCross.Plugins.Messenger;
 using System;
+using System.Collections.Generic;
 using System.Threading.Tasks;
-using System.Windows.Input;
 
 namespace CashApp.ViewModels
 {
@@ -20,6 +20,12 @@ namespace CashApp.ViewModels
         {
             this.service = service;
             this.messenger = messenger;
+            CurrencyList = new List<CurrencyModel>
+            {
+                new CurrencyModel { Id = 1, Code = "IDR" },
+                new CurrencyModel { Id = 2, Code = "SGD" },
+            };
+            CurrencyIndex = 0;
         }
 
         public void Init(int id)
@@ -40,12 +46,25 @@ namespace CashApp.ViewModels
                 Description = item.Description;
                 TransDate = item.TransDate;
                 Amount = item.Amount;
+                Currency = item.Currency;
             }
             else
             {
                 TransDate = DateTime.Today;
+                Currency = "IDR";
             }
             IsBusy = false;
+        }
+
+        private IList<CurrencyModel> currencyList;
+        public IList<CurrencyModel> CurrencyList
+        {
+            get { return currencyList; }
+            set
+            {
+                currencyList = value;
+                RaisePropertyChanged(() => CurrencyList);
+            }
         }
 
         private string description;
@@ -56,6 +75,36 @@ namespace CashApp.ViewModels
             {
                 description = value;
                 RaisePropertyChanged(() => Description);
+            }
+        }
+
+        private int currencyIndex;
+        public int CurrencyIndex
+        {
+            get { return currencyIndex; }
+            set
+            {
+                currencyIndex = value;
+                RaisePropertyChanged(() => CurrencyIndex);
+            }
+        }
+
+        public string Currency
+        {
+            get
+            {
+                return CurrencyIndex == 1 ? "SGD" : "IDR";
+            }
+            set
+            {
+                if (value == "SGD")
+                {
+                    CurrencyIndex = 1;
+                }
+                else
+                {
+                    CurrencyIndex = 0;
+                }
             }
         }
 
@@ -93,7 +142,7 @@ namespace CashApp.ViewModels
             bool result = await service.SaveItem(new Transaction
             {
                 Amount = Amount,
-                Currency = "IDR",
+                Currency = Currency,
                 Description = Description,
                 Id = id,
                 TransDate = TransDate

@@ -42,6 +42,7 @@
     <Compile Include="Converters\DateConverter.cs" />
     <Compile Include="Converters\CurrencyConverter.cs" />
     <Compile Include="Message\SaveMessage.cs" />
+    <Compile Include="Models\CurrencyModel.cs" />
     <Compile Include="Models\Grouping.cs" />
     <Compile Include="Services\RestService.cs" />
     <Compile Include="Services\IRestService.cs" />

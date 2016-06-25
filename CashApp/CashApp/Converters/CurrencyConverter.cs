@@ -15,7 +15,7 @@ namespace CashApp.Converters
                 amount = decimal.Parse(value.ToString());
             }
 
-            return string.Format("Rp. {0:N0}", amount);
+            return string.Format("{0:N0}", amount);
         }
 
         public object ConvertBack(object value, Type targetType, object parameter, CultureInfo culture)

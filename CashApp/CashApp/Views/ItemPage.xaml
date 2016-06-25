@@ -51,11 +51,31 @@
                             MinimumDate="2000-01-01"
                             VerticalOptions="CenterAndExpand" />
                 <Label Text="Amount" />
-                <Entry x:Name="amountEntry"
-                       Placeholder="Amount"
-                       Text="{Binding Path=Amount,
-                                      Mode=TwoWay,
-                                      Converter={StaticResource decConverter}}" />
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="50" />
+                        <ColumnDefinition Width="*" />
+                    </Grid.ColumnDefinitions>
+                    <Picker Grid.Column="0"
+                            HorizontalOptions="FillAndExpand"
+                            SelectedIndex="{Binding CurrencyIndex,
+                                                    Mode=TwoWay}"
+                            VerticalOptions="FillAndExpand">
+                        <Picker.Items>
+                            <x:String>IDR</x:String>
+                            <x:String>SGD</x:String>
+                        </Picker.Items>
+                    </Picker>
+                    <Entry x:Name="amountEntry"
+                           Grid.Column="1"
+                           HorizontalOptions="FillAndExpand"
+                           Placeholder="Amount"
+                           Text="{Binding Path=Amount,
+                                          Mode=TwoWay,
+                                          Converter={StaticResource decConverter}}"
+                           VerticalOptions="FillAndExpand" />
+                </Grid>
+
                 <Button Command="{Binding Path=SaveItemCommand}" Text="Save" />
                 <Button Command="{Binding Path=DeleteItemCommand}" Text="Delete" />
                 <!--<Button Text="Cancel" Clicked="cancelClicked"/>-->
