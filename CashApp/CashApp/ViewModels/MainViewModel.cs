@@ -3,11 +3,10 @@ using CashApp.Models;
 using CashApp.Services;
 using MvvmCross.Core.ViewModels;
 using MvvmCross.Plugins.Messenger;
-using System.Collections.Generic;
 using System.Collections.ObjectModel;
+using System.Linq;
 using System.Threading.Tasks;
 using System.Windows.Input;
-using System.Linq;
 
 namespace CashApp.ViewModels
 {
@@ -44,6 +43,7 @@ namespace CashApp.ViewModels
         private async Task RefreshData()
         {
             var result = await service.GetAllData();
+            
             if (result != null)
             {
                 Items = new ObservableCollection<Transaction>(result);
