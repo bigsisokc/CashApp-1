@@ -3,6 +3,7 @@
              xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:local="clr-namespace:CashApp.Converters;assembly=CashApp"
+             xmlns:view="clr-namespace:CashApp.Views;assembly=CashApp"
              xmlns:xb="clr-namespace:Xamarin.Forms.Behaviors;assembly=Xamarin.Forms"
              Title="My Cash">
     <ContentPage.Resources>
@@ -54,7 +55,8 @@
                          Padding="10"
                          Spacing="10"
                          VerticalOptions="FillAndExpand">
-                <ListView GroupDisplayBinding="{Binding Key}"
+                <ListView Name="ListView1"
+                          GroupDisplayBinding="{Binding Key}"
                           GroupShortNameBinding="{Binding Key}"
                           HasUnevenRows="True"
                           HorizontalOptions="FillAndExpand"
@@ -138,5 +140,12 @@
                 </ListView>
             </StackLayout>
         </ScrollView>
+        <view:FloatingActionButtonView Name="fab"
+                                       AbsoluteLayout.LayoutBounds="1,1"
+                                       AbsoluteLayout.LayoutFlags="PositionProportional"
+                                       ColorNormal="#3498db"
+                                       ColorPressed="Black"
+                                       ColorRipple="#3498db"
+                                       ImageName="ic_add.png" />
     </AbsoluteLayout>
 </ContentPage>

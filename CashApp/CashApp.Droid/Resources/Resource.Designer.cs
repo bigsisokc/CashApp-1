@@ -47,6 +47,41 @@ namespace CashApp.Droid
 			global::MvvmCross.Binding.Droid.Resource.Styleable.MvxListView = global::CashApp.Droid.Resource.Styleable.MvxListView;
 			global::MvvmCross.Binding.Droid.Resource.Styleable.MvxListView_MvxDropDownItemTemplate = global::CashApp.Droid.Resource.Styleable.MvxListView_MvxDropDownItemTemplate;
 			global::MvvmCross.Binding.Droid.Resource.Styleable.MvxListView_MvxItemTemplate = global::CashApp.Droid.Resource.Styleable.MvxListView_MvxItemTemplate;
+			global::com.refractored.fab.Resource.Attribute.fab_colorDisabled = global::CashApp.Droid.Resource.Attribute.fab_colorDisabled;
+			global::com.refractored.fab.Resource.Attribute.fab_colorNormal = global::CashApp.Droid.Resource.Attribute.fab_colorNormal;
+			global::com.refractored.fab.Resource.Attribute.fab_colorPressed = global::CashApp.Droid.Resource.Attribute.fab_colorPressed;
+			global::com.refractored.fab.Resource.Attribute.fab_colorRipple = global::CashApp.Droid.Resource.Attribute.fab_colorRipple;
+			global::com.refractored.fab.Resource.Attribute.fab_shadow = global::CashApp.Droid.Resource.Attribute.fab_shadow;
+			global::com.refractored.fab.Resource.Attribute.fab_size = global::CashApp.Droid.Resource.Attribute.fab_size;
+			global::com.refractored.fab.Resource.Attribute.layoutManager = global::CashApp.Droid.Resource.Attribute.layoutManager;
+			global::com.refractored.fab.Resource.Attribute.reverseLayout = global::CashApp.Droid.Resource.Attribute.reverseLayout;
+			global::com.refractored.fab.Resource.Attribute.spanCount = global::CashApp.Droid.Resource.Attribute.spanCount;
+			global::com.refractored.fab.Resource.Attribute.stackFromEnd = global::CashApp.Droid.Resource.Attribute.stackFromEnd;
+			global::com.refractored.fab.Resource.Color.fab_material_blue_500 = global::CashApp.Droid.Resource.Color.fab_material_blue_500;
+			global::com.refractored.fab.Resource.Dimension.fab_elevation_lollipop = global::CashApp.Droid.Resource.Dimension.fab_elevation_lollipop;
+			global::com.refractored.fab.Resource.Dimension.fab_scroll_threshold = global::CashApp.Droid.Resource.Dimension.fab_scroll_threshold;
+			global::com.refractored.fab.Resource.Dimension.fab_shadow_size = global::CashApp.Droid.Resource.Dimension.fab_shadow_size;
+			global::com.refractored.fab.Resource.Dimension.fab_size_mini = global::CashApp.Droid.Resource.Dimension.fab_size_mini;
+			global::com.refractored.fab.Resource.Dimension.fab_size_normal = global::CashApp.Droid.Resource.Dimension.fab_size_normal;
+			global::com.refractored.fab.Resource.Dimension.item_touch_helper_max_drag_scroll_per_frame = global::CashApp.Droid.Resource.Dimension.item_touch_helper_max_drag_scroll_per_frame;
+			global::com.refractored.fab.Resource.Drawable.fab_shadow = global::CashApp.Droid.Resource.Drawable.fab_shadow;
+			global::com.refractored.fab.Resource.Drawable.fab_shadow_mini = global::CashApp.Droid.Resource.Drawable.fab_shadow_mini;
+			global::com.refractored.fab.Resource.Id.item_touch_helper_previous_elevation = global::CashApp.Droid.Resource.Id.item_touch_helper_previous_elevation;
+			global::com.refractored.fab.Resource.Id.mini = global::CashApp.Droid.Resource.Id.mini;
+			global::com.refractored.fab.Resource.Id.normal = global::CashApp.Droid.Resource.Id.normal;
+			global::com.refractored.fab.Resource.Styleable.FloatingActionButton = global::CashApp.Droid.Resource.Styleable.FloatingActionButton;
+			global::com.refractored.fab.Resource.Styleable.FloatingActionButton_fab_colorDisabled = global::CashApp.Droid.Resource.Styleable.FloatingActionButton_fab_colorDisabled;
+			global::com.refractored.fab.Resource.Styleable.FloatingActionButton_fab_colorNormal = global::CashApp.Droid.Resource.Styleable.FloatingActionButton_fab_colorNormal;
+			global::com.refractored.fab.Resource.Styleable.FloatingActionButton_fab_colorPressed = global::CashApp.Droid.Resource.Styleable.FloatingActionButton_fab_colorPressed;
+			global::com.refractored.fab.Resource.Styleable.FloatingActionButton_fab_colorRipple = global::CashApp.Droid.Resource.Styleable.FloatingActionButton_fab_colorRipple;
+			global::com.refractored.fab.Resource.Styleable.FloatingActionButton_fab_shadow = global::CashApp.Droid.Resource.Styleable.FloatingActionButton_fab_shadow;
+			global::com.refractored.fab.Resource.Styleable.FloatingActionButton_fab_size = global::CashApp.Droid.Resource.Styleable.FloatingActionButton_fab_size;
+			global::com.refractored.fab.Resource.Styleable.RecyclerView = global::CashApp.Droid.Resource.Styleable.RecyclerView;
+			global::com.refractored.fab.Resource.Styleable.RecyclerView_android_orientation = global::CashApp.Droid.Resource.Styleable.RecyclerView_android_orientation;
+			global::com.refractored.fab.Resource.Styleable.RecyclerView_layoutManager = global::CashApp.Droid.Resource.Styleable.RecyclerView_layoutManager;
+			global::com.refractored.fab.Resource.Styleable.RecyclerView_reverseLayout = global::CashApp.Droid.Resource.Styleable.RecyclerView_reverseLayout;
+			global::com.refractored.fab.Resource.Styleable.RecyclerView_spanCount = global::CashApp.Droid.Resource.Styleable.RecyclerView_spanCount;
+			global::com.refractored.fab.Resource.Styleable.RecyclerView_stackFromEnd = global::CashApp.Droid.Resource.Styleable.RecyclerView_stackFromEnd;
 			global::Xamarin.Forms.Platform.Android.Resource.Attribute.actionBarSize = global::CashApp.Droid.Resource.Attribute.actionBarSize;
 		}
 		
@@ -117,26 +152,26 @@ namespace CashApp.Droid
 			// aapt resource value: 0x7f010004
 			public const int MediaRouteControllerWindowBackground = 2130771972;
 			
-			// aapt resource value: 0x7f01013c
-			public const int MvxBind = 2130772284;
-			
-			// aapt resource value: 0x7f010140
-			public const int MvxDropDownItemTemplate = 2130772288;
-			
-			// aapt resource value: 0x7f010141
-			public const int MvxGroupItemTemplate = 2130772289;
-			
-			// aapt resource value: 0x7f01013f
-			public const int MvxItemTemplate = 2130772287;
-			
-			// aapt resource value: 0x7f01013d
-			public const int MvxLang = 2130772285;
-			
 			// aapt resource value: 0x7f010142
-			public const int MvxSource = 2130772290;
+			public const int MvxBind = 2130772290;
 			
-			// aapt resource value: 0x7f01013e
-			public const int MvxTemplate = 2130772286;
+			// aapt resource value: 0x7f010146
+			public const int MvxDropDownItemTemplate = 2130772294;
+			
+			// aapt resource value: 0x7f010147
+			public const int MvxGroupItemTemplate = 2130772295;
+			
+			// aapt resource value: 0x7f010145
+			public const int MvxItemTemplate = 2130772293;
+			
+			// aapt resource value: 0x7f010143
+			public const int MvxLang = 2130772291;
+			
+			// aapt resource value: 0x7f010148
+			public const int MvxSource = 2130772296;
+			
+			// aapt resource value: 0x7f010144
+			public const int MvxTemplate = 2130772292;
 			
 			// aapt resource value: 0x7f010061
 			public const int actionBarDivider = 2130772065;
@@ -539,6 +574,24 @@ namespace CashApp.Droid
 			
 			// aapt resource value: 0x7f010115
 			public const int fabSize = 2130772245;
+			
+			// aapt resource value: 0x7f01013e
+			public const int fab_colorDisabled = 2130772286;
+			
+			// aapt resource value: 0x7f01013d
+			public const int fab_colorNormal = 2130772285;
+			
+			// aapt resource value: 0x7f01013c
+			public const int fab_colorPressed = 2130772284;
+			
+			// aapt resource value: 0x7f01013f
+			public const int fab_colorRipple = 2130772287;
+			
+			// aapt resource value: 0x7f010140
+			public const int fab_shadow = 2130772288;
+			
+			// aapt resource value: 0x7f010141
+			public const int fab_size = 2130772289;
 			
 			// aapt resource value: 0x7f010119
 			public const int foregroundInsidePadding = 2130772249;
@@ -1133,32 +1186,32 @@ namespace CashApp.Droid
 		public partial class Color
 		{
 			
-			// aapt resource value: 0x7f0b004c
-			public const int abc_background_cache_hint_selector_material_dark = 2131427404;
-			
 			// aapt resource value: 0x7f0b004d
-			public const int abc_background_cache_hint_selector_material_light = 2131427405;
+			public const int abc_background_cache_hint_selector_material_dark = 2131427405;
 			
 			// aapt resource value: 0x7f0b004e
-			public const int abc_color_highlight_material = 2131427406;
+			public const int abc_background_cache_hint_selector_material_light = 2131427406;
+			
+			// aapt resource value: 0x7f0b004f
+			public const int abc_color_highlight_material = 2131427407;
 			
 			// aapt resource value: 0x7f0b0004
 			public const int abc_input_method_navigation_guard = 2131427332;
 			
-			// aapt resource value: 0x7f0b004f
-			public const int abc_primary_text_disable_only_material_dark = 2131427407;
-			
 			// aapt resource value: 0x7f0b0050
-			public const int abc_primary_text_disable_only_material_light = 2131427408;
+			public const int abc_primary_text_disable_only_material_dark = 2131427408;
 			
 			// aapt resource value: 0x7f0b0051
-			public const int abc_primary_text_material_dark = 2131427409;
+			public const int abc_primary_text_disable_only_material_light = 2131427409;
 			
 			// aapt resource value: 0x7f0b0052
-			public const int abc_primary_text_material_light = 2131427410;
+			public const int abc_primary_text_material_dark = 2131427410;
 			
 			// aapt resource value: 0x7f0b0053
-			public const int abc_search_url_text = 2131427411;
+			public const int abc_primary_text_material_light = 2131427411;
+			
+			// aapt resource value: 0x7f0b0054
+			public const int abc_search_url_text = 2131427412;
 			
 			// aapt resource value: 0x7f0b0005
 			public const int abc_search_url_text_normal = 2131427333;
@@ -1169,14 +1222,14 @@ namespace CashApp.Droid
 			// aapt resource value: 0x7f0b0007
 			public const int abc_search_url_text_selected = 2131427335;
 			
-			// aapt resource value: 0x7f0b0054
-			public const int abc_secondary_text_material_dark = 2131427412;
-			
 			// aapt resource value: 0x7f0b0055
-			public const int abc_secondary_text_material_light = 2131427413;
+			public const int abc_secondary_text_material_dark = 2131427413;
 			
-			// aapt resource value: 0x7f0b004a
-			public const int accent = 2131427402;
+			// aapt resource value: 0x7f0b0056
+			public const int abc_secondary_text_material_light = 2131427414;
+			
+			// aapt resource value: 0x7f0b004b
+			public const int accent = 2131427403;
 			
 			// aapt resource value: 0x7f0b0008
 			public const int accent_material_dark = 2131427336;
@@ -1274,6 +1327,9 @@ namespace CashApp.Droid
 			// aapt resource value: 0x7f0b0019
 			public const int dim_foreground_material_light = 2131427353;
 			
+			// aapt resource value: 0x7f0b0048
+			public const int fab_material_blue_500 = 2131427400;
+			
 			// aapt resource value: 0x7f0b001a
 			public const int foreground_material_dark = 2131427354;
 			
@@ -1328,11 +1384,11 @@ namespace CashApp.Droid
 			// aapt resource value: 0x7f0b002b
 			public const int material_grey_900 = 2131427371;
 			
-			// aapt resource value: 0x7f0b0048
-			public const int primary = 2131427400;
-			
 			// aapt resource value: 0x7f0b0049
-			public const int primaryDark = 2131427401;
+			public const int primary = 2131427401;
+			
+			// aapt resource value: 0x7f0b004a
+			public const int primaryDark = 2131427402;
 			
 			// aapt resource value: 0x7f0b002c
 			public const int primary_dark_material_dark = 2131427372;
@@ -1382,11 +1438,11 @@ namespace CashApp.Droid
 			// aapt resource value: 0x7f0b003b
 			public const int switch_thumb_disabled_material_light = 2131427387;
 			
-			// aapt resource value: 0x7f0b0056
-			public const int switch_thumb_material_dark = 2131427414;
-			
 			// aapt resource value: 0x7f0b0057
-			public const int switch_thumb_material_light = 2131427415;
+			public const int switch_thumb_material_dark = 2131427415;
+			
+			// aapt resource value: 0x7f0b0058
+			public const int switch_thumb_material_light = 2131427416;
 			
 			// aapt resource value: 0x7f0b003c
 			public const int switch_thumb_normal_material_dark = 2131427388;
@@ -1394,8 +1450,8 @@ namespace CashApp.Droid
 			// aapt resource value: 0x7f0b003d
 			public const int switch_thumb_normal_material_light = 2131427389;
 			
-			// aapt resource value: 0x7f0b004b
-			public const int window_background = 2131427403;
+			// aapt resource value: 0x7f0b004c
+			public const int window_background = 2131427404;
 			
 			static Color()
 			{
@@ -1713,6 +1769,21 @@ namespace CashApp.Droid
 			// aapt resource value: 0x7f060050
 			public const int disabled_alpha_material_light = 2131099728;
 			
+			// aapt resource value: 0x7f060078
+			public const int fab_elevation_lollipop = 2131099768;
+			
+			// aapt resource value: 0x7f060077
+			public const int fab_scroll_threshold = 2131099767;
+			
+			// aapt resource value: 0x7f060076
+			public const int fab_shadow_size = 2131099766;
+			
+			// aapt resource value: 0x7f060075
+			public const int fab_size_mini = 2131099765;
+			
+			// aapt resource value: 0x7f060074
+			public const int fab_size_normal = 2131099764;
+			
 			// aapt resource value: 0x7f060051
 			public const int highlight_alpha_material_colored = 2131099729;
 			
@@ -2006,262 +2077,271 @@ namespace CashApp.Droid
 			public const int design_snackbar_background = 2130837581;
 			
 			// aapt resource value: 0x7f02004e
-			public const int ic_audiotrack = 2130837582;
+			public const int fab_shadow = 2130837582;
 			
 			// aapt resource value: 0x7f02004f
-			public const int ic_audiotrack_light = 2130837583;
+			public const int fab_shadow_mini = 2130837583;
 			
 			// aapt resource value: 0x7f020050
-			public const int ic_bluetooth_grey = 2130837584;
+			public const int ic_add = 2130837584;
 			
 			// aapt resource value: 0x7f020051
-			public const int ic_bluetooth_white = 2130837585;
+			public const int ic_audiotrack = 2130837585;
 			
 			// aapt resource value: 0x7f020052
-			public const int ic_cast_dark = 2130837586;
+			public const int ic_audiotrack_light = 2130837586;
 			
 			// aapt resource value: 0x7f020053
-			public const int ic_cast_disabled_light = 2130837587;
+			public const int ic_bluetooth_grey = 2130837587;
 			
 			// aapt resource value: 0x7f020054
-			public const int ic_cast_grey = 2130837588;
+			public const int ic_bluetooth_white = 2130837588;
 			
 			// aapt resource value: 0x7f020055
-			public const int ic_cast_light = 2130837589;
+			public const int ic_cast_dark = 2130837589;
 			
 			// aapt resource value: 0x7f020056
-			public const int ic_cast_off_light = 2130837590;
+			public const int ic_cast_disabled_light = 2130837590;
 			
 			// aapt resource value: 0x7f020057
-			public const int ic_cast_on_0_light = 2130837591;
+			public const int ic_cast_grey = 2130837591;
 			
 			// aapt resource value: 0x7f020058
-			public const int ic_cast_on_1_light = 2130837592;
+			public const int ic_cast_light = 2130837592;
 			
 			// aapt resource value: 0x7f020059
-			public const int ic_cast_on_2_light = 2130837593;
+			public const int ic_cast_off_light = 2130837593;
 			
 			// aapt resource value: 0x7f02005a
-			public const int ic_cast_on_light = 2130837594;
+			public const int ic_cast_on_0_light = 2130837594;
 			
 			// aapt resource value: 0x7f02005b
-			public const int ic_cast_white = 2130837595;
+			public const int ic_cast_on_1_light = 2130837595;
 			
 			// aapt resource value: 0x7f02005c
-			public const int ic_close_dark = 2130837596;
+			public const int ic_cast_on_2_light = 2130837596;
 			
 			// aapt resource value: 0x7f02005d
-			public const int ic_close_light = 2130837597;
+			public const int ic_cast_on_light = 2130837597;
 			
 			// aapt resource value: 0x7f02005e
-			public const int ic_collapse = 2130837598;
+			public const int ic_cast_white = 2130837598;
 			
 			// aapt resource value: 0x7f02005f
-			public const int ic_collapse_00000 = 2130837599;
+			public const int ic_close_dark = 2130837599;
 			
 			// aapt resource value: 0x7f020060
-			public const int ic_collapse_00001 = 2130837600;
+			public const int ic_close_light = 2130837600;
 			
 			// aapt resource value: 0x7f020061
-			public const int ic_collapse_00002 = 2130837601;
+			public const int ic_collapse = 2130837601;
 			
 			// aapt resource value: 0x7f020062
-			public const int ic_collapse_00003 = 2130837602;
+			public const int ic_collapse_00000 = 2130837602;
 			
 			// aapt resource value: 0x7f020063
-			public const int ic_collapse_00004 = 2130837603;
+			public const int ic_collapse_00001 = 2130837603;
 			
 			// aapt resource value: 0x7f020064
-			public const int ic_collapse_00005 = 2130837604;
+			public const int ic_collapse_00002 = 2130837604;
 			
 			// aapt resource value: 0x7f020065
-			public const int ic_collapse_00006 = 2130837605;
+			public const int ic_collapse_00003 = 2130837605;
 			
 			// aapt resource value: 0x7f020066
-			public const int ic_collapse_00007 = 2130837606;
+			public const int ic_collapse_00004 = 2130837606;
 			
 			// aapt resource value: 0x7f020067
-			public const int ic_collapse_00008 = 2130837607;
+			public const int ic_collapse_00005 = 2130837607;
 			
 			// aapt resource value: 0x7f020068
-			public const int ic_collapse_00009 = 2130837608;
+			public const int ic_collapse_00006 = 2130837608;
 			
 			// aapt resource value: 0x7f020069
-			public const int ic_collapse_00010 = 2130837609;
+			public const int ic_collapse_00007 = 2130837609;
 			
 			// aapt resource value: 0x7f02006a
-			public const int ic_collapse_00011 = 2130837610;
+			public const int ic_collapse_00008 = 2130837610;
 			
 			// aapt resource value: 0x7f02006b
-			public const int ic_collapse_00012 = 2130837611;
+			public const int ic_collapse_00009 = 2130837611;
 			
 			// aapt resource value: 0x7f02006c
-			public const int ic_collapse_00013 = 2130837612;
+			public const int ic_collapse_00010 = 2130837612;
 			
 			// aapt resource value: 0x7f02006d
-			public const int ic_collapse_00014 = 2130837613;
+			public const int ic_collapse_00011 = 2130837613;
 			
 			// aapt resource value: 0x7f02006e
-			public const int ic_collapse_00015 = 2130837614;
+			public const int ic_collapse_00012 = 2130837614;
 			
 			// aapt resource value: 0x7f02006f
-			public const int ic_expand = 2130837615;
+			public const int ic_collapse_00013 = 2130837615;
 			
 			// aapt resource value: 0x7f020070
-			public const int ic_expand_00000 = 2130837616;
+			public const int ic_collapse_00014 = 2130837616;
 			
 			// aapt resource value: 0x7f020071
-			public const int ic_expand_00001 = 2130837617;
+			public const int ic_collapse_00015 = 2130837617;
 			
 			// aapt resource value: 0x7f020072
-			public const int ic_expand_00002 = 2130837618;
+			public const int ic_expand = 2130837618;
 			
 			// aapt resource value: 0x7f020073
-			public const int ic_expand_00003 = 2130837619;
+			public const int ic_expand_00000 = 2130837619;
 			
 			// aapt resource value: 0x7f020074
-			public const int ic_expand_00004 = 2130837620;
+			public const int ic_expand_00001 = 2130837620;
 			
 			// aapt resource value: 0x7f020075
-			public const int ic_expand_00005 = 2130837621;
+			public const int ic_expand_00002 = 2130837621;
 			
 			// aapt resource value: 0x7f020076
-			public const int ic_expand_00006 = 2130837622;
+			public const int ic_expand_00003 = 2130837622;
 			
 			// aapt resource value: 0x7f020077
-			public const int ic_expand_00007 = 2130837623;
+			public const int ic_expand_00004 = 2130837623;
 			
 			// aapt resource value: 0x7f020078
-			public const int ic_expand_00008 = 2130837624;
+			public const int ic_expand_00005 = 2130837624;
 			
 			// aapt resource value: 0x7f020079
-			public const int ic_expand_00009 = 2130837625;
+			public const int ic_expand_00006 = 2130837625;
 			
 			// aapt resource value: 0x7f02007a
-			public const int ic_expand_00010 = 2130837626;
+			public const int ic_expand_00007 = 2130837626;
 			
 			// aapt resource value: 0x7f02007b
-			public const int ic_expand_00011 = 2130837627;
+			public const int ic_expand_00008 = 2130837627;
 			
 			// aapt resource value: 0x7f02007c
-			public const int ic_expand_00012 = 2130837628;
+			public const int ic_expand_00009 = 2130837628;
 			
 			// aapt resource value: 0x7f02007d
-			public const int ic_expand_00013 = 2130837629;
+			public const int ic_expand_00010 = 2130837629;
 			
 			// aapt resource value: 0x7f02007e
-			public const int ic_expand_00014 = 2130837630;
+			public const int ic_expand_00011 = 2130837630;
 			
 			// aapt resource value: 0x7f02007f
-			public const int ic_expand_00015 = 2130837631;
+			public const int ic_expand_00012 = 2130837631;
 			
 			// aapt resource value: 0x7f020080
-			public const int ic_media_pause = 2130837632;
+			public const int ic_expand_00013 = 2130837632;
 			
 			// aapt resource value: 0x7f020081
-			public const int ic_media_play = 2130837633;
+			public const int ic_expand_00014 = 2130837633;
 			
 			// aapt resource value: 0x7f020082
-			public const int ic_media_route_disabled_mono_dark = 2130837634;
+			public const int ic_expand_00015 = 2130837634;
 			
 			// aapt resource value: 0x7f020083
-			public const int ic_media_route_off_mono_dark = 2130837635;
+			public const int ic_media_pause = 2130837635;
 			
 			// aapt resource value: 0x7f020084
-			public const int ic_media_route_on_0_mono_dark = 2130837636;
+			public const int ic_media_play = 2130837636;
 			
 			// aapt resource value: 0x7f020085
-			public const int ic_media_route_on_1_mono_dark = 2130837637;
+			public const int ic_media_route_disabled_mono_dark = 2130837637;
 			
 			// aapt resource value: 0x7f020086
-			public const int ic_media_route_on_2_mono_dark = 2130837638;
+			public const int ic_media_route_off_mono_dark = 2130837638;
 			
 			// aapt resource value: 0x7f020087
-			public const int ic_media_route_on_mono_dark = 2130837639;
+			public const int ic_media_route_on_0_mono_dark = 2130837639;
 			
 			// aapt resource value: 0x7f020088
-			public const int ic_pause_dark = 2130837640;
+			public const int ic_media_route_on_1_mono_dark = 2130837640;
 			
 			// aapt resource value: 0x7f020089
-			public const int ic_pause_light = 2130837641;
+			public const int ic_media_route_on_2_mono_dark = 2130837641;
 			
 			// aapt resource value: 0x7f02008a
-			public const int ic_play_dark = 2130837642;
+			public const int ic_media_route_on_mono_dark = 2130837642;
 			
 			// aapt resource value: 0x7f02008b
-			public const int ic_play_light = 2130837643;
+			public const int ic_pause_dark = 2130837643;
 			
 			// aapt resource value: 0x7f02008c
-			public const int ic_speaker_dark = 2130837644;
+			public const int ic_pause_light = 2130837644;
 			
 			// aapt resource value: 0x7f02008d
-			public const int ic_speaker_group_dark = 2130837645;
+			public const int ic_play_dark = 2130837645;
 			
 			// aapt resource value: 0x7f02008e
-			public const int ic_speaker_group_light = 2130837646;
+			public const int ic_play_light = 2130837646;
 			
 			// aapt resource value: 0x7f02008f
-			public const int ic_speaker_light = 2130837647;
+			public const int ic_speaker_dark = 2130837647;
 			
 			// aapt resource value: 0x7f020090
-			public const int ic_tv_dark = 2130837648;
+			public const int ic_speaker_group_dark = 2130837648;
 			
 			// aapt resource value: 0x7f020091
-			public const int ic_tv_light = 2130837649;
+			public const int ic_speaker_group_light = 2130837649;
 			
 			// aapt resource value: 0x7f020092
-			public const int icon = 2130837650;
+			public const int ic_speaker_light = 2130837650;
 			
 			// aapt resource value: 0x7f020093
-			public const int mr_dialog_material_background_dark = 2130837651;
+			public const int ic_tv_dark = 2130837651;
 			
 			// aapt resource value: 0x7f020094
-			public const int mr_dialog_material_background_light = 2130837652;
+			public const int ic_tv_light = 2130837652;
 			
 			// aapt resource value: 0x7f020095
-			public const int mr_ic_audiotrack_light = 2130837653;
+			public const int icon = 2130837653;
 			
 			// aapt resource value: 0x7f020096
-			public const int mr_ic_cast_dark = 2130837654;
+			public const int mr_dialog_material_background_dark = 2130837654;
 			
 			// aapt resource value: 0x7f020097
-			public const int mr_ic_cast_light = 2130837655;
+			public const int mr_dialog_material_background_light = 2130837655;
 			
 			// aapt resource value: 0x7f020098
-			public const int mr_ic_close_dark = 2130837656;
+			public const int mr_ic_audiotrack_light = 2130837656;
 			
 			// aapt resource value: 0x7f020099
-			public const int mr_ic_close_light = 2130837657;
+			public const int mr_ic_cast_dark = 2130837657;
 			
 			// aapt resource value: 0x7f02009a
-			public const int mr_ic_media_route_connecting_mono_dark = 2130837658;
+			public const int mr_ic_cast_light = 2130837658;
 			
 			// aapt resource value: 0x7f02009b
-			public const int mr_ic_media_route_connecting_mono_light = 2130837659;
+			public const int mr_ic_close_dark = 2130837659;
 			
 			// aapt resource value: 0x7f02009c
-			public const int mr_ic_media_route_mono_dark = 2130837660;
+			public const int mr_ic_close_light = 2130837660;
 			
 			// aapt resource value: 0x7f02009d
-			public const int mr_ic_media_route_mono_light = 2130837661;
+			public const int mr_ic_media_route_connecting_mono_dark = 2130837661;
 			
 			// aapt resource value: 0x7f02009e
-			public const int mr_ic_pause_dark = 2130837662;
+			public const int mr_ic_media_route_connecting_mono_light = 2130837662;
 			
 			// aapt resource value: 0x7f02009f
-			public const int mr_ic_pause_light = 2130837663;
+			public const int mr_ic_media_route_mono_dark = 2130837663;
 			
 			// aapt resource value: 0x7f0200a0
-			public const int mr_ic_play_dark = 2130837664;
+			public const int mr_ic_media_route_mono_light = 2130837664;
 			
 			// aapt resource value: 0x7f0200a1
-			public const int mr_ic_play_light = 2130837665;
-			
-			// aapt resource value: 0x7f0200a3
-			public const int notification_template_icon_bg = 2130837667;
+			public const int mr_ic_pause_dark = 2130837665;
 			
 			// aapt resource value: 0x7f0200a2
-			public const int splash = 2130837666;
+			public const int mr_ic_pause_light = 2130837666;
+			
+			// aapt resource value: 0x7f0200a3
+			public const int mr_ic_play_dark = 2130837667;
+			
+			// aapt resource value: 0x7f0200a4
+			public const int mr_ic_play_light = 2130837668;
+			
+			// aapt resource value: 0x7f0200a6
+			public const int notification_template_icon_bg = 2130837670;
+			
+			// aapt resource value: 0x7f0200a5
+			public const int splash = 2130837669;
 			
 			static Drawable()
 			{
@@ -5182,7 +5262,13 @@ namespace CashApp.Droid
 					2130772245,
 					2130772246,
 					2130772247,
-					2130772248};
+					2130772248,
+					2130772284,
+					2130772285,
+					2130772286,
+					2130772287,
+					2130772288,
+					2130772289};
 			
 			// aapt resource value: 1
 			public const int FloatingActionButton_backgroundTint = 1;
@@ -5198,6 +5284,24 @@ namespace CashApp.Droid
 			
 			// aapt resource value: 4
 			public const int FloatingActionButton_fabSize = 4;
+			
+			// aapt resource value: 10
+			public const int FloatingActionButton_fab_colorDisabled = 10;
+			
+			// aapt resource value: 9
+			public const int FloatingActionButton_fab_colorNormal = 9;
+			
+			// aapt resource value: 8
+			public const int FloatingActionButton_fab_colorPressed = 8;
+			
+			// aapt resource value: 11
+			public const int FloatingActionButton_fab_colorRipple = 11;
+			
+			// aapt resource value: 12
+			public const int FloatingActionButton_fab_shadow = 12;
+			
+			// aapt resource value: 13
+			public const int FloatingActionButton_fab_size = 13;
 			
 			// aapt resource value: 5
 			public const int FloatingActionButton_pressedTranslationZ = 5;
@@ -5433,8 +5537,8 @@ namespace CashApp.Droid
 			public const int MenuView_preserveIconSpacing = 7;
 			
 			public static int[] MvxBinding = new int[] {
-					2130772284,
-					2130772285};
+					2130772290,
+					2130772291};
 			
 			// aapt resource value: 0
 			public const int MvxBinding_MvxBind = 0;
@@ -5443,26 +5547,26 @@ namespace CashApp.Droid
 			public const int MvxBinding_MvxLang = 1;
 			
 			public static int[] MvxControl = new int[] {
-					2130772286};
+					2130772292};
 			
 			// aapt resource value: 0
 			public const int MvxControl_MvxTemplate = 0;
 			
 			public static int[] MvxExpandableListView = new int[] {
-					2130772289};
+					2130772295};
 			
 			// aapt resource value: 0
 			public const int MvxExpandableListView_MvxGroupItemTemplate = 0;
 			
 			public static int[] MvxImageView = new int[] {
-					2130772290};
+					2130772296};
 			
 			// aapt resource value: 0
 			public const int MvxImageView_MvxSource = 0;
 			
 			public static int[] MvxListView = new int[] {
-					2130772287,
-					2130772288};
+					2130772293,
+					2130772294};
 			
 			// aapt resource value: 1
 			public const int MvxListView_MvxDropDownItemTemplate = 1;

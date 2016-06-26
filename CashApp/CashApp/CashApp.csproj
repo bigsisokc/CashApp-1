@@ -41,6 +41,7 @@
     <Compile Include="Converters\DecimalConverter.cs" />
     <Compile Include="Converters\DateConverter.cs" />
     <Compile Include="Converters\CurrencyConverter.cs" />
+    <Compile Include="MainPage.cs" />
     <Compile Include="Message\SaveMessage.cs" />
     <Compile Include="Models\CurrencyModel.cs" />
     <Compile Include="Models\Grouping.cs" />
@@ -50,6 +51,8 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="ViewModels\ItemViewModel.cs" />
     <Compile Include="ViewModels\MainViewModel.cs" />
+    <Compile Include="Views\FloatingActionButtonSize.cs" />
+    <Compile Include="Views\FloatingActionButtonView.cs" />
     <Compile Include="Views\ItemPage.xaml.cs">
       <DependentUpon>ItemPage.xaml</DependentUpon>
     </Compile>
