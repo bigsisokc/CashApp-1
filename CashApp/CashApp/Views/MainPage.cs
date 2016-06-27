@@ -2,6 +2,8 @@
 using CashApp.Models;
 using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
+using System.Linq;
 using System.Threading.Tasks;
 using Xamarin.Forms;
 
@@ -106,24 +108,64 @@ namespace CashApp.Views
                 labelDescription.FontSize = Device.GetNamedSize(NamedSize.Medium, typeof(Label));
                 labelDescription.TextColor = Color.White;
                 labelDescription.VerticalOptions = LayoutOptions.Center;
-                labelDescription.SetBinding(Label.TextProperty, new Binding("KeyDescription"));
+                labelDescription.SetBinding(Label.TextProperty, new Binding("Period"));
                 Grid.SetColumn(labelDescription, 0);
-                Grid.SetColumnSpan(labelDescription, 2);
 
-                var labelAmount = new Label();
-                labelAmount.FontSize = Device.GetNamedSize(NamedSize.Large, typeof(Label));
-                labelAmount.TextColor = Color.White;
-                labelAmount.VerticalOptions = LayoutOptions.Center;
-                labelAmount.SetBinding(Label.TextProperty, new Binding("KeyAmount", converter: new CurrencyConverter()));
-                Grid.SetColumn(labelAmount, 2);
+                //var labelAmount = new Label();
+                //labelAmount.FontSize = Device.GetNamedSize(NamedSize.Large, typeof(Label));
+                //labelAmount.TextColor = Color.White;
+                //labelAmount.VerticalOptions = LayoutOptions.Center;
+                //labelAmount.SetBinding(Label.TextProperty, new Binding("KeyAmount", converter: new CurrencyConverter()));
+                //Grid.SetColumn(labelAmount, 2);
+
+                var amountList = GetGroupHeaderListView();
+                Grid.SetColumn(amountList, 1);
+                Grid.SetColumnSpan(amountList, 2);
 
                 grid.Children.Add(labelDescription);
-                grid.Children.Add(labelAmount);
+                grid.Children.Add(amountList);
 
-                return new ViewCell { View = grid, Height = 40 };
+                return new ViewCell { View = grid, Height = 120 };
             });
 
             return template;
+        }
+
+        private ListView GetGroupHeaderListView()
+        {
+            var view = new ListView();
+            view.VerticalOptions = LayoutOptions.Center;
+            view.SetBinding(ListView.ItemsSourceProperty, new Binding("Amounts"));
+
+            var template = new DataTemplate(() =>
+            {
+                var grid = new Grid();
+                grid.ColumnDefinitions.Add(new ColumnDefinition { Width = new GridLength(50) });
+                grid.ColumnDefinitions.Add(new ColumnDefinition { Width = new GridLength(1, GridUnitType.Star) });
+
+                var labelCurrency = new Label();
+                labelCurrency.FontSize = Device.GetNamedSize(NamedSize.Medium, typeof(Label));
+                labelCurrency.TextColor = Color.White;
+                labelCurrency.VerticalOptions = LayoutOptions.Center;
+                labelCurrency.SetBinding(Label.TextProperty, new Binding("Currency"));
+                Grid.SetColumn(labelCurrency, 0);
+
+                var labelAmount = new Label();
+                labelAmount.FontSize = Device.GetNamedSize(NamedSize.Medium, typeof(Label));
+                labelAmount.TextColor = Color.White;
+                labelAmount.VerticalOptions = LayoutOptions.Center;
+                labelAmount.SetBinding(Label.TextProperty, new Binding("Amount", converter: new CurrencyConverter()));
+                Grid.SetColumn(labelAmount, 1);
+
+                grid.Children.Add(labelCurrency);
+                grid.Children.Add(labelAmount);
+
+                return new ViewCell { View = grid };
+            });
+
+            view.ItemTemplate = template;
+
+            return view;
         }
 
         private DataTemplate GetListViewItemTemplate()
@@ -201,13 +243,14 @@ namespace CashApp.Views
         {
             await Task.Run(() =>
             {
-                var items = list.ItemsSource as Grouping<string, string, decimal, Transaction>;
+                var items = list.ItemsSource as ObservableCollection<Grouping>;
                 if (items != null)
                 {
                     var item = e.Item as Transaction;
                     if (item != null)
                     {
-                        var index = items.Transactions.IndexOf(item);
+                        var transactions = items.SelectMany(c => c.Transactions).ToList();
+                        var index = transactions.IndexOf(item);
                         if (index < appearingListItemIndex)
                         {
                             Device.BeginInvokeOnMainThread(() => fab.Hide());
@@ -222,13 +265,14 @@ namespace CashApp.Views
         {
             await Task.Run(() =>
             {
-                var items = list.ItemsSource as Grouping<string, string, decimal, Transaction>;
+                var items = list.ItemsSource as ObservableCollection<Grouping>;
                 if (items != null)
                 {
                     var item = e.Item as Transaction;
                     if (item != null)
                     {
-                        var index = items.Transactions.IndexOf(item);
+                        var transactions = items.SelectMany(c => c.Transactions).ToList();
+                        var index = transactions.IndexOf(item);
                         if (index < appearingListItemIndex)
                         {
                             Device.BeginInvokeOnMainThread(() => fab.Show());

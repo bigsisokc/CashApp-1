@@ -41,6 +41,8 @@
     <Compile Include="Converters\DecimalConverter.cs" />
     <Compile Include="Converters\DateConverter.cs" />
     <Compile Include="Converters\CurrencyConverter.cs" />
+    <Compile Include="Models\GroupingAmount.cs" />
+    <Compile Include="Models\GroupingHeader.cs" />
     <Compile Include="Views\MainPage.cs" />
     <Compile Include="Message\SaveMessage.cs" />
     <Compile Include="Models\CurrencyModel.cs" />

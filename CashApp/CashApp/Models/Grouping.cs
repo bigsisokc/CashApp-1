@@ -1,28 +1,35 @@
 ﻿using System.Collections.Generic;
 using System.Collections.ObjectModel;
+using System.Linq;
 
 namespace CashApp.Models
 {
-    public class Grouping<K, KD, A, T> : ObservableCollection<T>
+    public class Grouping : ObservableCollection<Transaction>
     {
-        public K Key { get; private set; }
-        public KD KeyDescription { get; set; }
-        public A KeyAmount { get; set; }
-        public IList<T> Transactions
+        public string Key { get; private set; }
+        public string Period { get; private set; }
+        public IList<GroupingAmount> Amounts { get; set; }
+        public IList<Transaction> Transactions
         {
             get
             {
-                return this.Items;
+                return Items;
             }
         }
 
-        public Grouping(K key, KD keyDescription, A amount, IEnumerable<T> items)
+        public Grouping(string key, string period, IEnumerable<Transaction> items)
         {
             Key = key;
-            KeyDescription = keyDescription;
-            KeyAmount = amount;
+            Period = period;
             foreach (var item in items)
-                this.Items.Add(item);
+            {
+                Items.Add(item);
+            }
+            Amounts = Items.GroupBy(c => c.Currency).Select(x => new GroupingAmount
+            {
+                Currency = x.Key,
+                Amount = x.Sum(a => a.Amount)
+            }).ToList();
         }
     }
 }

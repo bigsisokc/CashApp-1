@@ -50,13 +50,13 @@ namespace CashApp.ViewModels
                 var sorted = from record in result
                              orderby record.PeriodSort descending, record.TransDate descending, record.Id descending
                              group record by new { record.PeriodSort, record.Period } into gr
-                             select new Grouping<string, string, decimal, Transaction>(gr.Key.PeriodSort, gr.Key.Period, gr.Sum(c => c.Amount), gr);
-                ItemGrouped = new ObservableCollection<Grouping<string, string, decimal, Transaction>>(sorted);
+                             select new Grouping(gr.Key.PeriodSort, gr.Key.Period, gr);
+                ItemGrouped = new ObservableCollection<Grouping>(sorted);
             }
             else
             {
                 Items = new ObservableCollection<Transaction>();
-                ItemGrouped = new ObservableCollection<Grouping<string, string, decimal, Transaction>>();
+                ItemGrouped = new ObservableCollection<Grouping>();
             }
         }
 
@@ -94,8 +94,8 @@ namespace CashApp.ViewModels
             }
         }
 
-        private ObservableCollection<Grouping<string, string, decimal, Transaction>> itemGrouped;
-        public ObservableCollection<Grouping<string, string, decimal, Transaction>> ItemGrouped
+        private ObservableCollection<Grouping> itemGrouped;
+        public ObservableCollection<Grouping> ItemGrouped
         {
             get { return itemGrouped; }
             set
