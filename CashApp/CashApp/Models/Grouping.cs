@@ -8,6 +8,13 @@ namespace CashApp.Models
         public K Key { get; private set; }
         public KD KeyDescription { get; set; }
         public A KeyAmount { get; set; }
+        public IList<T> Transactions
+        {
+            get
+            {
+                return this.Items;
+            }
+        }
 
         public Grouping(K key, KD keyDescription, A amount, IEnumerable<T> items)
         {

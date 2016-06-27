@@ -1,10 +1,18 @@
 ﻿using CashApp.Converters;
+using CashApp.Models;
+using System;
+using System.Collections.Generic;
+using System.Threading.Tasks;
 using Xamarin.Forms;
 
 namespace CashApp.Views
 {
     public class MainPage : ContentPage
     {
+        private FloatingActionButtonView fab;
+        private ListView list;
+        private int appearingListItemIndex = 0;
+
         public MainPage()
         {
             var toolbarAdd = new ToolbarItem
@@ -17,7 +25,7 @@ namespace CashApp.Views
 
             ToolbarItems.Add(toolbarAdd);
 
-            Padding = new Thickness(5, 0, 5, 95);
+            Padding = new Thickness(5, 0, 5, 0);
 
             var labelStyle = new Style(typeof(Label))
             {
@@ -36,6 +44,9 @@ namespace CashApp.Views
 
             formLayout.Children.Add(GetActivityIndicator());
             formLayout.Children.Add(GetScrollView());
+
+            fab = GetFloatingButton();
+            formLayout.Children.Add(fab);
 
             this.Content = formLayout;
         }
@@ -56,20 +67,10 @@ namespace CashApp.Views
             AbsoluteLayout.SetLayoutBounds(scroll, new Rectangle(0, 0, 1, 1));
             AbsoluteLayout.SetLayoutFlags(scroll, AbsoluteLayoutFlags.All);
             scroll.SetBinding(ScrollView.IsVisibleProperty, new Binding("IsBusy", converter: new BooleanNegationConverter()));
-            scroll.Content = GetListView();
+
+            list = GetListView();
+            scroll.Content = list;
             return scroll;
-        }
-
-        private StackLayout GetStackLayout()
-        {
-            var layout = new StackLayout();
-            layout.Orientation = StackOrientation.Vertical;
-            layout.Padding = new Thickness(10);
-            layout.Spacing = 10;
-            
-            layout.Children.Add(GetListView());
-
-            return layout;
         }
 
         private ListView GetListView()
@@ -168,6 +169,88 @@ namespace CashApp.Views
             });
 
             return template;
+        }
+
+        private FloatingActionButtonView GetFloatingButton()
+        {
+            var btn = new FloatingActionButtonView();
+            AbsoluteLayout.SetLayoutBounds(btn, new Rectangle(1, 1, AbsoluteLayout.AutoSize, AbsoluteLayout.AutoSize));
+            AbsoluteLayout.SetLayoutFlags(btn, AbsoluteLayoutFlags.PositionProportional);
+            btn.ColorNormal = Color.FromHex("#FF3498db");
+            btn.ColorPressed = Color.Black;
+            btn.ColorRipple = Color.FromHex("#FF3498db");
+            btn.ImageName = "ic_add.png";
+            return btn;
+        }
+
+        protected override void OnAppearing()
+        {
+            base.OnAppearing();
+            list.ItemAppearing += List_ItemAppearing;
+            list.ItemDisappearing += List_ItemDisappearing;
+        }
+
+        protected override void OnDisappearing()
+        {
+            base.OnDisappearing();
+            list.ItemAppearing -= List_ItemAppearing;
+            list.ItemDisappearing -= List_ItemDisappearing;
+        }
+
+        async void List_ItemDisappearing(object sender, ItemVisibilityEventArgs e)
+        {
+            await Task.Run(() =>
+            {
+                var items = list.ItemsSource as Grouping<string, string, decimal, Transaction>;
+                if (items != null)
+                {
+                    var item = e.Item as Transaction;
+                    if (item != null)
+                    {
+                        var index = items.Transactions.IndexOf(item);
+                        if (index < appearingListItemIndex)
+                        {
+                            Device.BeginInvokeOnMainThread(() => fab.Hide());
+                        }
+                        appearingListItemIndex = index;
+                    }
+                }
+            });
+        }
+
+        async void List_ItemAppearing(object sender, ItemVisibilityEventArgs e)
+        {
+            await Task.Run(() =>
+            {
+                var items = list.ItemsSource as Grouping<string, string, decimal, Transaction>;
+                if (items != null)
+                {
+                    var item = e.Item as Transaction;
+                    if (item != null)
+                    {
+                        var index = items.Transactions.IndexOf(item);
+                        if (index < appearingListItemIndex)
+                        {
+                            Device.BeginInvokeOnMainThread(() => fab.Show());
+                        }
+                        appearingListItemIndex = index;
+                    }
+                }
+            });
+        }
+
+        public int FindIndex<T>(IEnumerable<T> items, Func<T, bool> predicate)
+        {
+            if (items == null) throw new ArgumentNullException("items");
+            if (predicate == null) throw new ArgumentNullException("predicate");
+
+            int retVal = 0;
+            foreach (var item in items)
+            {
+                if (predicate(item)) return retVal;
+                retVal++;
+            }
+            return -1;
         }
     }
 }
