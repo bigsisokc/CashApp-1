@@ -6,6 +6,7 @@ using System.Collections.ObjectModel;
 using System.Linq;
 using System.Threading.Tasks;
 using Xamarin.Forms;
+using XLabs.Forms.Controls;
 
 namespace CashApp.Views
 {
@@ -100,6 +101,7 @@ namespace CashApp.Views
                 var grid = new Grid();
                 grid.BackgroundColor = Color.FromHex("#FF3498DB");
                 grid.Padding = new Thickness(5);
+                grid.RowDefinitions.Add(new RowDefinition { Height = GridLength.Auto });
                 grid.ColumnDefinitions.Add(new ColumnDefinition { Width = new GridLength(1, GridUnitType.Star) });
                 grid.ColumnDefinitions.Add(new ColumnDefinition { Width = new GridLength(50) });
                 grid.ColumnDefinitions.Add(new ColumnDefinition { Width = new GridLength(150) });
@@ -111,24 +113,53 @@ namespace CashApp.Views
                 labelDescription.SetBinding(Label.TextProperty, new Binding("Period"));
                 Grid.SetColumn(labelDescription, 0);
 
-                //var labelAmount = new Label();
-                //labelAmount.FontSize = Device.GetNamedSize(NamedSize.Large, typeof(Label));
-                //labelAmount.TextColor = Color.White;
-                //labelAmount.VerticalOptions = LayoutOptions.Center;
-                //labelAmount.SetBinding(Label.TextProperty, new Binding("KeyAmount", converter: new CurrencyConverter()));
-                //Grid.SetColumn(labelAmount, 2);
-
-                var amountList = GetGroupHeaderListView();
+                var amountList = GetGroupHeaderRepeaterView();
                 Grid.SetColumn(amountList, 1);
                 Grid.SetColumnSpan(amountList, 2);
 
                 grid.Children.Add(labelDescription);
                 grid.Children.Add(amountList);
 
-                return new ViewCell { View = grid, Height = 120 };
+                return new ViewCell { View = grid, Height = 80 };
             });
 
             return template;
+        }
+
+        private View GetGroupHeaderRepeaterView()
+        {
+            var repeater = new RepeaterView<GroupingAmount>
+            {
+                Spacing = 10,
+                ItemTemplate = new DataTemplate(() =>
+                {
+                    var grid = new Grid();
+                    grid.ColumnDefinitions.Add(new ColumnDefinition { Width = new GridLength(50) });
+                    grid.ColumnDefinitions.Add(new ColumnDefinition { Width = new GridLength(1, GridUnitType.Star) });
+
+                    var labelCurrency = new Label();
+                    labelCurrency.FontSize = Device.GetNamedSize(NamedSize.Medium, typeof(Label));
+                    labelCurrency.TextColor = Color.White;
+                    labelCurrency.VerticalOptions = LayoutOptions.Center;
+                    labelCurrency.SetBinding(Label.TextProperty, new Binding("Currency"));
+                    Grid.SetColumn(labelCurrency, 0);
+
+                    var labelAmount = new Label();
+                    labelAmount.FontSize = Device.GetNamedSize(NamedSize.Medium, typeof(Label));
+                    labelAmount.TextColor = Color.White;
+                    labelAmount.VerticalOptions = LayoutOptions.Center;
+                    labelAmount.SetBinding(Label.TextProperty, new Binding("Amount", converter: new CurrencyConverter()));
+                    Grid.SetColumn(labelAmount, 1);
+
+                    grid.Children.Add(labelCurrency);
+                    grid.Children.Add(labelAmount);
+
+                    return new ViewCell { View = grid };
+                })
+            };
+            repeater.SetBinding(RepeaterView<GroupingAmount>.ItemsSourceProperty, new Binding("Amounts"));
+
+            return repeater;
         }
 
         private ListView GetGroupHeaderListView()
