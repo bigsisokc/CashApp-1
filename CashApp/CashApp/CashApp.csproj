@@ -41,6 +41,7 @@
     <Compile Include="Converters\DecimalConverter.cs" />
     <Compile Include="Converters\DateConverter.cs" />
     <Compile Include="Converters\CurrencyConverter.cs" />
+    <Compile Include="Views\ItemPage.cs" />
     <Compile Include="Models\GroupingAmount.cs" />
     <Compile Include="Models\GroupingHeader.cs" />
     <Compile Include="Views\MainPage.cs" />
@@ -55,9 +56,6 @@
     <Compile Include="ViewModels\MainViewModel.cs" />
     <Compile Include="Views\FloatingActionButtonSize.cs" />
     <Compile Include="Views\FloatingActionButtonView.cs" />
-    <Compile Include="Views\ItemPage.xaml.cs">
-      <DependentUpon>ItemPage.xaml</DependentUpon>
-    </Compile>
   </ItemGroup>
   <ItemGroup>
     <Reference Include="ExifLib, Version=1.0.1.0, Culture=neutral, processorArchitecture=MSIL">
@@ -135,12 +133,6 @@
     <None Include="app.config" />
     <None Include="GettingStarted.Xamarin" />
     <None Include="packages.config" />
-  </ItemGroup>
-  <ItemGroup>
-    <EmbeddedResource Include="Views\ItemPage.xaml">
-      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
-      <SubType>Designer</SubType>
-    </EmbeddedResource>
   </ItemGroup>
   <ItemGroup />
   <Import Project="$(MSBuildExtensionsPath32)\Microsoft\Portable\$(TargetFrameworkVersion)\Microsoft.Portable.CSharp.targets" />

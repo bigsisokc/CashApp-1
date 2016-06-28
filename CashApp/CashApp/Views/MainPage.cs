@@ -18,6 +18,7 @@ namespace CashApp.Views
 
         public MainPage()
         {
+            Title = "My Cash";
             var toolbarAdd = new ToolbarItem
             {
                 Text = "Add",
@@ -48,8 +49,8 @@ namespace CashApp.Views
             formLayout.Children.Add(GetActivityIndicator());
             formLayout.Children.Add(GetScrollView());
 
-            fab = GetFloatingButton();
-            formLayout.Children.Add(fab);
+            //fab = GetFloatingButton();
+            //formLayout.Children.Add(fab);
 
             this.Content = formLayout;
         }
