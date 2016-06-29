@@ -97,7 +97,7 @@ namespace CashApp.Views
             amountEntry.SetBinding(Entry.TextProperty, new Binding("Amount", BindingMode.TwoWay));
             amountEntry.HorizontalOptions = LayoutOptions.FillAndExpand;
             amountEntry.VerticalOptions = LayoutOptions.FillAndExpand;
-            amountEntry.Keyboard = Keyboard.Numeric;
+            //amountEntry.Keyboard = Keyboard.Numeric;
             Grid.SetColumn(amountEntry, 1);
 
             grid.Children.Add(currencyPicker);

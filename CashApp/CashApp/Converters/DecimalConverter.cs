@@ -8,24 +8,24 @@ namespace CashApp.Converters
     {
         public object Convert(object value, Type targetType, object parameter, CultureInfo culture)
         {
-            decimal amount = 0;
-
-            if (value != null)
+            if (value is decimal)
             {
-                amount = decimal.Parse(value.ToString());
+                return string.Format("{0:N2}", value);
             }
-
-            return string.Format("{0:N2}", amount);
+            return value;
         }
 
         public object ConvertBack(object value, Type targetType, object parameter, CultureInfo culture)
         {
-            decimal result = 0;
             if (value != null)
             {
-                decimal.TryParse(value.ToString(), out result);
+                decimal result = 0;
+                if (decimal.TryParse(value.ToString(), out result))
+                {
+                    return result;
+                }
             }
-            return result;
+            return value;
         }
     }
 }

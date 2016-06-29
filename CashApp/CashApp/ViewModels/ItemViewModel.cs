@@ -125,6 +125,10 @@ namespace CashApp.ViewModels
             get { return amount; }
             set
             {
+                if (amount == value)
+                {
+                    return;
+                }
                 amount = value;
                 RaisePropertyChanged(() => Amount);
             }
