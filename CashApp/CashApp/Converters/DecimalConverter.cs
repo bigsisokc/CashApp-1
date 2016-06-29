@@ -10,7 +10,7 @@ namespace CashApp.Converters
         {
             if (value is decimal)
             {
-                return string.Format("{0:N2}", value);
+                return string.Format("{0:#,##0.##}", value);
             }
             return value;
         }

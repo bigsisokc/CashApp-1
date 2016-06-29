@@ -121,7 +121,7 @@ namespace CashApp.Views
                 grid.Children.Add(labelDescription);
                 grid.Children.Add(amountList);
 
-                return new ViewCell { View = grid, Height = 80 };
+                return new ViewCell { View = grid };
             });
 
             return template;
@@ -254,7 +254,7 @@ namespace CashApp.Views
             btn.ColorPressed = Color.Black;
             btn.ColorRipple = Color.FromHex("#FF3498db");
             btn.ImageName = "ic_add.png";
-            btn.SetBinding(ToolbarItem.CommandProperty, new Binding("AddItemCommand"));
+            btn.SetBinding(FloatingActionButtonView.CommandProperty, new Binding("AddItemCommand"));
             return btn;
         }
 

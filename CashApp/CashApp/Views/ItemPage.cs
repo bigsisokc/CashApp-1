@@ -94,7 +94,7 @@ namespace CashApp.Views
 
             var amountEntry = new Entry();
             amountEntry.Placeholder = "Amount";
-            amountEntry.SetBinding(Entry.TextProperty, new Binding("Amount", BindingMode.TwoWay));
+            amountEntry.SetBinding(Entry.TextProperty, new Binding("Amount", BindingMode.TwoWay, new DecimalConverter()));
             amountEntry.HorizontalOptions = LayoutOptions.FillAndExpand;
             amountEntry.VerticalOptions = LayoutOptions.FillAndExpand;
             //amountEntry.Keyboard = Keyboard.Numeric;
