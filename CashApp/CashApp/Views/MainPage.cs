@@ -19,15 +19,15 @@ namespace CashApp.Views
         public MainPage()
         {
             Title = "My Cash";
-            var toolbarAdd = new ToolbarItem
-            {
-                Text = "Add",
-                ClassId = "Add",
-                Order = ToolbarItemOrder.Primary
-            };
-            toolbarAdd.SetBinding(ToolbarItem.CommandProperty, new Binding("AddItemCommand"));
+            //var toolbarAdd = new ToolbarItem
+            //{
+            //    Text = "Add",
+            //    ClassId = "Add",
+            //    Order = ToolbarItemOrder.Primary
+            //};
+            //toolbarAdd.SetBinding(ToolbarItem.CommandProperty, new Binding("AddItemCommand"));
 
-            ToolbarItems.Add(toolbarAdd);
+            //ToolbarItems.Add(toolbarAdd);
 
             Padding = new Thickness(5, 0, 5, 0);
 
@@ -49,8 +49,8 @@ namespace CashApp.Views
             formLayout.Children.Add(GetActivityIndicator());
             formLayout.Children.Add(GetScrollView());
 
-            //fab = GetFloatingButton();
-            //formLayout.Children.Add(fab);
+            fab = GetFloatingButton();
+            formLayout.Children.Add(fab);
 
             this.Content = formLayout;
         }
@@ -254,6 +254,7 @@ namespace CashApp.Views
             btn.ColorPressed = Color.Black;
             btn.ColorRipple = Color.FromHex("#FF3498db");
             btn.ImageName = "ic_add.png";
+            btn.SetBinding(ToolbarItem.CommandProperty, new Binding("AddItemCommand"));
             return btn;
         }
 

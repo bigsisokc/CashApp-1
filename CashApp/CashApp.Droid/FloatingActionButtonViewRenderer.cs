@@ -154,9 +154,10 @@ namespace CashApp.Droid
         void Fab_Click(object sender, EventArgs e)
         {
             var clicked = Element.Clicked;
-            if (Element != null && clicked != null)
+            if (Element != null)
             {
-                clicked(sender, e);
+                clicked?.Invoke(sender, e);
+                if (Element.Command != null && Element.Command.CanExecute(null)) Element.Command.Execute(null);
             }
         }
     }
