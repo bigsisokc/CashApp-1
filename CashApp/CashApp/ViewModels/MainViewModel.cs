@@ -122,7 +122,7 @@ namespace CashApp.ViewModels
         {
             get
             {
-                return new MvxCommand(() => ShowViewModel<ItemViewModel>(), () => { return !IsBusy; });
+                return new MvxCommand(Add, () => !IsBusy);
             }
         }
 
@@ -144,6 +144,11 @@ namespace CashApp.ViewModels
             await RefreshData();
 
             IsBusy = false;
+        }
+
+        public void Add()
+        {
+            ShowViewModel<ItemViewModel>(new { id = 0 });
         }
 
         public void Edit()

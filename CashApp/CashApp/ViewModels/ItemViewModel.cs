@@ -28,12 +28,7 @@ namespace CashApp.ViewModels
             };
             CurrencyIndex = 0;
         }
-
-        public void Init(int id)
-        {
-            this.id = id;
-        }
-
+        
         public override async void Start()
         {
             base.Start();
@@ -204,7 +199,7 @@ namespace CashApp.ViewModels
         {
             get
             {
-                return new MvxCommand(async () => await SaveItem(), () => { return !IsBusy; });
+                return new MvxCommand(async () => await SaveItem(), () => !IsBusy);
             }
         }
         public MvxCommand DeleteItemCommand
