@@ -26,9 +26,7 @@ namespace CashApp.ViewModels
         {
             if (saveMessage.Saved)
             {
-                IsBusy = true;
                 await RefreshData();
-                IsBusy = false;
             }            
         }
         
@@ -36,9 +34,7 @@ namespace CashApp.ViewModels
         {
             base.Start();
 
-            IsBusy = true;
             await RefreshData();
-            IsBusy = false;
         }
 
         private async Task RefreshData()
@@ -46,6 +42,7 @@ namespace CashApp.ViewModels
             var loading = UserDialogs.Instance.Loading("Loading data");
 
             loading.Show();
+            IsBusy = true;
             var result = await service.GetAllData();
             
             if (result != null)
@@ -62,6 +59,7 @@ namespace CashApp.ViewModels
                 Items = new ObservableCollection<Transaction>();
                 ItemGrouped = new ObservableCollection<Grouping>();
             }
+            IsBusy = false;
             loading.Hide();
         }
 
@@ -136,14 +134,7 @@ namespace CashApp.ViewModels
 
         public async Task Load()
         {
-            if (IsBusy)
-                return;
-
-            IsBusy = true;
-
             await RefreshData();
-
-            IsBusy = false;
         }
 
         public void Add()
