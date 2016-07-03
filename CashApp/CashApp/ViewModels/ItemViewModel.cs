@@ -28,14 +28,19 @@ namespace CashApp.ViewModels
             };
             CurrencyIndex = 0;
         }
-        
+
+        public void Init(int id)
+        {
+            this.id = id;
+        }
+
         public override async void Start()
         {
             base.Start();
 
             if (item != null) return;
 
-            var loading = UserDialogs.Instance.Loading("Loading transaction");
+            var loading = UserDialogs.Instance.Loading("Loading transaction", show: false);
 
             Description = string.Empty;
             Amount = 0;
