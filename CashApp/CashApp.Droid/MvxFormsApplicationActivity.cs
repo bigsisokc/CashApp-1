@@ -1,7 +1,9 @@
+using Acr.UserDialogs;
 using Android.App;
 using Android.Content.PM;
 using Android.OS;
 using CashApp.Droid;
+using HockeyApp.Android;
 using MvvmCross.Core.ViewModels;
 using MvvmCross.Core.Views;
 using MvvmCross.Forms.Presenter.Core;
@@ -23,6 +25,9 @@ namespace CashApp.Droid
         protected override void OnCreate(Bundle bundle)
         {
             base.OnCreate(bundle);
+
+            CrashManager.Register(this, "21d237e64379458aa960e50d0bc15cb0");
+            UserDialogs.Init(this);
 
             Forms.Init(this, bundle);
             var mvxFormsApp = new MvxFormsApp();

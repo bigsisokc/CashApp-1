@@ -1,4 +1,5 @@
-﻿using CashApp.Message;
+﻿using Acr.UserDialogs;
+using CashApp.Message;
 using CashApp.Models;
 using CashApp.Services;
 using MvvmCross.Core.ViewModels;
@@ -39,21 +40,28 @@ namespace CashApp.ViewModels
 
             if (item != null) return;
 
-            IsBusy = true;
-            item = await service.GetData(id);
-            if (item != null)
+            var loading = UserDialogs.Instance.Loading("Loading transaction");
+
+            Description = string.Empty;
+            Amount = 0;
+            TransDate = DateTime.Today;
+            Currency = "IDR";
+
+            if (id > 0)
             {
-                Description = item.Description;
-                TransDate = item.TransDate;
-                Amount = item.Amount;
-                Currency = item.Currency;
+                loading.Show();
+                IsBusy = true;
+                item = await service.GetData(id);
+                if (item != null)
+                {
+                    Description = item.Description;
+                    TransDate = item.TransDate;
+                    Amount = item.Amount;
+                    Currency = item.Currency;
+                }
+                loading.Hide();
+                IsBusy = false;
             }
-            else
-            {
-                TransDate = DateTime.Today;
-                Currency = "IDR";
-            }
-            IsBusy = false;
         }
 
         private IList<CurrencyModel> currencyList;
@@ -141,8 +149,12 @@ namespace CashApp.ViewModels
 
         public async Task SaveItem()
         {
-            Close(this);
+            //Close(this);
 
+            var loading = UserDialogs.Instance.Loading("Saving transaction");
+
+            loading.Show();
+            IsBusy = true;
             bool result = await service.SaveItem(new Transaction
             {
                 Amount = Amount,
@@ -151,18 +163,31 @@ namespace CashApp.ViewModels
                 Id = id,
                 TransDate = TransDate
             });
+            IsBusy = false;
+            loading.Hide();
 
+            Close(this);
             var savedMessage = new SaveMessage(this, result);
             messenger.Publish(savedMessage);
         }
 
         public async Task DeleteItem()
         {
+            bool canDelete = id > 0;
+            var loading = UserDialogs.Instance.Loading("Deleting transaction");
+            //Close(this);
+
+            if (canDelete)
+            {
+                loading.Show();
+                await service.DeleteItem(id);
+                loading.Hide();
+            }
+
             Close(this);
 
-            if (id > 0)
+            if (canDelete)
             {
-                await service.DeleteItem(id);
                 var savedMessage = new SaveMessage(this, true);
                 messenger.Publish(savedMessage);
             }
@@ -179,7 +204,7 @@ namespace CashApp.ViewModels
         {
             get
             {
-                return new MvxCommand(async () => await SaveItem());
+                return new MvxCommand(async () => await SaveItem(), () => { return !IsBusy; });
             }
         }
         public MvxCommand DeleteItemCommand

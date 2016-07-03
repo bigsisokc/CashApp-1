@@ -19,16 +19,6 @@ namespace CashApp.Views
         public MainPage()
         {
             Title = "My Cash";
-            //var toolbarAdd = new ToolbarItem
-            //{
-            //    Text = "Add",
-            //    ClassId = "Add",
-            //    Order = ToolbarItemOrder.Primary
-            //};
-            //toolbarAdd.SetBinding(ToolbarItem.CommandProperty, new Binding("AddItemCommand"));
-
-            //ToolbarItems.Add(toolbarAdd);
-
             Padding = new Thickness(5, 0, 5, 0);
 
             var labelStyle = new Style(typeof(Label))
@@ -45,8 +35,7 @@ namespace CashApp.Views
             var formLayout = new AbsoluteLayout();
             formLayout.VerticalOptions = LayoutOptions.FillAndExpand;
             formLayout.HorizontalOptions = LayoutOptions.FillAndExpand;
-
-            formLayout.Children.Add(GetActivityIndicator());
+            
             formLayout.Children.Add(GetScrollView());
 
             fab = GetFloatingButton();
@@ -54,17 +43,7 @@ namespace CashApp.Views
 
             this.Content = formLayout;
         }
-
-        private ActivityIndicator GetActivityIndicator()
-        {
-            var indicator = new ActivityIndicator();
-            indicator.SetBinding(ActivityIndicator.IsRunningProperty, new Binding("IsBusy"));
-            indicator.SetBinding(ActivityIndicator.IsVisibleProperty, new Binding("IsBusy"));
-            AbsoluteLayout.SetLayoutBounds(indicator, new Rectangle(0.5, 0.5, -1, -1));
-            AbsoluteLayout.SetLayoutFlags(indicator, AbsoluteLayoutFlags.PositionProportional);
-            return indicator;
-        }
-
+        
         private ScrollView GetScrollView()
         {
             var scroll = new ScrollView();

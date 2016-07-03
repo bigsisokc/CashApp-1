@@ -26,6 +26,163 @@ namespace CashApp.Droid
 		
 		public static void UpdateIdValues()
 		{
+			global::AndroidHUD.Resource.Attribute.ahBarColor = global::CashApp.Droid.Resource.Attribute.ahBarColor;
+			global::AndroidHUD.Resource.Attribute.ahBarLength = global::CashApp.Droid.Resource.Attribute.ahBarLength;
+			global::AndroidHUD.Resource.Attribute.ahBarWidth = global::CashApp.Droid.Resource.Attribute.ahBarWidth;
+			global::AndroidHUD.Resource.Attribute.ahCircleColor = global::CashApp.Droid.Resource.Attribute.ahCircleColor;
+			global::AndroidHUD.Resource.Attribute.ahDelayMillis = global::CashApp.Droid.Resource.Attribute.ahDelayMillis;
+			global::AndroidHUD.Resource.Attribute.ahRadius = global::CashApp.Droid.Resource.Attribute.ahRadius;
+			global::AndroidHUD.Resource.Attribute.ahRimColor = global::CashApp.Droid.Resource.Attribute.ahRimColor;
+			global::AndroidHUD.Resource.Attribute.ahRimWidth = global::CashApp.Droid.Resource.Attribute.ahRimWidth;
+			global::AndroidHUD.Resource.Attribute.ahSpinSpeed = global::CashApp.Droid.Resource.Attribute.ahSpinSpeed;
+			global::AndroidHUD.Resource.Attribute.ahText = global::CashApp.Droid.Resource.Attribute.ahText;
+			global::AndroidHUD.Resource.Attribute.ahTextColor = global::CashApp.Droid.Resource.Attribute.ahTextColor;
+			global::AndroidHUD.Resource.Attribute.ahTextSize = global::CashApp.Droid.Resource.Attribute.ahTextSize;
+			global::AndroidHUD.Resource.Drawable.ic_errorstatus = global::CashApp.Droid.Resource.Drawable.ic_errorstatus;
+			global::AndroidHUD.Resource.Drawable.ic_successstatus = global::CashApp.Droid.Resource.Drawable.ic_successstatus;
+			global::AndroidHUD.Resource.Drawable.roundedbg = global::CashApp.Droid.Resource.Drawable.roundedbg;
+			global::AndroidHUD.Resource.Drawable.roundedbgdark = global::CashApp.Droid.Resource.Drawable.roundedbgdark;
+			global::AndroidHUD.Resource.Id.loadingImage = global::CashApp.Droid.Resource.Id.loadingImage;
+			global::AndroidHUD.Resource.Id.loadingProgressBar = global::CashApp.Droid.Resource.Id.loadingProgressBar;
+			global::AndroidHUD.Resource.Id.loadingProgressWheel = global::CashApp.Droid.Resource.Id.loadingProgressWheel;
+			global::AndroidHUD.Resource.Id.textViewStatus = global::CashApp.Droid.Resource.Id.textViewStatus;
+			global::AndroidHUD.Resource.Layout.loading = global::CashApp.Droid.Resource.Layout.loading;
+			global::AndroidHUD.Resource.Layout.loadingimage = global::CashApp.Droid.Resource.Layout.loadingimage;
+			global::AndroidHUD.Resource.Layout.loadingprogress = global::CashApp.Droid.Resource.Layout.loadingprogress;
+			global::AndroidHUD.Resource.String.library_name = global::CashApp.Droid.Resource.String.library_name;
+			global::AndroidHUD.Resource.Styleable.ProgressWheel = global::CashApp.Droid.Resource.Styleable.ProgressWheel;
+			global::AndroidHUD.Resource.Styleable.ProgressWheel_ahBarColor = global::CashApp.Droid.Resource.Styleable.ProgressWheel_ahBarColor;
+			global::AndroidHUD.Resource.Styleable.ProgressWheel_ahBarLength = global::CashApp.Droid.Resource.Styleable.ProgressWheel_ahBarLength;
+			global::AndroidHUD.Resource.Styleable.ProgressWheel_ahBarWidth = global::CashApp.Droid.Resource.Styleable.ProgressWheel_ahBarWidth;
+			global::AndroidHUD.Resource.Styleable.ProgressWheel_ahCircleColor = global::CashApp.Droid.Resource.Styleable.ProgressWheel_ahCircleColor;
+			global::AndroidHUD.Resource.Styleable.ProgressWheel_ahDelayMillis = global::CashApp.Droid.Resource.Styleable.ProgressWheel_ahDelayMillis;
+			global::AndroidHUD.Resource.Styleable.ProgressWheel_ahRadius = global::CashApp.Droid.Resource.Styleable.ProgressWheel_ahRadius;
+			global::AndroidHUD.Resource.Styleable.ProgressWheel_ahRimColor = global::CashApp.Droid.Resource.Styleable.ProgressWheel_ahRimColor;
+			global::AndroidHUD.Resource.Styleable.ProgressWheel_ahRimWidth = global::CashApp.Droid.Resource.Styleable.ProgressWheel_ahRimWidth;
+			global::AndroidHUD.Resource.Styleable.ProgressWheel_ahSpinSpeed = global::CashApp.Droid.Resource.Styleable.ProgressWheel_ahSpinSpeed;
+			global::AndroidHUD.Resource.Styleable.ProgressWheel_ahText = global::CashApp.Droid.Resource.Styleable.ProgressWheel_ahText;
+			global::AndroidHUD.Resource.Styleable.ProgressWheel_ahTextColor = global::CashApp.Droid.Resource.Styleable.ProgressWheel_ahTextColor;
+			global::AndroidHUD.Resource.Styleable.ProgressWheel_ahTextSize = global::CashApp.Droid.Resource.Styleable.ProgressWheel_ahTextSize;
+			global::HockeyApp.Resource.Color.hockeyapp_background_header = global::CashApp.Droid.Resource.Color.hockeyapp_background_header;
+			global::HockeyApp.Resource.Color.hockeyapp_background_light = global::CashApp.Droid.Resource.Color.hockeyapp_background_light;
+			global::HockeyApp.Resource.Color.hockeyapp_background_white = global::CashApp.Droid.Resource.Color.hockeyapp_background_white;
+			global::HockeyApp.Resource.Color.hockeyapp_button_background = global::CashApp.Droid.Resource.Color.hockeyapp_button_background;
+			global::HockeyApp.Resource.Color.hockeyapp_button_background_pressed = global::CashApp.Droid.Resource.Color.hockeyapp_button_background_pressed;
+			global::HockeyApp.Resource.Color.hockeyapp_button_background_selected = global::CashApp.Droid.Resource.Color.hockeyapp_button_background_selected;
+			global::HockeyApp.Resource.Color.hockeyapp_text_black = global::CashApp.Droid.Resource.Color.hockeyapp_text_black;
+			global::HockeyApp.Resource.Color.hockeyapp_text_light = global::CashApp.Droid.Resource.Color.hockeyapp_text_light;
+			global::HockeyApp.Resource.Color.hockeyapp_text_normal = global::CashApp.Droid.Resource.Color.hockeyapp_text_normal;
+			global::HockeyApp.Resource.Color.hockeyapp_text_white = global::CashApp.Droid.Resource.Color.hockeyapp_text_white;
+			global::HockeyApp.Resource.Drawable.hockeyapp_btn_background = global::CashApp.Droid.Resource.Drawable.hockeyapp_btn_background;
+			global::HockeyApp.Resource.Id.button_add_response = global::CashApp.Droid.Resource.Id.button_add_response;
+			global::HockeyApp.Resource.Id.button_attachment = global::CashApp.Droid.Resource.Id.button_attachment;
+			global::HockeyApp.Resource.Id.button_login = global::CashApp.Droid.Resource.Id.button_login;
+			global::HockeyApp.Resource.Id.button_refresh = global::CashApp.Droid.Resource.Id.button_refresh;
+			global::HockeyApp.Resource.Id.button_send = global::CashApp.Droid.Resource.Id.button_send;
+			global::HockeyApp.Resource.Id.button_update = global::CashApp.Droid.Resource.Id.button_update;
+			global::HockeyApp.Resource.Id.input_email = global::CashApp.Droid.Resource.Id.input_email;
+			global::HockeyApp.Resource.Id.input_message = global::CashApp.Droid.Resource.Id.input_message;
+			global::HockeyApp.Resource.Id.input_name = global::CashApp.Droid.Resource.Id.input_name;
+			global::HockeyApp.Resource.Id.input_password = global::CashApp.Droid.Resource.Id.input_password;
+			global::HockeyApp.Resource.Id.input_subject = global::CashApp.Droid.Resource.Id.input_subject;
+			global::HockeyApp.Resource.Id.label_author = global::CashApp.Droid.Resource.Id.label_author;
+			global::HockeyApp.Resource.Id.label_date = global::CashApp.Droid.Resource.Id.label_date;
+			global::HockeyApp.Resource.Id.label_last_updated = global::CashApp.Droid.Resource.Id.label_last_updated;
+			global::HockeyApp.Resource.Id.label_message = global::CashApp.Droid.Resource.Id.label_message;
+			global::HockeyApp.Resource.Id.label_text = global::CashApp.Droid.Resource.Id.label_text;
+			global::HockeyApp.Resource.Id.label_title = global::CashApp.Droid.Resource.Id.label_title;
+			global::HockeyApp.Resource.Id.label_version = global::CashApp.Droid.Resource.Id.label_version;
+			global::HockeyApp.Resource.Id.list_attachments = global::CashApp.Droid.Resource.Id.list_attachments;
+			global::HockeyApp.Resource.Id.list_feedback_messages = global::CashApp.Droid.Resource.Id.list_feedback_messages;
+			global::HockeyApp.Resource.Id.text_headline = global::CashApp.Droid.Resource.Id.text_headline;
+			global::HockeyApp.Resource.Id.view_header = global::CashApp.Droid.Resource.Id.view_header;
+			global::HockeyApp.Resource.Id.web_update_details = global::CashApp.Droid.Resource.Id.web_update_details;
+			global::HockeyApp.Resource.Id.wrapper_attachments = global::CashApp.Droid.Resource.Id.wrapper_attachments;
+			global::HockeyApp.Resource.Id.wrapper_feedback = global::CashApp.Droid.Resource.Id.wrapper_feedback;
+			global::HockeyApp.Resource.Id.wrapper_feedback_scroll = global::CashApp.Droid.Resource.Id.wrapper_feedback_scroll;
+			global::HockeyApp.Resource.Id.wrapper_messages = global::CashApp.Droid.Resource.Id.wrapper_messages;
+			global::HockeyApp.Resource.Id.wrapper_messages_buttons = global::CashApp.Droid.Resource.Id.wrapper_messages_buttons;
+			global::HockeyApp.Resource.Layout.hockeyapp_activity_expiry_info = global::CashApp.Droid.Resource.Layout.hockeyapp_activity_expiry_info;
+			global::HockeyApp.Resource.Layout.hockeyapp_activity_feedback = global::CashApp.Droid.Resource.Layout.hockeyapp_activity_feedback;
+			global::HockeyApp.Resource.Layout.hockeyapp_activity_login = global::CashApp.Droid.Resource.Layout.hockeyapp_activity_login;
+			global::HockeyApp.Resource.Layout.hockeyapp_activity_update = global::CashApp.Droid.Resource.Layout.hockeyapp_activity_update;
+			global::HockeyApp.Resource.Layout.hockeyapp_fragment_update = global::CashApp.Droid.Resource.Layout.hockeyapp_fragment_update;
+			global::HockeyApp.Resource.Layout.hockeyapp_view_feedback_message = global::CashApp.Droid.Resource.Layout.hockeyapp_view_feedback_message;
+			global::HockeyApp.Resource.String.hockeyapp_crash_dialog_app_name_fallback = global::CashApp.Droid.Resource.String.hockeyapp_crash_dialog_app_name_fallback;
+			global::HockeyApp.Resource.String.hockeyapp_crash_dialog_message = global::CashApp.Droid.Resource.String.hockeyapp_crash_dialog_message;
+			global::HockeyApp.Resource.String.hockeyapp_crash_dialog_negative_button = global::CashApp.Droid.Resource.String.hockeyapp_crash_dialog_negative_button;
+			global::HockeyApp.Resource.String.hockeyapp_crash_dialog_neutral_button = global::CashApp.Droid.Resource.String.hockeyapp_crash_dialog_neutral_button;
+			global::HockeyApp.Resource.String.hockeyapp_crash_dialog_positive_button = global::CashApp.Droid.Resource.String.hockeyapp_crash_dialog_positive_button;
+			global::HockeyApp.Resource.String.hockeyapp_crash_dialog_title = global::CashApp.Droid.Resource.String.hockeyapp_crash_dialog_title;
+			global::HockeyApp.Resource.String.hockeyapp_dialog_error_message = global::CashApp.Droid.Resource.String.hockeyapp_dialog_error_message;
+			global::HockeyApp.Resource.String.hockeyapp_dialog_error_title = global::CashApp.Droid.Resource.String.hockeyapp_dialog_error_title;
+			global::HockeyApp.Resource.String.hockeyapp_dialog_negative_button = global::CashApp.Droid.Resource.String.hockeyapp_dialog_negative_button;
+			global::HockeyApp.Resource.String.hockeyapp_dialog_positive_button = global::CashApp.Droid.Resource.String.hockeyapp_dialog_positive_button;
+			global::HockeyApp.Resource.String.hockeyapp_download_failed_dialog_message = global::CashApp.Droid.Resource.String.hockeyapp_download_failed_dialog_message;
+			global::HockeyApp.Resource.String.hockeyapp_download_failed_dialog_negative_button = global::CashApp.Droid.Resource.String.hockeyapp_download_failed_dialog_negative_button;
+			global::HockeyApp.Resource.String.hockeyapp_download_failed_dialog_positive_button = global::CashApp.Droid.Resource.String.hockeyapp_download_failed_dialog_positive_button;
+			global::HockeyApp.Resource.String.hockeyapp_download_failed_dialog_title = global::CashApp.Droid.Resource.String.hockeyapp_download_failed_dialog_title;
+			global::HockeyApp.Resource.String.hockeyapp_error_no_network_message = global::CashApp.Droid.Resource.String.hockeyapp_error_no_network_message;
+			global::HockeyApp.Resource.String.hockeyapp_expiry_info_text = global::CashApp.Droid.Resource.String.hockeyapp_expiry_info_text;
+			global::HockeyApp.Resource.String.hockeyapp_expiry_info_title = global::CashApp.Droid.Resource.String.hockeyapp_expiry_info_title;
+			global::HockeyApp.Resource.String.hockeyapp_feedback_attach_file = global::CashApp.Droid.Resource.String.hockeyapp_feedback_attach_file;
+			global::HockeyApp.Resource.String.hockeyapp_feedback_attach_picture = global::CashApp.Droid.Resource.String.hockeyapp_feedback_attach_picture;
+			global::HockeyApp.Resource.String.hockeyapp_feedback_attachment_button_text = global::CashApp.Droid.Resource.String.hockeyapp_feedback_attachment_button_text;
+			global::HockeyApp.Resource.String.hockeyapp_feedback_attachment_error = global::CashApp.Droid.Resource.String.hockeyapp_feedback_attachment_error;
+			global::HockeyApp.Resource.String.hockeyapp_feedback_attachment_loading = global::CashApp.Droid.Resource.String.hockeyapp_feedback_attachment_loading;
+			global::HockeyApp.Resource.String.hockeyapp_feedback_email_hint = global::CashApp.Droid.Resource.String.hockeyapp_feedback_email_hint;
+			global::HockeyApp.Resource.String.hockeyapp_feedback_failed_text = global::CashApp.Droid.Resource.String.hockeyapp_feedback_failed_text;
+			global::HockeyApp.Resource.String.hockeyapp_feedback_failed_title = global::CashApp.Droid.Resource.String.hockeyapp_feedback_failed_title;
+			global::HockeyApp.Resource.String.hockeyapp_feedback_fetching_feedback_text = global::CashApp.Droid.Resource.String.hockeyapp_feedback_fetching_feedback_text;
+			global::HockeyApp.Resource.String.hockeyapp_feedback_generic_error = global::CashApp.Droid.Resource.String.hockeyapp_feedback_generic_error;
+			global::HockeyApp.Resource.String.hockeyapp_feedback_last_updated_text = global::CashApp.Droid.Resource.String.hockeyapp_feedback_last_updated_text;
+			global::HockeyApp.Resource.String.hockeyapp_feedback_max_attachments_allowed = global::CashApp.Droid.Resource.String.hockeyapp_feedback_max_attachments_allowed;
+			global::HockeyApp.Resource.String.hockeyapp_feedback_message_hint = global::CashApp.Droid.Resource.String.hockeyapp_feedback_message_hint;
+			global::HockeyApp.Resource.String.hockeyapp_feedback_name_hint = global::CashApp.Droid.Resource.String.hockeyapp_feedback_name_hint;
+			global::HockeyApp.Resource.String.hockeyapp_feedback_refresh_button_text = global::CashApp.Droid.Resource.String.hockeyapp_feedback_refresh_button_text;
+			global::HockeyApp.Resource.String.hockeyapp_feedback_response_button_text = global::CashApp.Droid.Resource.String.hockeyapp_feedback_response_button_text;
+			global::HockeyApp.Resource.String.hockeyapp_feedback_select_file = global::CashApp.Droid.Resource.String.hockeyapp_feedback_select_file;
+			global::HockeyApp.Resource.String.hockeyapp_feedback_select_picture = global::CashApp.Droid.Resource.String.hockeyapp_feedback_select_picture;
+			global::HockeyApp.Resource.String.hockeyapp_feedback_send_button_text = global::CashApp.Droid.Resource.String.hockeyapp_feedback_send_button_text;
+			global::HockeyApp.Resource.String.hockeyapp_feedback_send_generic_error = global::CashApp.Droid.Resource.String.hockeyapp_feedback_send_generic_error;
+			global::HockeyApp.Resource.String.hockeyapp_feedback_send_network_error = global::CashApp.Droid.Resource.String.hockeyapp_feedback_send_network_error;
+			global::HockeyApp.Resource.String.hockeyapp_feedback_sending_feedback_text = global::CashApp.Droid.Resource.String.hockeyapp_feedback_sending_feedback_text;
+			global::HockeyApp.Resource.String.hockeyapp_feedback_subject_hint = global::CashApp.Droid.Resource.String.hockeyapp_feedback_subject_hint;
+			global::HockeyApp.Resource.String.hockeyapp_feedback_title = global::CashApp.Droid.Resource.String.hockeyapp_feedback_title;
+			global::HockeyApp.Resource.String.hockeyapp_feedback_validate_email_empty = global::CashApp.Droid.Resource.String.hockeyapp_feedback_validate_email_empty;
+			global::HockeyApp.Resource.String.hockeyapp_feedback_validate_email_error = global::CashApp.Droid.Resource.String.hockeyapp_feedback_validate_email_error;
+			global::HockeyApp.Resource.String.hockeyapp_feedback_validate_name_error = global::CashApp.Droid.Resource.String.hockeyapp_feedback_validate_name_error;
+			global::HockeyApp.Resource.String.hockeyapp_feedback_validate_subject_error = global::CashApp.Droid.Resource.String.hockeyapp_feedback_validate_subject_error;
+			global::HockeyApp.Resource.String.hockeyapp_feedback_validate_text_error = global::CashApp.Droid.Resource.String.hockeyapp_feedback_validate_text_error;
+			global::HockeyApp.Resource.String.hockeyapp_login_email_hint = global::CashApp.Droid.Resource.String.hockeyapp_login_email_hint;
+			global::HockeyApp.Resource.String.hockeyapp_login_headline_text = global::CashApp.Droid.Resource.String.hockeyapp_login_headline_text;
+			global::HockeyApp.Resource.String.hockeyapp_login_headline_text_email_only = global::CashApp.Droid.Resource.String.hockeyapp_login_headline_text_email_only;
+			global::HockeyApp.Resource.String.hockeyapp_login_login_button_text = global::CashApp.Droid.Resource.String.hockeyapp_login_login_button_text;
+			global::HockeyApp.Resource.String.hockeyapp_login_missing_credentials_toast = global::CashApp.Droid.Resource.String.hockeyapp_login_missing_credentials_toast;
+			global::HockeyApp.Resource.String.hockeyapp_login_password_hint = global::CashApp.Droid.Resource.String.hockeyapp_login_password_hint;
+			global::HockeyApp.Resource.String.hockeyapp_paint_dialog_message = global::CashApp.Droid.Resource.String.hockeyapp_paint_dialog_message;
+			global::HockeyApp.Resource.String.hockeyapp_paint_dialog_negative_button = global::CashApp.Droid.Resource.String.hockeyapp_paint_dialog_negative_button;
+			global::HockeyApp.Resource.String.hockeyapp_paint_dialog_neutral_button = global::CashApp.Droid.Resource.String.hockeyapp_paint_dialog_neutral_button;
+			global::HockeyApp.Resource.String.hockeyapp_paint_dialog_positive_button = global::CashApp.Droid.Resource.String.hockeyapp_paint_dialog_positive_button;
+			global::HockeyApp.Resource.String.hockeyapp_paint_indicator_toast = global::CashApp.Droid.Resource.String.hockeyapp_paint_indicator_toast;
+			global::HockeyApp.Resource.String.hockeyapp_paint_menu_clear = global::CashApp.Droid.Resource.String.hockeyapp_paint_menu_clear;
+			global::HockeyApp.Resource.String.hockeyapp_paint_menu_save = global::CashApp.Droid.Resource.String.hockeyapp_paint_menu_save;
+			global::HockeyApp.Resource.String.hockeyapp_paint_menu_undo = global::CashApp.Droid.Resource.String.hockeyapp_paint_menu_undo;
+			global::HockeyApp.Resource.String.hockeyapp_permission_dialog_negative_button = global::CashApp.Droid.Resource.String.hockeyapp_permission_dialog_negative_button;
+			global::HockeyApp.Resource.String.hockeyapp_permission_dialog_positive_button = global::CashApp.Droid.Resource.String.hockeyapp_permission_dialog_positive_button;
+			global::HockeyApp.Resource.String.hockeyapp_permission_update_message = global::CashApp.Droid.Resource.String.hockeyapp_permission_update_message;
+			global::HockeyApp.Resource.String.hockeyapp_permission_update_title = global::CashApp.Droid.Resource.String.hockeyapp_permission_update_title;
+			global::HockeyApp.Resource.String.hockeyapp_update_button = global::CashApp.Droid.Resource.String.hockeyapp_update_button;
+			global::HockeyApp.Resource.String.hockeyapp_update_dialog_message = global::CashApp.Droid.Resource.String.hockeyapp_update_dialog_message;
+			global::HockeyApp.Resource.String.hockeyapp_update_dialog_negative_button = global::CashApp.Droid.Resource.String.hockeyapp_update_dialog_negative_button;
+			global::HockeyApp.Resource.String.hockeyapp_update_dialog_positive_button = global::CashApp.Droid.Resource.String.hockeyapp_update_dialog_positive_button;
+			global::HockeyApp.Resource.String.hockeyapp_update_dialog_title = global::CashApp.Droid.Resource.String.hockeyapp_update_dialog_title;
+			global::HockeyApp.Resource.String.hockeyapp_update_mandatory_toast = global::CashApp.Droid.Resource.String.hockeyapp_update_mandatory_toast;
+			global::HockeyApp.Resource.String.hockeyapp_update_version_details_label = global::CashApp.Droid.Resource.String.hockeyapp_update_version_details_label;
+			global::HockeyApp.Resource.String.library_name = global::CashApp.Droid.Resource.String.library_name;
+			global::HockeyApp.Resource.Style.HockeyApp_ButtonStyle = global::CashApp.Droid.Resource.Style.HockeyApp_ButtonStyle;
+			global::HockeyApp.Resource.Style.HockeyApp_EditTextStyle = global::CashApp.Droid.Resource.Style.HockeyApp_EditTextStyle;
+			global::HockeyApp.Resource.Style.HockeyApp_SingleLineInputStyle = global::CashApp.Droid.Resource.Style.HockeyApp_SingleLineInputStyle;
 			global::MvvmCross.Binding.Droid.Resource.Attribute.MvxBind = global::CashApp.Droid.Resource.Attribute.MvxBind;
 			global::MvvmCross.Binding.Droid.Resource.Attribute.MvxDropDownItemTemplate = global::CashApp.Droid.Resource.Attribute.MvxDropDownItemTemplate;
 			global::MvvmCross.Binding.Droid.Resource.Attribute.MvxGroupItemTemplate = global::CashApp.Droid.Resource.Attribute.MvxGroupItemTemplate;
@@ -82,6 +239,7 @@ namespace CashApp.Droid
 			global::com.refractored.fab.Resource.Styleable.RecyclerView_reverseLayout = global::CashApp.Droid.Resource.Styleable.RecyclerView_reverseLayout;
 			global::com.refractored.fab.Resource.Styleable.RecyclerView_spanCount = global::CashApp.Droid.Resource.Styleable.RecyclerView_spanCount;
 			global::com.refractored.fab.Resource.Styleable.RecyclerView_stackFromEnd = global::CashApp.Droid.Resource.Styleable.RecyclerView_stackFromEnd;
+			global::Splat.Resource.String.library_name = global::CashApp.Droid.Resource.String.library_name;
 			global::Xamarin.Forms.Platform.Android.Resource.Attribute.actionBarSize = global::CashApp.Droid.Resource.Attribute.actionBarSize;
 		}
 		
@@ -274,6 +432,42 @@ namespace CashApp.Droid
 			
 			// aapt resource value: 0x7f010083
 			public const int activityChooserViewStyle = 2130772099;
+			
+			// aapt resource value: 0x7f01014c
+			public const int ahBarColor = 2130772300;
+			
+			// aapt resource value: 0x7f010154
+			public const int ahBarLength = 2130772308;
+			
+			// aapt resource value: 0x7f010153
+			public const int ahBarWidth = 2130772307;
+			
+			// aapt resource value: 0x7f010151
+			public const int ahCircleColor = 2130772305;
+			
+			// aapt resource value: 0x7f010150
+			public const int ahDelayMillis = 2130772304;
+			
+			// aapt resource value: 0x7f010152
+			public const int ahRadius = 2130772306;
+			
+			// aapt resource value: 0x7f01014d
+			public const int ahRimColor = 2130772301;
+			
+			// aapt resource value: 0x7f01014e
+			public const int ahRimWidth = 2130772302;
+			
+			// aapt resource value: 0x7f01014f
+			public const int ahSpinSpeed = 2130772303;
+			
+			// aapt resource value: 0x7f010149
+			public const int ahText = 2130772297;
+			
+			// aapt resource value: 0x7f01014a
+			public const int ahTextColor = 2130772298;
+			
+			// aapt resource value: 0x7f01014b
+			public const int ahTextSize = 2130772299;
 			
 			// aapt resource value: 0x7f0100a6
 			public const int alertDialogButtonGroupStyle = 2130772134;
@@ -1186,32 +1380,32 @@ namespace CashApp.Droid
 		public partial class Color
 		{
 			
-			// aapt resource value: 0x7f0b004d
-			public const int abc_background_cache_hint_selector_material_dark = 2131427405;
+			// aapt resource value: 0x7f0b0057
+			public const int abc_background_cache_hint_selector_material_dark = 2131427415;
 			
-			// aapt resource value: 0x7f0b004e
-			public const int abc_background_cache_hint_selector_material_light = 2131427406;
+			// aapt resource value: 0x7f0b0058
+			public const int abc_background_cache_hint_selector_material_light = 2131427416;
 			
-			// aapt resource value: 0x7f0b004f
-			public const int abc_color_highlight_material = 2131427407;
+			// aapt resource value: 0x7f0b0059
+			public const int abc_color_highlight_material = 2131427417;
 			
 			// aapt resource value: 0x7f0b0004
 			public const int abc_input_method_navigation_guard = 2131427332;
 			
-			// aapt resource value: 0x7f0b0050
-			public const int abc_primary_text_disable_only_material_dark = 2131427408;
+			// aapt resource value: 0x7f0b005a
+			public const int abc_primary_text_disable_only_material_dark = 2131427418;
 			
-			// aapt resource value: 0x7f0b0051
-			public const int abc_primary_text_disable_only_material_light = 2131427409;
+			// aapt resource value: 0x7f0b005b
+			public const int abc_primary_text_disable_only_material_light = 2131427419;
 			
-			// aapt resource value: 0x7f0b0052
-			public const int abc_primary_text_material_dark = 2131427410;
+			// aapt resource value: 0x7f0b005c
+			public const int abc_primary_text_material_dark = 2131427420;
 			
-			// aapt resource value: 0x7f0b0053
-			public const int abc_primary_text_material_light = 2131427411;
+			// aapt resource value: 0x7f0b005d
+			public const int abc_primary_text_material_light = 2131427421;
 			
-			// aapt resource value: 0x7f0b0054
-			public const int abc_search_url_text = 2131427412;
+			// aapt resource value: 0x7f0b005e
+			public const int abc_search_url_text = 2131427422;
 			
 			// aapt resource value: 0x7f0b0005
 			public const int abc_search_url_text_normal = 2131427333;
@@ -1222,14 +1416,14 @@ namespace CashApp.Droid
 			// aapt resource value: 0x7f0b0007
 			public const int abc_search_url_text_selected = 2131427335;
 			
+			// aapt resource value: 0x7f0b005f
+			public const int abc_secondary_text_material_dark = 2131427423;
+			
+			// aapt resource value: 0x7f0b0060
+			public const int abc_secondary_text_material_light = 2131427424;
+			
 			// aapt resource value: 0x7f0b0055
-			public const int abc_secondary_text_material_dark = 2131427413;
-			
-			// aapt resource value: 0x7f0b0056
-			public const int abc_secondary_text_material_light = 2131427414;
-			
-			// aapt resource value: 0x7f0b004b
-			public const int accent = 2131427403;
+			public const int accent = 2131427413;
 			
 			// aapt resource value: 0x7f0b0008
 			public const int accent_material_dark = 2131427336;
@@ -1348,6 +1542,36 @@ namespace CashApp.Droid
 			// aapt resource value: 0x7f0b001f
 			public const int hint_foreground_material_light = 2131427359;
 			
+			// aapt resource value: 0x7f0b0049
+			public const int hockeyapp_background_header = 2131427401;
+			
+			// aapt resource value: 0x7f0b004a
+			public const int hockeyapp_background_light = 2131427402;
+			
+			// aapt resource value: 0x7f0b004b
+			public const int hockeyapp_background_white = 2131427403;
+			
+			// aapt resource value: 0x7f0b004c
+			public const int hockeyapp_button_background = 2131427404;
+			
+			// aapt resource value: 0x7f0b004d
+			public const int hockeyapp_button_background_pressed = 2131427405;
+			
+			// aapt resource value: 0x7f0b004e
+			public const int hockeyapp_button_background_selected = 2131427406;
+			
+			// aapt resource value: 0x7f0b004f
+			public const int hockeyapp_text_black = 2131427407;
+			
+			// aapt resource value: 0x7f0b0050
+			public const int hockeyapp_text_light = 2131427408;
+			
+			// aapt resource value: 0x7f0b0051
+			public const int hockeyapp_text_normal = 2131427409;
+			
+			// aapt resource value: 0x7f0b0052
+			public const int hockeyapp_text_white = 2131427410;
+			
 			// aapt resource value: 0x7f0b0020
 			public const int material_blue_grey_800 = 2131427360;
 			
@@ -1384,11 +1608,11 @@ namespace CashApp.Droid
 			// aapt resource value: 0x7f0b002b
 			public const int material_grey_900 = 2131427371;
 			
-			// aapt resource value: 0x7f0b0049
-			public const int primary = 2131427401;
+			// aapt resource value: 0x7f0b0053
+			public const int primary = 2131427411;
 			
-			// aapt resource value: 0x7f0b004a
-			public const int primaryDark = 2131427402;
+			// aapt resource value: 0x7f0b0054
+			public const int primaryDark = 2131427412;
 			
 			// aapt resource value: 0x7f0b002c
 			public const int primary_dark_material_dark = 2131427372;
@@ -1438,11 +1662,11 @@ namespace CashApp.Droid
 			// aapt resource value: 0x7f0b003b
 			public const int switch_thumb_disabled_material_light = 2131427387;
 			
-			// aapt resource value: 0x7f0b0057
-			public const int switch_thumb_material_dark = 2131427415;
+			// aapt resource value: 0x7f0b0061
+			public const int switch_thumb_material_dark = 2131427425;
 			
-			// aapt resource value: 0x7f0b0058
-			public const int switch_thumb_material_light = 2131427416;
+			// aapt resource value: 0x7f0b0062
+			public const int switch_thumb_material_light = 2131427426;
 			
 			// aapt resource value: 0x7f0b003c
 			public const int switch_thumb_normal_material_dark = 2131427388;
@@ -1450,8 +1674,8 @@ namespace CashApp.Droid
 			// aapt resource value: 0x7f0b003d
 			public const int switch_thumb_normal_material_light = 2131427389;
 			
-			// aapt resource value: 0x7f0b004c
-			public const int window_background = 2131427404;
+			// aapt resource value: 0x7f0b0056
+			public const int window_background = 2131427414;
 			
 			static Color()
 			{
@@ -2083,265 +2307,280 @@ namespace CashApp.Droid
 			public const int fab_shadow_mini = 2130837583;
 			
 			// aapt resource value: 0x7f020050
-			public const int ic_add = 2130837584;
+			public const int hockeyapp_btn_background = 2130837584;
 			
 			// aapt resource value: 0x7f020051
-			public const int ic_audiotrack = 2130837585;
+			public const int ic_add = 2130837585;
 			
 			// aapt resource value: 0x7f020052
-			public const int ic_audiotrack_light = 2130837586;
+			public const int ic_audiotrack = 2130837586;
 			
 			// aapt resource value: 0x7f020053
-			public const int ic_bluetooth_grey = 2130837587;
+			public const int ic_audiotrack_light = 2130837587;
 			
 			// aapt resource value: 0x7f020054
-			public const int ic_bluetooth_white = 2130837588;
+			public const int ic_bluetooth_grey = 2130837588;
 			
 			// aapt resource value: 0x7f020055
-			public const int ic_cast_dark = 2130837589;
+			public const int ic_bluetooth_white = 2130837589;
 			
 			// aapt resource value: 0x7f020056
-			public const int ic_cast_disabled_light = 2130837590;
+			public const int ic_cast_dark = 2130837590;
 			
 			// aapt resource value: 0x7f020057
-			public const int ic_cast_grey = 2130837591;
+			public const int ic_cast_disabled_light = 2130837591;
 			
 			// aapt resource value: 0x7f020058
-			public const int ic_cast_light = 2130837592;
+			public const int ic_cast_grey = 2130837592;
 			
 			// aapt resource value: 0x7f020059
-			public const int ic_cast_off_light = 2130837593;
+			public const int ic_cast_light = 2130837593;
 			
 			// aapt resource value: 0x7f02005a
-			public const int ic_cast_on_0_light = 2130837594;
+			public const int ic_cast_off_light = 2130837594;
 			
 			// aapt resource value: 0x7f02005b
-			public const int ic_cast_on_1_light = 2130837595;
+			public const int ic_cast_on_0_light = 2130837595;
 			
 			// aapt resource value: 0x7f02005c
-			public const int ic_cast_on_2_light = 2130837596;
+			public const int ic_cast_on_1_light = 2130837596;
 			
 			// aapt resource value: 0x7f02005d
-			public const int ic_cast_on_light = 2130837597;
+			public const int ic_cast_on_2_light = 2130837597;
 			
 			// aapt resource value: 0x7f02005e
-			public const int ic_cast_white = 2130837598;
+			public const int ic_cast_on_light = 2130837598;
 			
 			// aapt resource value: 0x7f02005f
-			public const int ic_close_dark = 2130837599;
+			public const int ic_cast_white = 2130837599;
 			
 			// aapt resource value: 0x7f020060
-			public const int ic_close_light = 2130837600;
+			public const int ic_close_dark = 2130837600;
 			
 			// aapt resource value: 0x7f020061
-			public const int ic_collapse = 2130837601;
+			public const int ic_close_light = 2130837601;
 			
 			// aapt resource value: 0x7f020062
-			public const int ic_collapse_00000 = 2130837602;
+			public const int ic_collapse = 2130837602;
 			
 			// aapt resource value: 0x7f020063
-			public const int ic_collapse_00001 = 2130837603;
+			public const int ic_collapse_00000 = 2130837603;
 			
 			// aapt resource value: 0x7f020064
-			public const int ic_collapse_00002 = 2130837604;
+			public const int ic_collapse_00001 = 2130837604;
 			
 			// aapt resource value: 0x7f020065
-			public const int ic_collapse_00003 = 2130837605;
+			public const int ic_collapse_00002 = 2130837605;
 			
 			// aapt resource value: 0x7f020066
-			public const int ic_collapse_00004 = 2130837606;
+			public const int ic_collapse_00003 = 2130837606;
 			
 			// aapt resource value: 0x7f020067
-			public const int ic_collapse_00005 = 2130837607;
+			public const int ic_collapse_00004 = 2130837607;
 			
 			// aapt resource value: 0x7f020068
-			public const int ic_collapse_00006 = 2130837608;
+			public const int ic_collapse_00005 = 2130837608;
 			
 			// aapt resource value: 0x7f020069
-			public const int ic_collapse_00007 = 2130837609;
+			public const int ic_collapse_00006 = 2130837609;
 			
 			// aapt resource value: 0x7f02006a
-			public const int ic_collapse_00008 = 2130837610;
+			public const int ic_collapse_00007 = 2130837610;
 			
 			// aapt resource value: 0x7f02006b
-			public const int ic_collapse_00009 = 2130837611;
+			public const int ic_collapse_00008 = 2130837611;
 			
 			// aapt resource value: 0x7f02006c
-			public const int ic_collapse_00010 = 2130837612;
+			public const int ic_collapse_00009 = 2130837612;
 			
 			// aapt resource value: 0x7f02006d
-			public const int ic_collapse_00011 = 2130837613;
+			public const int ic_collapse_00010 = 2130837613;
 			
 			// aapt resource value: 0x7f02006e
-			public const int ic_collapse_00012 = 2130837614;
+			public const int ic_collapse_00011 = 2130837614;
 			
 			// aapt resource value: 0x7f02006f
-			public const int ic_collapse_00013 = 2130837615;
+			public const int ic_collapse_00012 = 2130837615;
 			
 			// aapt resource value: 0x7f020070
-			public const int ic_collapse_00014 = 2130837616;
+			public const int ic_collapse_00013 = 2130837616;
 			
 			// aapt resource value: 0x7f020071
-			public const int ic_collapse_00015 = 2130837617;
+			public const int ic_collapse_00014 = 2130837617;
 			
 			// aapt resource value: 0x7f020072
-			public const int ic_expand = 2130837618;
+			public const int ic_collapse_00015 = 2130837618;
 			
 			// aapt resource value: 0x7f020073
-			public const int ic_expand_00000 = 2130837619;
+			public const int ic_errorstatus = 2130837619;
 			
 			// aapt resource value: 0x7f020074
-			public const int ic_expand_00001 = 2130837620;
+			public const int ic_expand = 2130837620;
 			
 			// aapt resource value: 0x7f020075
-			public const int ic_expand_00002 = 2130837621;
+			public const int ic_expand_00000 = 2130837621;
 			
 			// aapt resource value: 0x7f020076
-			public const int ic_expand_00003 = 2130837622;
+			public const int ic_expand_00001 = 2130837622;
 			
 			// aapt resource value: 0x7f020077
-			public const int ic_expand_00004 = 2130837623;
+			public const int ic_expand_00002 = 2130837623;
 			
 			// aapt resource value: 0x7f020078
-			public const int ic_expand_00005 = 2130837624;
+			public const int ic_expand_00003 = 2130837624;
 			
 			// aapt resource value: 0x7f020079
-			public const int ic_expand_00006 = 2130837625;
+			public const int ic_expand_00004 = 2130837625;
 			
 			// aapt resource value: 0x7f02007a
-			public const int ic_expand_00007 = 2130837626;
+			public const int ic_expand_00005 = 2130837626;
 			
 			// aapt resource value: 0x7f02007b
-			public const int ic_expand_00008 = 2130837627;
+			public const int ic_expand_00006 = 2130837627;
 			
 			// aapt resource value: 0x7f02007c
-			public const int ic_expand_00009 = 2130837628;
+			public const int ic_expand_00007 = 2130837628;
 			
 			// aapt resource value: 0x7f02007d
-			public const int ic_expand_00010 = 2130837629;
+			public const int ic_expand_00008 = 2130837629;
 			
 			// aapt resource value: 0x7f02007e
-			public const int ic_expand_00011 = 2130837630;
+			public const int ic_expand_00009 = 2130837630;
 			
 			// aapt resource value: 0x7f02007f
-			public const int ic_expand_00012 = 2130837631;
+			public const int ic_expand_00010 = 2130837631;
 			
 			// aapt resource value: 0x7f020080
-			public const int ic_expand_00013 = 2130837632;
+			public const int ic_expand_00011 = 2130837632;
 			
 			// aapt resource value: 0x7f020081
-			public const int ic_expand_00014 = 2130837633;
+			public const int ic_expand_00012 = 2130837633;
 			
 			// aapt resource value: 0x7f020082
-			public const int ic_expand_00015 = 2130837634;
+			public const int ic_expand_00013 = 2130837634;
 			
 			// aapt resource value: 0x7f020083
-			public const int ic_media_pause = 2130837635;
+			public const int ic_expand_00014 = 2130837635;
 			
 			// aapt resource value: 0x7f020084
-			public const int ic_media_play = 2130837636;
+			public const int ic_expand_00015 = 2130837636;
 			
 			// aapt resource value: 0x7f020085
-			public const int ic_media_route_disabled_mono_dark = 2130837637;
+			public const int ic_media_pause = 2130837637;
 			
 			// aapt resource value: 0x7f020086
-			public const int ic_media_route_off_mono_dark = 2130837638;
+			public const int ic_media_play = 2130837638;
 			
 			// aapt resource value: 0x7f020087
-			public const int ic_media_route_on_0_mono_dark = 2130837639;
+			public const int ic_media_route_disabled_mono_dark = 2130837639;
 			
 			// aapt resource value: 0x7f020088
-			public const int ic_media_route_on_1_mono_dark = 2130837640;
+			public const int ic_media_route_off_mono_dark = 2130837640;
 			
 			// aapt resource value: 0x7f020089
-			public const int ic_media_route_on_2_mono_dark = 2130837641;
+			public const int ic_media_route_on_0_mono_dark = 2130837641;
 			
 			// aapt resource value: 0x7f02008a
-			public const int ic_media_route_on_mono_dark = 2130837642;
+			public const int ic_media_route_on_1_mono_dark = 2130837642;
 			
 			// aapt resource value: 0x7f02008b
-			public const int ic_pause_dark = 2130837643;
+			public const int ic_media_route_on_2_mono_dark = 2130837643;
 			
 			// aapt resource value: 0x7f02008c
-			public const int ic_pause_light = 2130837644;
+			public const int ic_media_route_on_mono_dark = 2130837644;
 			
 			// aapt resource value: 0x7f02008d
-			public const int ic_play_dark = 2130837645;
+			public const int ic_pause_dark = 2130837645;
 			
 			// aapt resource value: 0x7f02008e
-			public const int ic_play_light = 2130837646;
+			public const int ic_pause_light = 2130837646;
 			
 			// aapt resource value: 0x7f02008f
-			public const int ic_speaker_dark = 2130837647;
+			public const int ic_play_dark = 2130837647;
 			
 			// aapt resource value: 0x7f020090
-			public const int ic_speaker_group_dark = 2130837648;
+			public const int ic_play_light = 2130837648;
 			
 			// aapt resource value: 0x7f020091
-			public const int ic_speaker_group_light = 2130837649;
+			public const int ic_speaker_dark = 2130837649;
 			
 			// aapt resource value: 0x7f020092
-			public const int ic_speaker_light = 2130837650;
+			public const int ic_speaker_group_dark = 2130837650;
 			
 			// aapt resource value: 0x7f020093
-			public const int ic_tv_dark = 2130837651;
+			public const int ic_speaker_group_light = 2130837651;
 			
 			// aapt resource value: 0x7f020094
-			public const int ic_tv_light = 2130837652;
+			public const int ic_speaker_light = 2130837652;
 			
 			// aapt resource value: 0x7f020095
-			public const int icon = 2130837653;
+			public const int ic_successstatus = 2130837653;
 			
 			// aapt resource value: 0x7f020096
-			public const int mr_dialog_material_background_dark = 2130837654;
+			public const int ic_tv_dark = 2130837654;
 			
 			// aapt resource value: 0x7f020097
-			public const int mr_dialog_material_background_light = 2130837655;
+			public const int ic_tv_light = 2130837655;
 			
 			// aapt resource value: 0x7f020098
-			public const int mr_ic_audiotrack_light = 2130837656;
+			public const int icon = 2130837656;
 			
 			// aapt resource value: 0x7f020099
-			public const int mr_ic_cast_dark = 2130837657;
+			public const int mr_dialog_material_background_dark = 2130837657;
 			
 			// aapt resource value: 0x7f02009a
-			public const int mr_ic_cast_light = 2130837658;
+			public const int mr_dialog_material_background_light = 2130837658;
 			
 			// aapt resource value: 0x7f02009b
-			public const int mr_ic_close_dark = 2130837659;
+			public const int mr_ic_audiotrack_light = 2130837659;
 			
 			// aapt resource value: 0x7f02009c
-			public const int mr_ic_close_light = 2130837660;
+			public const int mr_ic_cast_dark = 2130837660;
 			
 			// aapt resource value: 0x7f02009d
-			public const int mr_ic_media_route_connecting_mono_dark = 2130837661;
+			public const int mr_ic_cast_light = 2130837661;
 			
 			// aapt resource value: 0x7f02009e
-			public const int mr_ic_media_route_connecting_mono_light = 2130837662;
+			public const int mr_ic_close_dark = 2130837662;
 			
 			// aapt resource value: 0x7f02009f
-			public const int mr_ic_media_route_mono_dark = 2130837663;
+			public const int mr_ic_close_light = 2130837663;
 			
 			// aapt resource value: 0x7f0200a0
-			public const int mr_ic_media_route_mono_light = 2130837664;
+			public const int mr_ic_media_route_connecting_mono_dark = 2130837664;
 			
 			// aapt resource value: 0x7f0200a1
-			public const int mr_ic_pause_dark = 2130837665;
+			public const int mr_ic_media_route_connecting_mono_light = 2130837665;
 			
 			// aapt resource value: 0x7f0200a2
-			public const int mr_ic_pause_light = 2130837666;
+			public const int mr_ic_media_route_mono_dark = 2130837666;
 			
 			// aapt resource value: 0x7f0200a3
-			public const int mr_ic_play_dark = 2130837667;
+			public const int mr_ic_media_route_mono_light = 2130837667;
 			
 			// aapt resource value: 0x7f0200a4
-			public const int mr_ic_play_light = 2130837668;
-			
-			// aapt resource value: 0x7f0200a6
-			public const int notification_template_icon_bg = 2130837670;
+			public const int mr_ic_pause_dark = 2130837668;
 			
 			// aapt resource value: 0x7f0200a5
-			public const int splash = 2130837669;
+			public const int mr_ic_pause_light = 2130837669;
+			
+			// aapt resource value: 0x7f0200a6
+			public const int mr_ic_play_dark = 2130837670;
+			
+			// aapt resource value: 0x7f0200a7
+			public const int mr_ic_play_light = 2130837671;
+			
+			// aapt resource value: 0x7f0200ab
+			public const int notification_template_icon_bg = 2130837675;
+			
+			// aapt resource value: 0x7f0200a8
+			public const int roundedbg = 2130837672;
+			
+			// aapt resource value: 0x7f0200a9
+			public const int roundedbgdark = 2130837673;
+			
+			// aapt resource value: 0x7f0200aa
+			public const int splash = 2130837674;
 			
 			static Drawable()
 			{
@@ -2362,8 +2601,8 @@ namespace CashApp.Droid
 			// aapt resource value: 0x7f07000c
 			public const int MvxBindingTagUnique = 2131165196;
 			
-			// aapt resource value: 0x7f07008d
-			public const int action0 = 2131165325;
+			// aapt resource value: 0x7f0700ad
+			public const int action0 = 2131165357;
 			
 			// aapt resource value: 0x7f07005c
 			public const int action_bar = 2131165276;
@@ -2389,8 +2628,8 @@ namespace CashApp.Droid
 			// aapt resource value: 0x7f07005d
 			public const int action_context_bar = 2131165277;
 			
-			// aapt resource value: 0x7f070091
-			public const int action_divider = 2131165329;
+			// aapt resource value: 0x7f0700b1
+			public const int action_divider = 2131165361;
 			
 			// aapt resource value: 0x7f070003
 			public const int action_menu_divider = 2131165187;
@@ -2425,8 +2664,26 @@ namespace CashApp.Droid
 			// aapt resource value: 0x7f070046
 			public const int buttonPanel = 2131165254;
 			
-			// aapt resource value: 0x7f07008e
-			public const int cancel_action = 2131165326;
+			// aapt resource value: 0x7f070081
+			public const int button_add_response = 2131165313;
+			
+			// aapt resource value: 0x7f07007c
+			public const int button_attachment = 2131165308;
+			
+			// aapt resource value: 0x7f070086
+			public const int button_login = 2131165318;
+			
+			// aapt resource value: 0x7f070082
+			public const int button_refresh = 2131165314;
+			
+			// aapt resource value: 0x7f07007d
+			public const int button_send = 2131165309;
+			
+			// aapt resource value: 0x7f07008a
+			public const int button_update = 2131165322;
+			
+			// aapt resource value: 0x7f0700ae
+			public const int cancel_action = 2131165358;
 			
 			// aapt resource value: 0x7f07002d
 			public const int center = 2131165229;
@@ -2440,8 +2697,8 @@ namespace CashApp.Droid
 			// aapt resource value: 0x7f070054
 			public const int checkbox = 2131165268;
 			
-			// aapt resource value: 0x7f070094
-			public const int chronometer = 2131165332;
+			// aapt resource value: 0x7f0700b4
+			public const int chronometer = 2131165364;
 			
 			// aapt resource value: 0x7f070035
 			public const int clip_horizontal = 2131165237;
@@ -2491,8 +2748,8 @@ namespace CashApp.Droid
 			// aapt resource value: 0x7f07001e
 			public const int end = 2131165214;
 			
-			// aapt resource value: 0x7f070099
-			public const int end_padder = 2131165337;
+			// aapt resource value: 0x7f0700b9
+			public const int end_padder = 2131165369;
 			
 			// aapt resource value: 0x7f070025
 			public const int enterAlways = 2131165221;
@@ -2536,29 +2793,80 @@ namespace CashApp.Droid
 			// aapt resource value: 0x7f070041
 			public const int image = 2131165249;
 			
-			// aapt resource value: 0x7f070098
-			public const int info = 2131165336;
+			// aapt resource value: 0x7f0700b8
+			public const int info = 2131165368;
+			
+			// aapt resource value: 0x7f070078
+			public const int input_email = 2131165304;
+			
+			// aapt resource value: 0x7f07007a
+			public const int input_message = 2131165306;
+			
+			// aapt resource value: 0x7f070077
+			public const int input_name = 2131165303;
+			
+			// aapt resource value: 0x7f070085
+			public const int input_password = 2131165317;
+			
+			// aapt resource value: 0x7f070079
+			public const int input_subject = 2131165305;
 			
 			// aapt resource value: 0x7f070000
 			public const int item_touch_helper_previous_elevation = 2131165184;
 			
+			// aapt resource value: 0x7f07008c
+			public const int label_author = 2131165324;
+			
+			// aapt resource value: 0x7f07008d
+			public const int label_date = 2131165325;
+			
+			// aapt resource value: 0x7f07007f
+			public const int label_last_updated = 2131165311;
+			
+			// aapt resource value: 0x7f070074
+			public const int label_message = 2131165300;
+			
+			// aapt resource value: 0x7f07008e
+			public const int label_text = 2131165326;
+			
+			// aapt resource value: 0x7f070088
+			public const int label_title = 2131165320;
+			
+			// aapt resource value: 0x7f070089
+			public const int label_version = 2131165321;
+			
 			// aapt resource value: 0x7f070031
 			public const int left = 2131165233;
 			
-			// aapt resource value: 0x7f070092
-			public const int line1 = 2131165330;
+			// aapt resource value: 0x7f0700b2
+			public const int line1 = 2131165362;
 			
-			// aapt resource value: 0x7f070096
-			public const int line3 = 2131165334;
+			// aapt resource value: 0x7f0700b6
+			public const int line3 = 2131165366;
 			
 			// aapt resource value: 0x7f07000d
 			public const int listMode = 2131165197;
 			
+			// aapt resource value: 0x7f07008f
+			public const int list_attachments = 2131165327;
+			
+			// aapt resource value: 0x7f070083
+			public const int list_feedback_messages = 2131165315;
+			
 			// aapt resource value: 0x7f070043
 			public const int list_item = 2131165251;
 			
+			// aapt resource value: 0x7f070092
+			public const int loadingImage = 2131165330;
+			
 			// aapt resource value: 0x7f070090
-			public const int media_actions = 2131165328;
+			public const int loadingProgressBar = 2131165328;
+			
+			// aapt resource value: 0x7f070093
+			public const int loadingProgressWheel = 2131165331;
+			
+			// aapt resource value: 0x7f0700b0
+			public const int media_actions = 2131165360;
 			
 			// aapt resource value: 0x7f07001f
 			public const int middle = 2131165215;
@@ -2566,77 +2874,77 @@ namespace CashApp.Droid
 			// aapt resource value: 0x7f070039
 			public const int mini = 2131165241;
 			
-			// aapt resource value: 0x7f07007f
-			public const int mr_art = 2131165311;
+			// aapt resource value: 0x7f07009f
+			public const int mr_art = 2131165343;
 			
-			// aapt resource value: 0x7f070074
-			public const int mr_chooser_list = 2131165300;
+			// aapt resource value: 0x7f070094
+			public const int mr_chooser_list = 2131165332;
 			
-			// aapt resource value: 0x7f070077
-			public const int mr_chooser_route_desc = 2131165303;
+			// aapt resource value: 0x7f070097
+			public const int mr_chooser_route_desc = 2131165335;
 			
-			// aapt resource value: 0x7f070075
-			public const int mr_chooser_route_icon = 2131165301;
+			// aapt resource value: 0x7f070095
+			public const int mr_chooser_route_icon = 2131165333;
 			
-			// aapt resource value: 0x7f070076
-			public const int mr_chooser_route_name = 2131165302;
+			// aapt resource value: 0x7f070096
+			public const int mr_chooser_route_name = 2131165334;
 			
-			// aapt resource value: 0x7f07007c
-			public const int mr_close = 2131165308;
+			// aapt resource value: 0x7f07009c
+			public const int mr_close = 2131165340;
 			
-			// aapt resource value: 0x7f070082
-			public const int mr_control_divider = 2131165314;
+			// aapt resource value: 0x7f0700a2
+			public const int mr_control_divider = 2131165346;
 			
-			// aapt resource value: 0x7f070088
-			public const int mr_control_play_pause = 2131165320;
+			// aapt resource value: 0x7f0700a8
+			public const int mr_control_play_pause = 2131165352;
 			
-			// aapt resource value: 0x7f07008b
-			public const int mr_control_subtitle = 2131165323;
+			// aapt resource value: 0x7f0700ab
+			public const int mr_control_subtitle = 2131165355;
 			
-			// aapt resource value: 0x7f07008a
-			public const int mr_control_title = 2131165322;
+			// aapt resource value: 0x7f0700aa
+			public const int mr_control_title = 2131165354;
 			
-			// aapt resource value: 0x7f070089
-			public const int mr_control_title_container = 2131165321;
+			// aapt resource value: 0x7f0700a9
+			public const int mr_control_title_container = 2131165353;
 			
-			// aapt resource value: 0x7f07007d
-			public const int mr_custom_control = 2131165309;
+			// aapt resource value: 0x7f07009d
+			public const int mr_custom_control = 2131165341;
 			
-			// aapt resource value: 0x7f07007e
-			public const int mr_default_control = 2131165310;
+			// aapt resource value: 0x7f07009e
+			public const int mr_default_control = 2131165342;
 			
-			// aapt resource value: 0x7f070079
-			public const int mr_dialog_area = 2131165305;
+			// aapt resource value: 0x7f070099
+			public const int mr_dialog_area = 2131165337;
 			
-			// aapt resource value: 0x7f070078
-			public const int mr_expandable_area = 2131165304;
+			// aapt resource value: 0x7f070098
+			public const int mr_expandable_area = 2131165336;
 			
-			// aapt resource value: 0x7f07008c
-			public const int mr_group_expand_collapse = 2131165324;
+			// aapt resource value: 0x7f0700ac
+			public const int mr_group_expand_collapse = 2131165356;
 			
-			// aapt resource value: 0x7f070080
-			public const int mr_media_main_control = 2131165312;
+			// aapt resource value: 0x7f0700a0
+			public const int mr_media_main_control = 2131165344;
 			
-			// aapt resource value: 0x7f07007b
-			public const int mr_name = 2131165307;
+			// aapt resource value: 0x7f07009b
+			public const int mr_name = 2131165339;
 			
-			// aapt resource value: 0x7f070081
-			public const int mr_playback_control = 2131165313;
+			// aapt resource value: 0x7f0700a1
+			public const int mr_playback_control = 2131165345;
 			
-			// aapt resource value: 0x7f07007a
-			public const int mr_title_bar = 2131165306;
+			// aapt resource value: 0x7f07009a
+			public const int mr_title_bar = 2131165338;
 			
-			// aapt resource value: 0x7f070083
-			public const int mr_volume_control = 2131165315;
+			// aapt resource value: 0x7f0700a3
+			public const int mr_volume_control = 2131165347;
 			
-			// aapt resource value: 0x7f070084
-			public const int mr_volume_group_list = 2131165316;
+			// aapt resource value: 0x7f0700a4
+			public const int mr_volume_group_list = 2131165348;
 			
-			// aapt resource value: 0x7f070086
-			public const int mr_volume_item_icon = 2131165318;
+			// aapt resource value: 0x7f0700a6
+			public const int mr_volume_item_icon = 2131165350;
 			
-			// aapt resource value: 0x7f070087
-			public const int mr_volume_slider = 2131165319;
+			// aapt resource value: 0x7f0700a7
+			public const int mr_volume_slider = 2131165351;
 			
 			// aapt resource value: 0x7f070018
 			public const int multiply = 2131165208;
@@ -2764,8 +3072,8 @@ namespace CashApp.Droid
 			// aapt resource value: 0x7f070033
 			public const int start = 2131165235;
 			
-			// aapt resource value: 0x7f07008f
-			public const int status_bar_latest_event_content = 2131165327;
+			// aapt resource value: 0x7f0700af
+			public const int status_bar_latest_event_content = 2131165359;
 			
 			// aapt resource value: 0x7f070067
 			public const int submit_area = 2131165287;
@@ -2773,17 +3081,23 @@ namespace CashApp.Droid
 			// aapt resource value: 0x7f07000f
 			public const int tabMode = 2131165199;
 			
-			// aapt resource value: 0x7f070097
-			public const int text = 2131165335;
+			// aapt resource value: 0x7f0700b7
+			public const int text = 2131165367;
 			
-			// aapt resource value: 0x7f070095
-			public const int text2 = 2131165333;
+			// aapt resource value: 0x7f0700b5
+			public const int text2 = 2131165365;
 			
 			// aapt resource value: 0x7f07004f
 			public const int textSpacerNoButtons = 2131165263;
 			
-			// aapt resource value: 0x7f070093
-			public const int time = 2131165331;
+			// aapt resource value: 0x7f070091
+			public const int textViewStatus = 2131165329;
+			
+			// aapt resource value: 0x7f070084
+			public const int text_headline = 2131165316;
+			
+			// aapt resource value: 0x7f0700b3
+			public const int time = 2131165363;
 			
 			// aapt resource value: 0x7f070045
 			public const int title = 2131165253;
@@ -2791,8 +3105,8 @@ namespace CashApp.Droid
 			// aapt resource value: 0x7f07004a
 			public const int title_template = 2131165258;
 			
-			// aapt resource value: 0x7f07009a
-			public const int toolbar = 2131165338;
+			// aapt resource value: 0x7f0700ba
+			public const int toolbar = 2131165370;
 			
 			// aapt resource value: 0x7f070034
 			public const int top = 2131165236;
@@ -2809,17 +3123,38 @@ namespace CashApp.Droid
 			// aapt resource value: 0x7f070016
 			public const int useLogo = 2131165206;
 			
+			// aapt resource value: 0x7f070087
+			public const int view_header = 2131165319;
+			
 			// aapt resource value: 0x7f07000a
 			public const int view_offset_helper = 2131165194;
 			
-			// aapt resource value: 0x7f070085
-			public const int volume_item_container = 2131165317;
+			// aapt resource value: 0x7f0700a5
+			public const int volume_item_container = 2131165349;
+			
+			// aapt resource value: 0x7f07008b
+			public const int web_update_details = 2131165323;
 			
 			// aapt resource value: 0x7f070024
 			public const int withText = 2131165220;
 			
 			// aapt resource value: 0x7f070017
 			public const int wrap_content = 2131165207;
+			
+			// aapt resource value: 0x7f07007b
+			public const int wrapper_attachments = 2131165307;
+			
+			// aapt resource value: 0x7f070076
+			public const int wrapper_feedback = 2131165302;
+			
+			// aapt resource value: 0x7f070075
+			public const int wrapper_feedback_scroll = 2131165301;
+			
+			// aapt resource value: 0x7f07007e
+			public const int wrapper_messages = 2131165310;
+			
+			// aapt resource value: 0x7f070080
+			public const int wrapper_messages_buttons = 2131165312;
 			
 			static Id()
 			{
@@ -3008,67 +3343,94 @@ namespace CashApp.Droid
 			public const int design_navigation_menu_item = 2130903076;
 			
 			// aapt resource value: 0x7f030025
-			public const int MainView = 2130903077;
+			public const int hockeyapp_activity_expiry_info = 2130903077;
 			
 			// aapt resource value: 0x7f030026
-			public const int mr_chooser_dialog = 2130903078;
+			public const int hockeyapp_activity_feedback = 2130903078;
 			
 			// aapt resource value: 0x7f030027
-			public const int mr_chooser_list_item = 2130903079;
+			public const int hockeyapp_activity_login = 2130903079;
 			
 			// aapt resource value: 0x7f030028
-			public const int mr_controller_material_dialog_b = 2130903080;
+			public const int hockeyapp_activity_update = 2130903080;
 			
 			// aapt resource value: 0x7f030029
-			public const int mr_controller_volume_item = 2130903081;
+			public const int hockeyapp_fragment_update = 2130903081;
 			
 			// aapt resource value: 0x7f03002a
-			public const int mr_playback_control = 2130903082;
+			public const int hockeyapp_view_feedback_message = 2130903082;
 			
 			// aapt resource value: 0x7f03002b
-			public const int mr_volume_control = 2130903083;
+			public const int loading = 2130903083;
 			
 			// aapt resource value: 0x7f03002c
-			public const int notification_media_action = 2130903084;
+			public const int loadingimage = 2130903084;
 			
 			// aapt resource value: 0x7f03002d
-			public const int notification_media_cancel_action = 2130903085;
+			public const int loadingprogress = 2130903085;
 			
 			// aapt resource value: 0x7f03002e
-			public const int notification_template_big_media = 2130903086;
+			public const int MainView = 2130903086;
 			
 			// aapt resource value: 0x7f03002f
-			public const int notification_template_big_media_narrow = 2130903087;
+			public const int mr_chooser_dialog = 2130903087;
 			
 			// aapt resource value: 0x7f030030
-			public const int notification_template_lines = 2130903088;
+			public const int mr_chooser_list_item = 2130903088;
 			
 			// aapt resource value: 0x7f030031
-			public const int notification_template_media = 2130903089;
+			public const int mr_controller_material_dialog_b = 2130903089;
 			
 			// aapt resource value: 0x7f030032
-			public const int notification_template_part_chronometer = 2130903090;
+			public const int mr_controller_volume_item = 2130903090;
 			
 			// aapt resource value: 0x7f030033
-			public const int notification_template_part_time = 2130903091;
+			public const int mr_playback_control = 2130903091;
 			
 			// aapt resource value: 0x7f030034
-			public const int select_dialog_item_material = 2130903092;
+			public const int mr_volume_control = 2130903092;
 			
 			// aapt resource value: 0x7f030035
-			public const int select_dialog_multichoice_material = 2130903093;
+			public const int notification_media_action = 2130903093;
 			
 			// aapt resource value: 0x7f030036
-			public const int select_dialog_singlechoice_material = 2130903094;
+			public const int notification_media_cancel_action = 2130903094;
 			
 			// aapt resource value: 0x7f030037
-			public const int SplashScreen = 2130903095;
+			public const int notification_template_big_media = 2130903095;
 			
 			// aapt resource value: 0x7f030038
-			public const int support_simple_spinner_dropdown_item = 2130903096;
+			public const int notification_template_big_media_narrow = 2130903096;
 			
 			// aapt resource value: 0x7f030039
-			public const int toolbar = 2130903097;
+			public const int notification_template_lines = 2130903097;
+			
+			// aapt resource value: 0x7f03003a
+			public const int notification_template_media = 2130903098;
+			
+			// aapt resource value: 0x7f03003b
+			public const int notification_template_part_chronometer = 2130903099;
+			
+			// aapt resource value: 0x7f03003c
+			public const int notification_template_part_time = 2130903100;
+			
+			// aapt resource value: 0x7f03003d
+			public const int select_dialog_item_material = 2130903101;
+			
+			// aapt resource value: 0x7f03003e
+			public const int select_dialog_multichoice_material = 2130903102;
+			
+			// aapt resource value: 0x7f03003f
+			public const int select_dialog_singlechoice_material = 2130903103;
+			
+			// aapt resource value: 0x7f030040
+			public const int SplashScreen = 2130903104;
+			
+			// aapt resource value: 0x7f030041
+			public const int support_simple_spinner_dropdown_item = 2130903105;
+			
+			// aapt resource value: 0x7f030042
+			public const int toolbar = 2130903106;
 			
 			static Layout()
 			{
@@ -3148,6 +3510,222 @@ namespace CashApp.Droid
 			
 			// aapt resource value: 0x7f080025
 			public const int character_counter_pattern = 2131230757;
+			
+			// aapt resource value: 0x7f080027
+			public const int hockeyapp_crash_dialog_app_name_fallback = 2131230759;
+			
+			// aapt resource value: 0x7f080028
+			public const int hockeyapp_crash_dialog_message = 2131230760;
+			
+			// aapt resource value: 0x7f080029
+			public const int hockeyapp_crash_dialog_negative_button = 2131230761;
+			
+			// aapt resource value: 0x7f08002a
+			public const int hockeyapp_crash_dialog_neutral_button = 2131230762;
+			
+			// aapt resource value: 0x7f08002b
+			public const int hockeyapp_crash_dialog_positive_button = 2131230763;
+			
+			// aapt resource value: 0x7f08002c
+			public const int hockeyapp_crash_dialog_title = 2131230764;
+			
+			// aapt resource value: 0x7f08002d
+			public const int hockeyapp_dialog_error_message = 2131230765;
+			
+			// aapt resource value: 0x7f08002e
+			public const int hockeyapp_dialog_error_title = 2131230766;
+			
+			// aapt resource value: 0x7f08002f
+			public const int hockeyapp_dialog_negative_button = 2131230767;
+			
+			// aapt resource value: 0x7f080030
+			public const int hockeyapp_dialog_positive_button = 2131230768;
+			
+			// aapt resource value: 0x7f080031
+			public const int hockeyapp_download_failed_dialog_message = 2131230769;
+			
+			// aapt resource value: 0x7f080032
+			public const int hockeyapp_download_failed_dialog_negative_button = 2131230770;
+			
+			// aapt resource value: 0x7f080033
+			public const int hockeyapp_download_failed_dialog_positive_button = 2131230771;
+			
+			// aapt resource value: 0x7f080034
+			public const int hockeyapp_download_failed_dialog_title = 2131230772;
+			
+			// aapt resource value: 0x7f080035
+			public const int hockeyapp_error_no_network_message = 2131230773;
+			
+			// aapt resource value: 0x7f080036
+			public const int hockeyapp_expiry_info_text = 2131230774;
+			
+			// aapt resource value: 0x7f080037
+			public const int hockeyapp_expiry_info_title = 2131230775;
+			
+			// aapt resource value: 0x7f080038
+			public const int hockeyapp_feedback_attach_file = 2131230776;
+			
+			// aapt resource value: 0x7f080039
+			public const int hockeyapp_feedback_attach_picture = 2131230777;
+			
+			// aapt resource value: 0x7f08003a
+			public const int hockeyapp_feedback_attachment_button_text = 2131230778;
+			
+			// aapt resource value: 0x7f08003b
+			public const int hockeyapp_feedback_attachment_error = 2131230779;
+			
+			// aapt resource value: 0x7f08003c
+			public const int hockeyapp_feedback_attachment_loading = 2131230780;
+			
+			// aapt resource value: 0x7f08003d
+			public const int hockeyapp_feedback_email_hint = 2131230781;
+			
+			// aapt resource value: 0x7f08003e
+			public const int hockeyapp_feedback_failed_text = 2131230782;
+			
+			// aapt resource value: 0x7f08003f
+			public const int hockeyapp_feedback_failed_title = 2131230783;
+			
+			// aapt resource value: 0x7f080040
+			public const int hockeyapp_feedback_fetching_feedback_text = 2131230784;
+			
+			// aapt resource value: 0x7f080041
+			public const int hockeyapp_feedback_generic_error = 2131230785;
+			
+			// aapt resource value: 0x7f080042
+			public const int hockeyapp_feedback_last_updated_text = 2131230786;
+			
+			// aapt resource value: 0x7f080043
+			public const int hockeyapp_feedback_max_attachments_allowed = 2131230787;
+			
+			// aapt resource value: 0x7f080044
+			public const int hockeyapp_feedback_message_hint = 2131230788;
+			
+			// aapt resource value: 0x7f080045
+			public const int hockeyapp_feedback_name_hint = 2131230789;
+			
+			// aapt resource value: 0x7f080046
+			public const int hockeyapp_feedback_refresh_button_text = 2131230790;
+			
+			// aapt resource value: 0x7f080047
+			public const int hockeyapp_feedback_response_button_text = 2131230791;
+			
+			// aapt resource value: 0x7f080048
+			public const int hockeyapp_feedback_select_file = 2131230792;
+			
+			// aapt resource value: 0x7f080049
+			public const int hockeyapp_feedback_select_picture = 2131230793;
+			
+			// aapt resource value: 0x7f08004a
+			public const int hockeyapp_feedback_send_button_text = 2131230794;
+			
+			// aapt resource value: 0x7f08004b
+			public const int hockeyapp_feedback_send_generic_error = 2131230795;
+			
+			// aapt resource value: 0x7f08004c
+			public const int hockeyapp_feedback_send_network_error = 2131230796;
+			
+			// aapt resource value: 0x7f08004d
+			public const int hockeyapp_feedback_sending_feedback_text = 2131230797;
+			
+			// aapt resource value: 0x7f08004e
+			public const int hockeyapp_feedback_subject_hint = 2131230798;
+			
+			// aapt resource value: 0x7f08004f
+			public const int hockeyapp_feedback_title = 2131230799;
+			
+			// aapt resource value: 0x7f080050
+			public const int hockeyapp_feedback_validate_email_empty = 2131230800;
+			
+			// aapt resource value: 0x7f080051
+			public const int hockeyapp_feedback_validate_email_error = 2131230801;
+			
+			// aapt resource value: 0x7f080052
+			public const int hockeyapp_feedback_validate_name_error = 2131230802;
+			
+			// aapt resource value: 0x7f080053
+			public const int hockeyapp_feedback_validate_subject_error = 2131230803;
+			
+			// aapt resource value: 0x7f080054
+			public const int hockeyapp_feedback_validate_text_error = 2131230804;
+			
+			// aapt resource value: 0x7f080055
+			public const int hockeyapp_login_email_hint = 2131230805;
+			
+			// aapt resource value: 0x7f080056
+			public const int hockeyapp_login_headline_text = 2131230806;
+			
+			// aapt resource value: 0x7f080057
+			public const int hockeyapp_login_headline_text_email_only = 2131230807;
+			
+			// aapt resource value: 0x7f080058
+			public const int hockeyapp_login_login_button_text = 2131230808;
+			
+			// aapt resource value: 0x7f080059
+			public const int hockeyapp_login_missing_credentials_toast = 2131230809;
+			
+			// aapt resource value: 0x7f08005a
+			public const int hockeyapp_login_password_hint = 2131230810;
+			
+			// aapt resource value: 0x7f08005b
+			public const int hockeyapp_paint_dialog_message = 2131230811;
+			
+			// aapt resource value: 0x7f08005c
+			public const int hockeyapp_paint_dialog_negative_button = 2131230812;
+			
+			// aapt resource value: 0x7f08005d
+			public const int hockeyapp_paint_dialog_neutral_button = 2131230813;
+			
+			// aapt resource value: 0x7f08005e
+			public const int hockeyapp_paint_dialog_positive_button = 2131230814;
+			
+			// aapt resource value: 0x7f08005f
+			public const int hockeyapp_paint_indicator_toast = 2131230815;
+			
+			// aapt resource value: 0x7f080060
+			public const int hockeyapp_paint_menu_clear = 2131230816;
+			
+			// aapt resource value: 0x7f080061
+			public const int hockeyapp_paint_menu_save = 2131230817;
+			
+			// aapt resource value: 0x7f080062
+			public const int hockeyapp_paint_menu_undo = 2131230818;
+			
+			// aapt resource value: 0x7f080063
+			public const int hockeyapp_permission_dialog_negative_button = 2131230819;
+			
+			// aapt resource value: 0x7f080064
+			public const int hockeyapp_permission_dialog_positive_button = 2131230820;
+			
+			// aapt resource value: 0x7f080065
+			public const int hockeyapp_permission_update_message = 2131230821;
+			
+			// aapt resource value: 0x7f080066
+			public const int hockeyapp_permission_update_title = 2131230822;
+			
+			// aapt resource value: 0x7f080067
+			public const int hockeyapp_update_button = 2131230823;
+			
+			// aapt resource value: 0x7f080068
+			public const int hockeyapp_update_dialog_message = 2131230824;
+			
+			// aapt resource value: 0x7f080069
+			public const int hockeyapp_update_dialog_negative_button = 2131230825;
+			
+			// aapt resource value: 0x7f08006a
+			public const int hockeyapp_update_dialog_positive_button = 2131230826;
+			
+			// aapt resource value: 0x7f08006b
+			public const int hockeyapp_update_dialog_title = 2131230827;
+			
+			// aapt resource value: 0x7f08006c
+			public const int hockeyapp_update_mandatory_toast = 2131230828;
+			
+			// aapt resource value: 0x7f08006d
+			public const int hockeyapp_update_version_details_label = 2131230829;
+			
+			// aapt resource value: 0x7f080026
+			public const int library_name = 2131230758;
 			
 			// aapt resource value: 0x7f080000
 			public const int mr_button_content_description = 2131230720;
@@ -3666,11 +4244,20 @@ namespace CashApp.Droid
 			// aapt resource value: 0x7f0a001a
 			public const int CardView_Light = 2131361818;
 			
+			// aapt resource value: 0x7f0a0172
+			public const int HockeyApp_ButtonStyle = 2131362162;
+			
 			// aapt resource value: 0x7f0a0173
-			public const int MyTheme = 2131362163;
+			public const int HockeyApp_EditTextStyle = 2131362163;
 			
 			// aapt resource value: 0x7f0a0174
-			public const int MyTheme_Base = 2131362164;
+			public const int HockeyApp_SingleLineInputStyle = 2131362164;
+			
+			// aapt resource value: 0x7f0a0176
+			public const int MyTheme = 2131362166;
+			
+			// aapt resource value: 0x7f0a0177
+			public const int MyTheme_Base = 2131362167;
 			
 			// aapt resource value: 0x7f0a0032
 			public const int Platform_AppCompat = 2131361842;
@@ -4014,8 +4601,8 @@ namespace CashApp.Droid
 			// aapt resource value: 0x7f0a0003
 			public const int Theme_MediaRouter_LightControlPanel = 2131361795;
 			
-			// aapt resource value: 0x7f0a0172
-			public const int Theme_Splash = 2131362162;
+			// aapt resource value: 0x7f0a0175
+			public const int Theme_Splash = 2131362165;
 			
 			// aapt resource value: 0x7f0a010e
 			public const int ThemeOverlay_AppCompat = 2131362062;
@@ -5631,6 +6218,56 @@ namespace CashApp.Droid
 			
 			// aapt resource value: 0
 			public const int PopupWindowBackgroundState_state_above_anchor = 0;
+			
+			public static int[] ProgressWheel = new int[] {
+					2130772297,
+					2130772298,
+					2130772299,
+					2130772300,
+					2130772301,
+					2130772302,
+					2130772303,
+					2130772304,
+					2130772305,
+					2130772306,
+					2130772307,
+					2130772308};
+			
+			// aapt resource value: 3
+			public const int ProgressWheel_ahBarColor = 3;
+			
+			// aapt resource value: 11
+			public const int ProgressWheel_ahBarLength = 11;
+			
+			// aapt resource value: 10
+			public const int ProgressWheel_ahBarWidth = 10;
+			
+			// aapt resource value: 8
+			public const int ProgressWheel_ahCircleColor = 8;
+			
+			// aapt resource value: 7
+			public const int ProgressWheel_ahDelayMillis = 7;
+			
+			// aapt resource value: 9
+			public const int ProgressWheel_ahRadius = 9;
+			
+			// aapt resource value: 4
+			public const int ProgressWheel_ahRimColor = 4;
+			
+			// aapt resource value: 5
+			public const int ProgressWheel_ahRimWidth = 5;
+			
+			// aapt resource value: 6
+			public const int ProgressWheel_ahSpinSpeed = 6;
+			
+			// aapt resource value: 0
+			public const int ProgressWheel_ahText = 0;
+			
+			// aapt resource value: 1
+			public const int ProgressWheel_ahTextColor = 1;
+			
+			// aapt resource value: 2
+			public const int ProgressWheel_ahTextSize = 2;
 			
 			public static int[] RecyclerView = new int[] {
 					16842948,

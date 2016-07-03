@@ -25,22 +25,11 @@ namespace CashApp.Views
             var layout = new AbsoluteLayout();
             layout.HorizontalOptions = LayoutOptions.FillAndExpand;
             layout.VerticalOptions = LayoutOptions.FillAndExpand;
-            layout.Children.Add(GetActivityIndicator());
             layout.Children.Add(GetScrollView());
 
             Content = layout;
         }
-
-        private ActivityIndicator GetActivityIndicator()
-        {
-            var indicator = new ActivityIndicator();
-            indicator.SetBinding(ActivityIndicator.IsRunningProperty, new Binding("IsBusy"));
-            indicator.SetBinding(ActivityIndicator.IsVisibleProperty, new Binding("IsBusy"));
-            AbsoluteLayout.SetLayoutBounds(indicator, new Rectangle(0.5, 0.5, -1, -1));
-            AbsoluteLayout.SetLayoutFlags(indicator, AbsoluteLayoutFlags.PositionProportional);
-            return indicator;
-        }
-
+        
         private ScrollView GetScrollView()
         {
             var scroll = new ScrollView();

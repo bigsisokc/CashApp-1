@@ -1,4 +1,5 @@
-﻿using CashApp.Message;
+﻿using Acr.UserDialogs;
+using CashApp.Message;
 using CashApp.Models;
 using CashApp.Services;
 using MvvmCross.Core.ViewModels;
@@ -42,6 +43,9 @@ namespace CashApp.ViewModels
 
         private async Task RefreshData()
         {
+            var loading = UserDialogs.Instance.Loading("Loading data");
+
+            loading.Show();
             var result = await service.GetAllData();
             
             if (result != null)
@@ -58,6 +62,7 @@ namespace CashApp.ViewModels
                 Items = new ObservableCollection<Transaction>();
                 ItemGrouped = new ObservableCollection<Grouping>();
             }
+            loading.Hide();
         }
 
         private ObservableCollection<Transaction> items;
@@ -117,7 +122,7 @@ namespace CashApp.ViewModels
         {
             get
             {
-                return new MvxCommand(() => ShowViewModel<ItemViewModel>());
+                return new MvxCommand(() => ShowViewModel<ItemViewModel>(), () => { return !IsBusy; });
             }
         }
 
@@ -135,12 +140,10 @@ namespace CashApp.ViewModels
                 return;
 
             IsBusy = true;
-            LoadItemCommand.RaiseCanExecuteChanged();
 
             await RefreshData();
 
             IsBusy = false;
-            LoadItemCommand.RaiseCanExecuteChanged();
         }
 
         public void Edit()
