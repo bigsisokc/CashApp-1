@@ -240,6 +240,7 @@ namespace CashApp.Droid
 			global::com.refractored.fab.Resource.Styleable.RecyclerView_spanCount = global::CashApp.Droid.Resource.Styleable.RecyclerView_spanCount;
 			global::com.refractored.fab.Resource.Styleable.RecyclerView_stackFromEnd = global::CashApp.Droid.Resource.Styleable.RecyclerView_stackFromEnd;
 			global::Splat.Resource.String.library_name = global::CashApp.Droid.Resource.String.library_name;
+			global::Xamarin.Forms.Platform.Android.Resource.Attribute.actionBarSize = global::CashApp.Droid.Resource.Attribute.actionBarSize;
 		}
 		
 		public partial class Animation
