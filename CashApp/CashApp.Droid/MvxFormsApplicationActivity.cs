@@ -25,7 +25,7 @@ namespace CashApp.Droid
         protected override void OnCreate(Bundle bundle)
         {
             base.OnCreate(bundle);
-
+            
             CrashManager.Register(this, "21d237e64379458aa960e50d0bc15cb0");
             UserDialogs.Init(this);
 

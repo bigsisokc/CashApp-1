@@ -57,10 +57,10 @@ namespace CashApp.ViewModels
                     Description = item.Description;
                     TransDate = item.TransDate;
                     Amount = item.Amount;
-                    Currency = item.Currency;
+                    Currency = item.Currency;                    
                 }
-                loading.Hide();
                 IsBusy = false;
+                loading.Hide();
             }
         }
 
@@ -83,6 +83,7 @@ namespace CashApp.ViewModels
             {
                 description = value;
                 RaisePropertyChanged(() => Description);
+                RaisePropertyChanged(() => SaveItemCommand);
             }
         }
 
@@ -139,6 +140,7 @@ namespace CashApp.ViewModels
                 }
                 amount = value;
                 RaisePropertyChanged(() => Amount);
+                RaisePropertyChanged(() => SaveItemCommand);
             }
         }
 
@@ -204,7 +206,7 @@ namespace CashApp.ViewModels
         {
             get
             {
-                return new MvxCommand(async () => await SaveItem(), () => !IsBusy);
+                return new MvxCommand(async () => await SaveItem(), CanSaveItem);
             }
         }
         public MvxCommand DeleteItemCommand
