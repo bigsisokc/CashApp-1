@@ -10,11 +10,12 @@ namespace CashApp
         public App()
         {
             FreshIOC.Container.Register<IRestService, RestService>();
-
-            //MainPage = new NavigationPage(new TransactionPage());
-            var page = FreshPageModelResolver.ResolvePageModel<TransactionPageModel>();
-            var basicNavContainer = new FreshNavigationContainer(page);
-            MainPage = basicNavContainer;
+            
+            var masterDetailNav = new FreshMasterDetailNavigationContainer();
+            masterDetailNav.Init("Menu", "Menu.png");
+            masterDetailNav.AddPage<TransactionPageModel>("Transactions", null);
+            masterDetailNav.AddPage<AboutPageModel>("About", null);
+            MainPage = masterDetailNav;
         }
         
     }

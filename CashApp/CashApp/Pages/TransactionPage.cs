@@ -18,7 +18,7 @@ namespace CashApp.Pages
 
         public TransactionPage()
         {
-            Title = "My Cash";
+            Title = "Transactions";
 
             var labelStyle = new Style(typeof(Label))
             {
