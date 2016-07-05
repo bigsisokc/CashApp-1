@@ -12,7 +12,6 @@ namespace CashApp.Droid
 {
     [Activity(Label = "My Cash"
         , Theme = "@style/MyTheme"
-        , Icon = "@android:color/transparent"
         , MainLauncher = true
         , ScreenOrientation = ScreenOrientation.Portrait
         , ConfigurationChanges = ConfigChanges.ScreenSize | ConfigChanges.Orientation)]
