@@ -1,4 +1,4 @@
-﻿namespace CashApp.Views
+﻿namespace CashApp.Pages
 {
     public enum FloatingActionButtonSize
     {

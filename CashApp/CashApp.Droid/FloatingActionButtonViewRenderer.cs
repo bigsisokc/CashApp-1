@@ -1,7 +1,7 @@
 using Android.Views;
 using Android.Widget;
 using CashApp.Droid;
-using CashApp.Views;
+using CashApp.Pages;
 using com.refractored.fab;
 using System;
 using System.IO;

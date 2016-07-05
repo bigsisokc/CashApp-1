@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 using Xamarin.Forms;
 using XLabs.Forms.Controls;
 
-namespace CashApp.Views
+namespace CashApp.Pages
 {
     public class TransactionPage : ContentPage
     {
@@ -60,6 +60,7 @@ namespace CashApp.Views
             view.HasUnevenRows = true;
             view.IsGroupingEnabled = true;
             view.IsPullToRefreshEnabled = true;
+            view.SetBinding(ListView.IsRefreshingProperty, new Binding("IsBusy"));
             view.SetBinding(ListView.ItemsSourceProperty, new Binding("ItemGrouped", BindingMode.TwoWay));
             view.SetBinding(ListView.RefreshCommandProperty, new Binding("LoadItemCommand"));
             view.SetBinding(ListView.SelectedItemProperty, new Binding("SelectedItem", BindingMode.TwoWay));

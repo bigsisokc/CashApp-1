@@ -1,4 +1,4 @@
-﻿using CashApp.Views;
+﻿using CashApp.Pages;
 using System.Collections.Generic;
 
 namespace CashApp.Models

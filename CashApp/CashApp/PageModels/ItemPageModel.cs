@@ -156,7 +156,7 @@ namespace CashApp.PageModels
             IsBusy = false;
             loading.Hide();
 
-            await CoreMethods.PopPageModel(result);
+            await CoreMethods.PopPageModel(data: result);
         }
 
         public async Task DeleteItem()
@@ -172,7 +172,7 @@ namespace CashApp.PageModels
                 loading.Hide();
             }
 
-            await CoreMethods.PopPageModel(true);
+            await CoreMethods.PopPageModel(data: true);
         }
 
         private bool isBusy;

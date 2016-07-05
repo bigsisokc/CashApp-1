@@ -2,7 +2,7 @@
 using System;
 using Xamarin.Forms;
 
-namespace CashApp.Views
+namespace CashApp.Pages
 {
     public class ItemPage : ContentPage
     {

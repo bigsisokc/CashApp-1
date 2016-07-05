@@ -1,6 +1,6 @@
 ﻿using Xamarin.Forms;
 
-namespace CashApp.Views
+namespace CashApp.Pages
 {
     public class MenuPage : ContentPage
     {

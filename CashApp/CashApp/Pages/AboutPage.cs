@@ -1,7 +1,7 @@
 ﻿using CashApp.Models;
 using Xamarin.Forms;
 
-namespace CashApp.Views
+namespace CashApp.Pages
 {
     public class AboutPage : ContentPage
     {
