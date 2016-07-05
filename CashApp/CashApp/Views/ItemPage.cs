@@ -9,7 +9,6 @@ namespace CashApp.Views
         public ItemPage()
         {
             Title = "Add / Edit Item";
-            Padding = new Thickness(5, 0, 5, 0);
 
             var labelStyle = new Style(typeof(Label))
             {
@@ -35,7 +34,6 @@ namespace CashApp.Views
             var scroll = new ScrollView();
             AbsoluteLayout.SetLayoutBounds(scroll, new Rectangle(0, 0, 1, 1));
             AbsoluteLayout.SetLayoutFlags(scroll, AbsoluteLayoutFlags.All);
-            scroll.SetBinding(ScrollView.IsVisibleProperty, new Binding("IsBusy", converter: new BooleanNegationConverter()));
 
             var stack = GetStackView();
             scroll.Content = stack;

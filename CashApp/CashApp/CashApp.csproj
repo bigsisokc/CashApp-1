@@ -41,6 +41,11 @@
     <Compile Include="Converters\DecimalConverter.cs" />
     <Compile Include="Converters\DateConverter.cs" />
     <Compile Include="Converters\CurrencyConverter.cs" />
+    <Compile Include="Models\IIInfoService.cs" />
+    <Compile Include="Models\MenuItem.cs" />
+    <Compile Include="Models\MenuListData.cs" />
+    <Compile Include="ViewModels\TransactionViewModel.cs" />
+    <Compile Include="Views\AboutPage.cs" />
     <Compile Include="Views\ItemPage.cs" />
     <Compile Include="Models\GroupingAmount.cs" />
     <Compile Include="Models\GroupingHeader.cs" />
@@ -56,6 +61,9 @@
     <Compile Include="ViewModels\MainViewModel.cs" />
     <Compile Include="Views\FloatingActionButtonSize.cs" />
     <Compile Include="Views\FloatingActionButtonView.cs" />
+    <Compile Include="Views\MenuListView.cs" />
+    <Compile Include="Views\MenuPage.cs" />
+    <Compile Include="Views\TransactionPage.cs" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="Acr.UserDialogs, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">

@@ -18,7 +18,7 @@ namespace CashApp
             Mvx.RegisterSingleton<IMvxMessenger>(new MvxMessengerHub());
             Mvx.RegisterSingleton(() => UserDialogs.Instance);
             Mvx.RegisterSingleton<IRestService>(new RestService());
-            RegisterAppStart<ViewModels.MainViewModel>();
+            RegisterAppStart<ViewModels.TransactionViewModel>();
         }
     }
 }

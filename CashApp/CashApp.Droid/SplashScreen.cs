@@ -1,5 +1,7 @@
+using Acr.UserDialogs;
 using Android.App;
 using Android.Content.PM;
+using HockeyApp.Android;
 using MvvmCross.Droid.Views;
 using Xamarin.Forms;
 
@@ -38,7 +40,38 @@ namespace CashApp.Droid
                 }
             };
 
+
             base.OnCreate(bundle);
+
+            CrashManager.Register(this, "21d237e64379458aa960e50d0bc15cb0");
+            UserDialogs.Init(this);
+
+            CheckForUpdates();
+        }
+
+        void CheckForUpdates()
+        {
+            // Remove this for store builds!
+            UpdateManager.Register(this, "21d237e64379458aa960e50d0bc15cb0");
+        }
+
+        void UnregisterManagers()
+        {
+            UpdateManager.Unregister();
+        }
+
+        protected override void OnPause()
+        {
+            base.OnPause();
+
+            UnregisterManagers();
+        }
+
+        protected override void OnDestroy()
+        {
+            base.OnDestroy();
+
+            UnregisterManagers();
         }
     }
 }

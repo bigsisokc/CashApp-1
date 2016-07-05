@@ -6,6 +6,7 @@ using CashApp.Droid;
 using HockeyApp.Android;
 using MvvmCross.Core.ViewModels;
 using MvvmCross.Core.Views;
+using MvvmCross.Droid.Views;
 using MvvmCross.Forms.Presenter.Core;
 using MvvmCross.Forms.Presenter.Droid;
 using MvvmCross.Platform;
@@ -37,6 +38,9 @@ namespace CashApp.Droid
             presenter.MvxFormsApp = mvxFormsApp;
 
             Mvx.Resolve<IMvxAppStart>().Start();
+
+            //MvxTabActivity
+            //    Mvx
         }
     }
 }
