@@ -1,5 +1,8 @@
-﻿namespace CashApp.Models
+﻿using PropertyChanged;
+
+namespace CashApp.Models
 {
+    [ImplementPropertyChanged]
     public class GroupingAmount
     {
         public string Currency { get; set; }

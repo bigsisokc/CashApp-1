@@ -1,40 +1,42 @@
 ﻿using Acr.UserDialogs;
-using CashApp.Message;
 using CashApp.Models;
 using CashApp.Services;
-using MvvmCross.Core.ViewModels;
-using MvvmCross.Plugins.Messenger;
+using FreshMvvm;
+using PropertyChanged;
 using System.Collections.ObjectModel;
 using System.Linq;
 using System.Threading.Tasks;
 using System.Windows.Input;
+using Xamarin.Forms;
 
-namespace CashApp.ViewModels
+namespace CashApp.PageModels
 {
-    public class TransactionViewModel : MvxViewModel
+    [ImplementPropertyChanged]
+    public class TransactionPageModel : FreshBasePageModel
     {
         private readonly IRestService service;
-        private readonly MvxSubscriptionToken token;
 
-        public TransactionViewModel(IRestService service, IMvxMessenger messenger)
+        public TransactionPageModel(IRestService service)
         {
             this.service = service;
-            token = messenger.Subscribe<SaveMessage>(async (message) => await OnSavedMessage(message));
         }
-
-        private async Task OnSavedMessage(SaveMessage saveMessage)
+        
+        public override async void Init(object initData)
         {
-            if (saveMessage.Saved)
-            {
-                await RefreshData();
-            }
-        }
-
-        public override async void Start()
-        {
-            base.Start();
-
             await RefreshData();
+        }
+
+        public override async void ReverseInit(object returnData)
+        {
+            if (returnData != null)
+            {
+                bool valid = false;
+                bool.TryParse(returnData.ToString(), out valid);
+                if (valid)
+                {
+                    await RefreshData();
+                }
+            }
         }
 
         private async Task RefreshData()
@@ -70,7 +72,6 @@ namespace CashApp.ViewModels
             set
             {
                 items = value;
-                RaisePropertyChanged(() => Items);
             }
         }
 
@@ -78,7 +79,7 @@ namespace CashApp.ViewModels
         public bool IsBusy
         {
             get { return isBusy; }
-            set { isBusy = value; RaisePropertyChanged(() => IsBusy); }
+            set { isBusy = value; }
         }
 
         private Transaction selectedItem;
@@ -88,7 +89,6 @@ namespace CashApp.ViewModels
             set
             {
                 selectedItem = value;
-                RaisePropertyChanged(() => SelectedItem);
 
                 if (value != null)
                 {
@@ -104,7 +104,6 @@ namespace CashApp.ViewModels
             set
             {
                 itemGrouped = value;
-                RaisePropertyChanged(() => ItemGrouped);
             }
         }
 
@@ -112,7 +111,7 @@ namespace CashApp.ViewModels
         {
             get
             {
-                return new MvxCommand(Edit, () => SelectedItem != null);
+                return new Command(Edit, () => SelectedItem != null);
             }
         }
 
@@ -120,15 +119,15 @@ namespace CashApp.ViewModels
         {
             get
             {
-                return new MvxCommand(Add, () => !IsBusy);
+                return new Command(Add, () => !IsBusy);
             }
         }
 
-        public MvxCommand LoadItemCommand
+        public ICommand LoadItemCommand
         {
             get
             {
-                return new MvxCommand(async () => await Load());
+                return new Command(async () => await Load());
             }
         }
 
@@ -139,12 +138,12 @@ namespace CashApp.ViewModels
 
         public void Add()
         {
-            ShowViewModel<ItemViewModel>(new { id = 0 });
+            CoreMethods.PushPageModel<ItemPageModel>(0);
         }
 
         public void Edit()
         {
-            ShowViewModel<ItemViewModel>(new { id = SelectedItem.Id });
+            CoreMethods.PushPageModel<ItemPageModel>(SelectedItem.Id);
             SelectedItem = null;
         }
     }

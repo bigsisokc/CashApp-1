@@ -1,26 +1,26 @@
 ﻿using Acr.UserDialogs;
-using CashApp.Message;
 using CashApp.Models;
 using CashApp.Services;
-using MvvmCross.Core.ViewModels;
-using MvvmCross.Plugins.Messenger;
+using FreshMvvm;
+using PropertyChanged;
 using System;
 using System.Collections.Generic;
 using System.Threading.Tasks;
+using System.Windows.Input;
+using Xamarin.Forms;
 
-namespace CashApp.ViewModels
+namespace CashApp.PageModels
 {
-    public class ItemViewModel : MvxViewModel
+    [ImplementPropertyChanged]
+    public class ItemPageModel : FreshBasePageModel
     {
         int id;
         Transaction item;
         private readonly IRestService service;
-        private readonly IMvxMessenger messenger;
 
-        public ItemViewModel(IRestService service, IMvxMessenger messenger)
+        public ItemPageModel(IRestService service)
         {
             this.service = service;
-            this.messenger = messenger;
             CurrencyList = new List<CurrencyModel>
             {
                 new CurrencyModel { Id = 1, Code = "IDR" },
@@ -28,16 +28,13 @@ namespace CashApp.ViewModels
             };
             CurrencyIndex = 0;
         }
-
-        public void Init(int id)
+        
+        public override async void Init(object initData)
         {
-            this.id = id;
-        }
-
-        public override async void Start()
-        {
-            base.Start();
-
+            if (initData != null)
+            {
+                int.TryParse(initData.ToString(), out id);
+            }
             if (item != null) return;
 
             var loading = UserDialogs.Instance.Loading("Loading transaction", show: false);
@@ -71,7 +68,6 @@ namespace CashApp.ViewModels
             set
             {
                 currencyList = value;
-                RaisePropertyChanged(() => CurrencyList);
             }
         }
 
@@ -82,8 +78,6 @@ namespace CashApp.ViewModels
             set
             {
                 description = value;
-                RaisePropertyChanged(() => Description);
-                RaisePropertyChanged(() => SaveItemCommand);
             }
         }
 
@@ -94,7 +88,6 @@ namespace CashApp.ViewModels
             set
             {
                 currencyIndex = value;
-                RaisePropertyChanged(() => CurrencyIndex);
             }
         }
 
@@ -124,7 +117,6 @@ namespace CashApp.ViewModels
             set
             {
                 transDate = value;
-                RaisePropertyChanged(() => TransDate);
             }
         }
 
@@ -139,8 +131,6 @@ namespace CashApp.ViewModels
                     return;
                 }
                 amount = value;
-                RaisePropertyChanged(() => Amount);
-                RaisePropertyChanged(() => SaveItemCommand);
             }
         }
 
@@ -151,8 +141,6 @@ namespace CashApp.ViewModels
 
         public async Task SaveItem()
         {
-            //Close(this);
-
             var loading = UserDialogs.Instance.Loading("Saving transaction");
 
             loading.Show();
@@ -168,9 +156,7 @@ namespace CashApp.ViewModels
             IsBusy = false;
             loading.Hide();
 
-            Close(this);
-            var savedMessage = new SaveMessage(this, result);
-            messenger.Publish(savedMessage);
+            await CoreMethods.PopPageModel(result);
         }
 
         public async Task DeleteItem()
@@ -186,34 +172,28 @@ namespace CashApp.ViewModels
                 loading.Hide();
             }
 
-            Close(this);
-
-            if (canDelete)
-            {
-                var savedMessage = new SaveMessage(this, true);
-                messenger.Publish(savedMessage);
-            }
+            await CoreMethods.PopPageModel(true);
         }
 
         private bool isBusy;
         public bool IsBusy
         {
             get { return isBusy; }
-            set { isBusy = value; RaisePropertyChanged(() => IsBusy); }
+            set { isBusy = value; }
         }
 
-        public MvxCommand SaveItemCommand
+        public ICommand SaveItemCommand
         {
             get
             {
-                return new MvxCommand(async () => await SaveItem(), CanSaveItem);
+                return new Command(async () => await SaveItem(), CanSaveItem);
             }
         }
-        public MvxCommand DeleteItemCommand
+        public ICommand DeleteItemCommand
         {
             get
             {
-                return new MvxCommand(async () => await DeleteItem(), () => id > 0);
+                return new Command(async () => await DeleteItem(), () => id > 0);
             }
         }
 
