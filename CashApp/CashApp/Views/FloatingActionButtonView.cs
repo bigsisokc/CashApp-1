@@ -1,5 +1,4 @@
-﻿using MvvmCross.Core.ViewModels;
-using System;
+﻿using System;
 using Xamarin.Forms;
 
 namespace CashApp.Views
@@ -13,10 +12,10 @@ namespace CashApp.Views
             set { SetValue(ImageNameProperty, value); }
         }
 
-        public static readonly BindableProperty CommandProperty = BindableProperty.Create(nameof(Command), typeof(MvxCommand), typeof(FloatingActionButtonView), null, BindingMode.OneWay);
-        public MvxCommand Command
+        public static readonly BindableProperty CommandProperty = BindableProperty.Create(nameof(Command), typeof(Command), typeof(FloatingActionButtonView), null, BindingMode.OneWay);
+        public Command Command
         {
-            get { return (MvxCommand) GetValue(CommandProperty); }
+            get { return (Command) GetValue(CommandProperty); }
             set { SetValue(CommandProperty, value); }
         }
 

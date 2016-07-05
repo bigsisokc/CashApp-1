@@ -1,24 +1,18 @@
-﻿using Acr.UserDialogs;
-using CashApp.Services;
-using MvvmCross.Platform;
-using MvvmCross.Platform.IoC;
-using MvvmCross.Plugins.Messenger;
+﻿using CashApp.Services;
+using CashApp.Views;
+using FreshMvvm;
+using Xamarin.Forms;
 
 namespace CashApp
 {
-    public class App : MvvmCross.Core.ViewModels.MvxApplication
+    public class App : Application
     {
-        public override void Initialize()
+        public App()
         {
-            CreatableTypes()
-                .EndingWith("Service")
-                .AsInterfaces()
-                .RegisterAsLazySingleton();
+            FreshIOC.Container.Register<IRestService, RestService>();
 
-            Mvx.RegisterSingleton<IMvxMessenger>(new MvxMessengerHub());
-            Mvx.RegisterSingleton(() => UserDialogs.Instance);
-            Mvx.RegisterSingleton<IRestService>(new RestService());
-            RegisterAppStart<ViewModels.TransactionViewModel>();
+            MainPage = new NavigationPage(new TransactionPage());
         }
+        
     }
 }

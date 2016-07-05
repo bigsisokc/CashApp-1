@@ -1,9 +1,11 @@
-﻿using System.Collections.Generic;
+﻿using PropertyChanged;
+using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Linq;
 
 namespace CashApp.Models
 {
+    [ImplementPropertyChanged]
     public class Grouping : ObservableCollection<Transaction>
     {
         public string Key { get; private set; }

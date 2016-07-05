@@ -1,6 +1,5 @@
 ﻿using CashApp.Models;
 using ModernHttpClient;
-using MvvmCross.Platform;
 using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
@@ -44,7 +43,7 @@ namespace CashApp.Services
         private void StopDiagnostic(string method)
         {
             sw.Stop();
-            Mvx.TaggedTrace(typeof(RestService).Name, "Run {1} for {0}ms", sw.ElapsedMilliseconds, method);
+            Debug.WriteLine("Run {1} for {0}ms", sw.ElapsedMilliseconds, method);
         }
 
         public async Task<List<Transaction>> GetAllData()
@@ -73,8 +72,7 @@ namespace CashApp.Services
             }
             catch (Exception ex)
             {
-                Mvx.TaggedTrace(typeof(RestService).Name,
-                    "Ooops! Something went wrong fetching information for: GetAllData. Exception: {0}", ex);
+                Debug.WriteLine("Ooops! Something went wrong fetching information for: GetAllData. Exception: {0}", ex);
                 result = null;
             }
             StopDiagnostic(nameof(GetAllData));
@@ -107,15 +105,13 @@ namespace CashApp.Services
                 }
                 if (response.IsSuccessStatusCode)
                 {
-                    Mvx.TaggedTrace(typeof(RestService).Name,
-                        "Successfully save the information");
+                    Debug.WriteLine("Successfully save the information");
                     result = true;
                 }
             }
             catch (Exception ex)
             {
-                Mvx.TaggedTrace(typeof(RestService).Name,
-                    "Ooops! Something went wrong saving information for: {0}. Exception: {1}", item.Id, ex);
+                Debug.WriteLine("Ooops! Something went wrong saving information for: {0}. Exception: {1}", item.Id, ex);
             }
             StopDiagnostic(nameof(SaveItem));
             return result;
@@ -132,14 +128,12 @@ namespace CashApp.Services
 
                 if (response.IsSuccessStatusCode)
                 {
-                    Mvx.TaggedTrace(typeof(RestService).Name,
-                        "Successfully delete the information");
+                    Debug.WriteLine("Successfully delete the information");
                 }
             }
             catch (Exception ex)
             {
-                Mvx.TaggedTrace(typeof(RestService).Name,
-                   "Ooops! Something went wrong deleting information for: {0}. Exception: {1}", id, ex);
+                Debug.WriteLine("Ooops! Something went wrong deleting information for: {0}. Exception: {1}", id, ex);
             }
             StopDiagnostic(nameof(DeleteItem));
         }
@@ -173,8 +167,7 @@ namespace CashApp.Services
                 }
                 catch (Exception ex)
                 {
-                    Mvx.TaggedTrace(typeof(RestService).Name,
-                        "Ooops! Something went wrong fetching information for: GetData {0}. Exception: {1}", id, ex);
+                    Debug.WriteLine("Ooops! Something went wrong fetching information for: GetData {0}. Exception: {1}", id, ex);
                     result = null;
                 }
             }

@@ -1,7 +1,9 @@
-﻿using System;
+﻿using PropertyChanged;
+using System;
 
 namespace CashApp.Models
 {
+    [ImplementPropertyChanged]
     public class Transaction
     {
         public int Id { get; set; }
