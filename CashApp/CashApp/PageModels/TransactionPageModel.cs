@@ -1,4 +1,5 @@
 ﻿using Acr.UserDialogs;
+using CashApp.Mixins;
 using CashApp.Models;
 using CashApp.Services;
 using FreshMvvm;
@@ -21,12 +22,12 @@ namespace CashApp.PageModels
             this.service = service;
         }
         
-        public override async void Init(object initData)
+        public override void Init(object initData)
         {
-            await RefreshData();
+            RefreshData().RunForget();
         }
 
-        public override async void ReverseInit(object returnData)
+        public override void ReverseInit(object returnData)
         {
             if (returnData != null)
             {
@@ -34,7 +35,7 @@ namespace CashApp.PageModels
                 bool.TryParse(returnData.ToString(), out valid);
                 if (valid)
                 {
-                    await RefreshData();
+                    RefreshData().RunForget();
                 }
             }
         }
