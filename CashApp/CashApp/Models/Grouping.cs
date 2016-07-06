@@ -10,12 +10,12 @@ namespace CashApp.Models
     {
         public string Key { get; private set; }
         public string Period { get; private set; }
-        public IList<GroupingAmount> Amounts { get; set; }
-        public IList<Transaction> Transactions
+        public ObservableCollection<GroupingAmount> Amounts { get; set; }
+        public ObservableCollection<Transaction> Transactions
         {
             get
             {
-                return Items;
+                return new ObservableCollection<Transaction>(Items);
             }
         }
 
@@ -27,11 +27,11 @@ namespace CashApp.Models
             {
                 Items.Add(item);
             }
-            Amounts = Items.GroupBy(c => c.Currency).Select(x => new GroupingAmount
+            Amounts = new ObservableCollection<GroupingAmount>(Items.GroupBy(c => c.Currency).Select(x => new GroupingAmount
             {
                 Currency = x.Key,
                 Amount = x.Sum(a => a.Amount)
-            }).ToList();
+            }));
         }
     }
 }

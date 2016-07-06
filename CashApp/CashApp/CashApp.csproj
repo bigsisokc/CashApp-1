@@ -50,7 +50,6 @@
     <Compile Include="Pages\AboutPage.cs" />
     <Compile Include="Pages\ItemPage.cs" />
     <Compile Include="Models\GroupingAmount.cs" />
-    <Compile Include="Models\GroupingHeader.cs" />
     <Compile Include="Pages\MainPage.cs" />
     <Compile Include="Models\CurrencyModel.cs" />
     <Compile Include="Models\Grouping.cs" />

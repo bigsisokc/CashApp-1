@@ -167,14 +167,22 @@ namespace CashApp.PageModels
         public async Task DeleteItem()
         {
             bool canDelete = id > 0;
-            var loading = UserDialogs.Instance.Loading("Deleting transaction");
-            //Close(this);
 
             if (canDelete)
             {
-                loading.Show();
-                await service.DeleteItem(id);
-                loading.Hide();
+                var confirmDelete = await UserDialogs.Instance.ConfirmAsync("Are you sure you want to delete this transaction?");
+
+                if (confirmDelete)
+                {
+                    var loading = UserDialogs.Instance.Loading("Deleting transaction");
+                    loading.Show();
+                    await service.DeleteItem(id);
+                    loading.Hide();
+                }
+                else
+                {
+                    return;
+                }
             }
 
             await CoreMethods.PopPageModel(data: true);

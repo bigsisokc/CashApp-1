@@ -139,12 +139,12 @@ namespace CashApp.PageModels
 
         public void Add()
         {
-            CoreMethods.PushPageModel<ItemPageModel>(0);
+            CoreMethods.PushPageModel<ItemPageModel>(data: 0);
         }
 
         public void Edit()
         {
-            CoreMethods.PushPageModel<ItemPageModel>(SelectedItem.Id);
+            CoreMethods.PushPageModel<ItemPageModel>(data: SelectedItem.Id);
             SelectedItem = null;
         }
     }

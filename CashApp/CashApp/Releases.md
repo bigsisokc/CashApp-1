@@ -1,4 +1,10 @@
 ﻿#Release Notes
+##[1.5.12] - 2016-07-06
+### Added
+- Confirmation dialog when trying to delete a transaction
+- Change IList to ObservableCollection
+- Check For Updates in Main Activity
+
 ##[1.4.11] - 2016-07-06
 ### Changed
 - Remove async void to use void only for Page Init

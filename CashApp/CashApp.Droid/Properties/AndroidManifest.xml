@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<manifest xmlns:android="http://schemas.android.com/apk/res/android" package="com.MyCash" android:installLocation="auto" android:versionCode="11" android:versionName="1.4">
+<manifest xmlns:android="http://schemas.android.com/apk/res/android" package="com.MyCash" android:installLocation="auto" android:versionCode="12" android:versionName="1.5">
 	<uses-sdk android:minSdkVersion="19" android:targetSdkVersion="23" />
 	<application android:label="My Cash" android:icon="@drawable/cash" android:theme="@style/MyTheme" android:logo="@android:color/transparent"></application>
 </manifest>
