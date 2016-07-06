@@ -2,6 +2,6 @@
 {
     public static class Constants
     {
-        public static string RestUrl = "http://cashwebapi.apphb.com/api/transaction/{0}";
+        public static string TransactionRestUrl = "http://cashwebapi.apphb.com/api/transaction/{0}";
     }
 }

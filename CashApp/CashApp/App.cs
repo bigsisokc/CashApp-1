@@ -13,7 +13,7 @@ namespace CashApp
             
             var masterDetailNav = new FreshMasterDetailNavigationContainer();
             masterDetailNav.Init("Menu", "Menu.png");
-            masterDetailNav.AddPage<TransactionPageModel>("Transactions", null);
+            masterDetailNav.AddPage<PeriodPageModel>("Transactions", null);
             masterDetailNav.AddPage<AboutPageModel>("About", null);
             MainPage = masterDetailNav;
         }

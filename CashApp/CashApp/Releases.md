@@ -1,4 +1,9 @@
 ﻿#Release Notes
+##[1.6.13] - 2016-07-06
+### Added
+- New page for showing period amount
+- Detail transaction page now need to go from period page to transaction page
+
 ##[1.5.12] - 2016-07-06
 ### Added
 - Confirmation dialog when trying to delete a transaction

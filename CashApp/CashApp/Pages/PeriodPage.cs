@@ -1,22 +1,21 @@
 ﻿using CashApp.Converters;
 using CashApp.Models;
-using CashApp.PageModels;
-using FreshMvvm;
 using System.Collections.ObjectModel;
 using System.Threading.Tasks;
 using Xamarin.Forms;
+using XLabs.Forms.Controls;
 
 namespace CashApp.Pages
 {
-    public class TransactionPage : ContentPage
+    public class PeriodPage : ContentPage
     {
         private FloatingActionButtonView fab;
         private ListView list;
         private int appearingListItemIndex = 0;
 
-        public TransactionPage()
+        public PeriodPage()
         {
-            Title = "Transaction List";
+            Title = "Period List";
 
             var labelStyle = new Style(typeof(Label))
             {
@@ -62,8 +61,45 @@ namespace CashApp.Pages
             view.SetBinding(ListView.RefreshCommandProperty, new Binding("LoadItemCommand"));
             view.SetBinding(ListView.SelectedItemProperty, new Binding("SelectedItem", BindingMode.TwoWay));
             view.ItemTemplate = GetListViewItemTemplate();
+            //view.SeparatorColor = Color.White;
 
             return view;
+        }
+
+        private View GetRepeaterView()
+        {
+            var repeater = new RepeaterView<GroupingAmount>
+            {
+                Spacing = 10,
+                ItemTemplate = new DataTemplate(() =>
+                {
+                    var grid = new Grid();
+                    grid.ColumnDefinitions.Add(new ColumnDefinition { Width = new GridLength(50) });
+                    grid.ColumnDefinitions.Add(new ColumnDefinition { Width = new GridLength(1, GridUnitType.Star) });
+
+                    var labelCurrency = new Label();
+                    labelCurrency.FontSize = Device.GetNamedSize(NamedSize.Medium, typeof(Label));
+                    //labelCurrency.TextColor = Color.White;
+                    labelCurrency.VerticalOptions = LayoutOptions.Center;
+                    labelCurrency.SetBinding(Label.TextProperty, new Binding("Currency"));
+                    Grid.SetColumn(labelCurrency, 0);
+
+                    var labelAmount = new Label();
+                    labelAmount.FontSize = Device.GetNamedSize(NamedSize.Medium, typeof(Label));
+                    //labelAmount.TextColor = Color.White;
+                    labelAmount.VerticalOptions = LayoutOptions.Center;
+                    labelAmount.SetBinding(Label.TextProperty, new Binding("Amount", converter: new CurrencyConverter()));
+                    Grid.SetColumn(labelAmount, 1);
+
+                    grid.Children.Add(labelCurrency);
+                    grid.Children.Add(labelAmount);
+
+                    return new ViewCell { View = grid };
+                })
+            };
+            repeater.SetBinding(RepeaterView<GroupingAmount>.ItemsSourceProperty, new Binding("Amounts"));
+
+            return repeater;
         }
         
         private DataTemplate GetListViewItemTemplate()
@@ -71,41 +107,28 @@ namespace CashApp.Pages
             var template = new DataTemplate(() =>
             {
                 var grid = new Grid();
-                grid.Padding = new Thickness(5);
+                //grid.BackgroundColor = Color.FromHex("#FF3498DB");
+                grid.Padding = new Thickness(10);
+                grid.RowDefinitions.Add(new RowDefinition { Height = GridLength.Auto });
                 grid.ColumnDefinitions.Add(new ColumnDefinition { Width = new GridLength(1, GridUnitType.Star) });
                 grid.ColumnDefinitions.Add(new ColumnDefinition { Width = new GridLength(50) });
                 grid.ColumnDefinitions.Add(new ColumnDefinition { Width = new GridLength(150) });
-                grid.RowDefinitions.Add(new RowDefinition { Height = new GridLength(30) });
-                grid.RowDefinitions.Add(new RowDefinition { Height = new GridLength(30) });
-
-                var labelDate = new Label();
-                labelDate.FontSize = Device.GetNamedSize(NamedSize.Medium, typeof(Label));
-                labelDate.SetBinding(Label.TextProperty, new Binding("TransDate", converter: new DateConverter()));
-                Grid.SetColumn(labelDate, 0);
-
-                var labelCurrency = new Label();
-                labelCurrency.FontSize = Device.GetNamedSize(NamedSize.Medium, typeof(Label));
-                labelCurrency.SetBinding(Label.TextProperty, new Binding("Currency"));
-                Grid.SetColumn(labelCurrency, 1);
-
-                var labelAmount = new Label();
-                labelAmount.FontSize = Device.GetNamedSize(NamedSize.Medium, typeof(Label));
-                labelAmount.SetBinding(Label.TextProperty, new Binding("Amount", converter: new CurrencyConverter()));
-                Grid.SetColumn(labelAmount, 2);
 
                 var labelDescription = new Label();
-                labelDescription.FontSize = Device.GetNamedSize(NamedSize.Small, typeof(Label));
-                labelDescription.SetBinding(Label.TextProperty, new Binding("Description"));
+                labelDescription.FontSize = Device.GetNamedSize(NamedSize.Medium, typeof(Label));
+                //labelDescription.TextColor = Color.White;
+                labelDescription.VerticalOptions = LayoutOptions.Center;
+                labelDescription.SetBinding(Label.TextProperty, new Binding("Period"));
                 Grid.SetColumn(labelDescription, 0);
-                Grid.SetRow(labelDescription, 1);
-                Grid.SetColumnSpan(labelDescription, 3);
 
-                grid.Children.Add(labelDate);
-                grid.Children.Add(labelCurrency);
-                grid.Children.Add(labelAmount);
+                var amountList = GetRepeaterView();
+                Grid.SetColumn(amountList, 1);
+                Grid.SetColumnSpan(amountList, 2);
+
                 grid.Children.Add(labelDescription);
+                grid.Children.Add(amountList);
 
-                return new ViewCell { View = grid, Height = 70 };
+                return new ViewCell { View = grid };
             });
 
             return template;
@@ -142,10 +165,10 @@ namespace CashApp.Pages
         {
             await Task.Run(() =>
             {
-                var items = list.ItemsSource as ObservableCollection<Transaction>;
+                var items = list.ItemsSource as ObservableCollection<Grouping>;
                 if (items != null)
                 {
-                    var item = e.Item as Transaction;
+                    var item = e.Item as Grouping;
                     if (item != null)
                     {
                         var index = items.IndexOf(item);
@@ -163,10 +186,10 @@ namespace CashApp.Pages
         {
             await Task.Run(() =>
             {
-                var items = list.ItemsSource as ObservableCollection<Transaction>;
+                var items = list.ItemsSource as ObservableCollection<Grouping>;
                 if (items != null)
                 {
-                    var item = e.Item as Transaction;
+                    var item = e.Item as Grouping;
                     if (item != null)
                     {
                         var index = items.IndexOf(item);
@@ -179,19 +202,6 @@ namespace CashApp.Pages
                 }
             });
         }
-
-        protected override bool OnBackButtonPressed()
-        {
-            var pageModel = this.GetModel() as TransactionPageModel;
-            if (pageModel != null)
-            {
-                pageModel.ClosePageCommand.Execute(null);
-                return false;
-            }
-            else
-            {
-                return base.OnBackButtonPressed();
-            }
-        }
+        
     }
 }

@@ -46,11 +46,40 @@ namespace CashApp.Services
             Debug.WriteLine("Run {1} for {0}ms", sw.ElapsedMilliseconds, method);
         }
 
+        public async Task<List<Transaction>> GetPeriodData(int year, int month)
+        {
+            StartDiagnostic();
+            var uri = new Uri(string.Format(Constants.TransactionRestUrl, string.Format("period/{0}/{1}", year, month)));
+            List<Transaction> result = await GetData<List<Transaction>>(uri);
+            StopDiagnostic(nameof(GetPeriodData));
+            return result;
+        }
+
+        public async Task<List<TransactionWithPeriod>> GetPeriodData()
+        {
+            StartDiagnostic();
+            var uri = new Uri(string.Format(Constants.TransactionRestUrl, "period"));
+            List<TransactionWithPeriod> result = await GetData<List<TransactionWithPeriod>>(uri);
+            foreach (var res in result)
+            {
+                res.TransDate = new DateTime(res.Year, res.Month, 1);
+            }
+            StopDiagnostic(nameof(GetPeriodData));
+            return result;
+        }
+
         public async Task<List<Transaction>> GetAllData()
         {
             StartDiagnostic();
-            List<Transaction> result = null;
-            var uri = new Uri(string.Format(Constants.RestUrl, string.Empty));
+            var uri = new Uri(string.Format(Constants.TransactionRestUrl, string.Empty));
+            List<Transaction> result = await GetData<List<Transaction>>(uri);
+            StopDiagnostic(nameof(GetAllData));
+            return result;
+        }
+
+        private async Task<TData> GetData<TData>(Uri uri)
+        {
+            TData result = default(TData);
 
             try
             {
@@ -58,24 +87,16 @@ namespace CashApp.Services
                 if (response.IsSuccessStatusCode)
                 {
                     var json = await response.Content.ReadAsStringAsync();
-                    if (string.IsNullOrEmpty(json))
+                    if (!string.IsNullOrEmpty(json))
                     {
-                        result = null;
+                        result = JsonConvert.DeserializeObject<TData>(json);
                     }
-
-                    result = JsonConvert.DeserializeObject<List<Transaction>>(json);
-                }
-                else
-                {
-                    result = null;
                 }
             }
             catch (Exception ex)
             {
                 Debug.WriteLine("Ooops! Something went wrong fetching information for: GetAllData. Exception: {0}", ex);
-                result = null;
             }
-            StopDiagnostic(nameof(GetAllData));
             return result;
         }
 
@@ -83,10 +104,10 @@ namespace CashApp.Services
         {
             StartDiagnostic();
             bool result = false;
-            Uri uri = new Uri(string.Format(Constants.RestUrl, string.Empty));
+            Uri uri = new Uri(string.Format(Constants.TransactionRestUrl, string.Empty));
             if (item.Id > 0)
             {
-                uri = new Uri(string.Format(Constants.RestUrl, item.Id));
+                uri = new Uri(string.Format(Constants.TransactionRestUrl, item.Id));
             }
 
             try
@@ -120,7 +141,7 @@ namespace CashApp.Services
         public async Task DeleteItem(int id)
         {
             StartDiagnostic();
-            var uri = new Uri(string.Format(Constants.RestUrl, id));
+            var uri = new Uri(string.Format(Constants.TransactionRestUrl, id));
 
             try
             {
@@ -145,7 +166,7 @@ namespace CashApp.Services
             if (id > 0)
             {
 
-                var uri = new Uri(string.Format(Constants.RestUrl, id));
+                var uri = new Uri(string.Format(Constants.TransactionRestUrl, id));
 
                 try
                 {

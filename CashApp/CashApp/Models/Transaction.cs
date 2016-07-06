@@ -28,4 +28,11 @@ namespace CashApp.Models
         public string PeriodSort { get; set; }
         public decimal Amount { get; set; }
     }
+
+    [ImplementPropertyChanged]
+    public class TransactionWithPeriod : Transaction
+    {
+        public int Month { get; set; }
+        public int Year { get; set; }
+    }
 }

@@ -16,6 +16,7 @@ namespace CashApp.PageModels
     public class TransactionPageModel : FreshBasePageModel
     {
         private readonly IRestService service;
+        private Grouping GroupingData;
 
         public TransactionPageModel(IRestService service)
         {
@@ -24,6 +25,7 @@ namespace CashApp.PageModels
         
         public override void Init(object initData)
         {
+            GroupingData = initData as Grouping;
             RefreshData().RunForget();
         }
 
@@ -42,28 +44,25 @@ namespace CashApp.PageModels
 
         private async Task RefreshData()
         {
-            var loading = UserDialogs.Instance.Loading("Loading data");
-
-            loading.Show();
-            IsBusy = true;
-            var result = await service.GetAllData();
-
-            if (result != null)
+            if (GroupingData != null)
             {
-                Items = new ObservableCollection<Transaction>(result);
-                var sorted = from record in result
-                             orderby record.PeriodSort descending, record.TransDate descending, record.Id descending
-                             group record by new { record.PeriodSort, record.Period } into gr
-                             select new Grouping(gr.Key.PeriodSort, gr.Key.Period, gr);
-                ItemGrouped = new ObservableCollection<Grouping>(sorted);
+                var loading = UserDialogs.Instance.Loading("Loading data");
+
+                loading.Show();
+                IsBusy = true;
+                var result = await service.GetPeriodData(GroupingData.Year, GroupingData.Month);
+
+                if (result != null)
+                {
+                    Items = new ObservableCollection<Transaction>(result.OrderByDescending(x => x.TransDate).ThenByDescending(x => x.Id));
+                }
+                else
+                {
+                    Items = new ObservableCollection<Transaction>();
+                }
+                IsBusy = false;
+                loading.Hide();
             }
-            else
-            {
-                Items = new ObservableCollection<Transaction>();
-                ItemGrouped = new ObservableCollection<Grouping>();
-            }
-            IsBusy = false;
-            loading.Hide();
         }
 
         private ObservableCollection<Transaction> items;
@@ -98,16 +97,6 @@ namespace CashApp.PageModels
             }
         }
 
-        private ObservableCollection<Grouping> itemGrouped;
-        public ObservableCollection<Grouping> ItemGrouped
-        {
-            get { return itemGrouped; }
-            set
-            {
-                itemGrouped = value;
-            }
-        }
-
         public ICommand EditItemCommand
         {
             get
@@ -129,6 +118,14 @@ namespace CashApp.PageModels
             get
             {
                 return new Command(async () => await Load());
+            }
+        }
+
+        public ICommand ClosePageCommand
+        {
+            get
+            {
+                return new Command(async () => await CoreMethods.PopPageModel());
             }
         }
 

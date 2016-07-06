@@ -46,6 +46,7 @@
     <Compile Include="Models\MenuItem.cs" />
     <Compile Include="Models\MenuListData.cs" />
     <Compile Include="PageModels\AboutPageModel.cs" />
+    <Compile Include="PageModels\PeriodPageModel.cs" />
     <Compile Include="PageModels\TransactionPageModel.cs" />
     <Compile Include="Pages\AboutPage.cs" />
     <Compile Include="Pages\ItemPage.cs" />
@@ -53,6 +54,7 @@
     <Compile Include="Pages\MainPage.cs" />
     <Compile Include="Models\CurrencyModel.cs" />
     <Compile Include="Models\Grouping.cs" />
+    <Compile Include="Pages\PeriodPage.cs" />
     <Compile Include="Services\RestService.cs" />
     <Compile Include="Services\IRestService.cs" />
     <Compile Include="Models\Transaction.cs" />

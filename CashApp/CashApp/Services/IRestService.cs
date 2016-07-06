@@ -6,6 +6,10 @@ namespace CashApp.Services
 {
     public interface IRestService
     {
+        Task<List<TransactionWithPeriod>> GetPeriodData();
+
+        Task<List<Transaction>> GetPeriodData(int year, int month);
+
         Task<List<Transaction>> GetAllData();
 
         Task<Transaction> GetData(int id);
