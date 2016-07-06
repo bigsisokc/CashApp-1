@@ -1,4 +1,5 @@
 ﻿using Acr.UserDialogs;
+using CashApp.Mixins;
 using CashApp.Models;
 using CashApp.Services;
 using FreshMvvm;
@@ -29,15 +30,13 @@ namespace CashApp.PageModels
             CurrencyIndex = 0;
         }
         
-        public override async void Init(object initData)
+        public override void Init(object initData)
         {
             if (initData != null)
             {
                 int.TryParse(initData.ToString(), out id);
             }
             if (item != null) return;
-
-            var loading = UserDialogs.Instance.Loading("Loading transaction", show: false);
 
             Description = string.Empty;
             Amount = 0;
@@ -46,19 +45,25 @@ namespace CashApp.PageModels
 
             if (id > 0)
             {
-                loading.Show();
-                IsBusy = true;
-                item = await service.GetData(id);
-                if (item != null)
-                {
-                    Description = item.Description;
-                    TransDate = item.TransDate;
-                    Amount = item.Amount;
-                    Currency = item.Currency;                    
-                }
-                IsBusy = false;
-                loading.Hide();
+                InitializeData(id).RunForget();
             }
+        }
+
+        private async Task InitializeData(int id)
+        {
+            var loading = UserDialogs.Instance.Loading("Loading transaction", show: false);
+            loading.Show();
+            IsBusy = true;
+            item = await service.GetData(id);
+            if (item != null)
+            {
+                Description = item.Description;
+                TransDate = item.TransDate;
+                Amount = item.Amount;
+                Currency = item.Currency;
+            }
+            IsBusy = false;
+            loading.Hide();
         }
 
         private IList<CurrencyModel> currencyList;
