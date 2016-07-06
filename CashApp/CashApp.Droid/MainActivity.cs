@@ -25,7 +25,7 @@ namespace CashApp.Droid
             CrashManager.Register(this, "21d237e64379458aa960e50d0bc15cb0");
             MetricsManager.Register(this, Application, "21d237e64379458aa960e50d0bc15cb0");
             UserDialogs.Init(this);
-
+            CheckForUpdates();
 
             global::Xamarin.Forms.Forms.Init(this, bundle);
 
