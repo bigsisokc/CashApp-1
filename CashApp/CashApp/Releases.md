@@ -1,4 +1,8 @@
 ﻿#Release Notes
+##[1.6.15] - 2016-07-07
+### Fixed
+- Currency missing in Period page
+
 ##[1.6.14] - 2016-07-07
 ### Fixed
 - Null Exception when navigating to Transaction page from About page

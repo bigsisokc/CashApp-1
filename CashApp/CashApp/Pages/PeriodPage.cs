@@ -94,7 +94,7 @@ namespace CashApp.Pages
                     grid.Children.Add(labelCurrency);
                     grid.Children.Add(labelAmount);
 
-                    return new ViewCell { View = labelAmount };
+                    return new ViewCell { View = grid };
                 })
             };
             repeater.SetBinding(RepeaterView<GroupingAmount>.ItemsSourceProperty, new Binding("Amounts"));

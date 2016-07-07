@@ -23,7 +23,20 @@ namespace CashApp.PageModels
         {
             this.service = service;
         }
-        
+
+        public override void ReverseInit(object returnData)
+        {
+            if (returnData != null)
+            {
+                bool valid = false;
+                bool.TryParse(returnData.ToString(), out valid);
+                if (valid)
+                {
+                    RefreshData().RunForget();
+                }
+            }
+        }
+
         protected override void ViewIsAppearing(object sender, EventArgs e)
         {
             RefreshData().RunForget();
