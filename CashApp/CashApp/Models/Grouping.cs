@@ -20,6 +20,11 @@ namespace CashApp.Models
             }
         }
 
+        public Grouping()
+        {
+            Amounts = new ObservableCollection<GroupingAmount>();
+        }
+
         public Grouping(int year, int month, string period, IEnumerable<TransactionWithPeriod> items)
         {
             Year = year;

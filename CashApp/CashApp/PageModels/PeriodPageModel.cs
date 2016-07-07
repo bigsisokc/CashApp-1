@@ -4,12 +4,13 @@ using CashApp.Models;
 using CashApp.Services;
 using FreshMvvm;
 using PropertyChanged;
+using System;
+using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Linq;
 using System.Threading.Tasks;
 using System.Windows.Input;
 using Xamarin.Forms;
-using System;
 
 namespace CashApp.PageModels
 {
@@ -36,6 +37,10 @@ namespace CashApp.PageModels
             IsBusy = true;
             var result = await service.GetPeriodData();
 
+            var grouping = new Grouping();
+            var groupingList = new List<Grouping> { grouping };
+
+            Items = new ObservableCollection<Grouping>(groupingList);
             if (result != null)
             {
                 var sorted = from record in result
@@ -43,10 +48,6 @@ namespace CashApp.PageModels
                              group record by new { record.Year, record.Month, record.Period } into gr
                              select new Grouping(gr.Key.Year, gr.Key.Month, gr.Key.Period, gr);
                 Items = new ObservableCollection<Grouping>(sorted);
-            }
-            else
-            {
-                Items = new ObservableCollection<Grouping>();
             }
             IsBusy = false;
             loading.Hide();

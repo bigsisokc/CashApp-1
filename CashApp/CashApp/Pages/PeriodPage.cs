@@ -57,7 +57,7 @@ namespace CashApp.Pages
             view.HasUnevenRows = true;
             view.IsPullToRefreshEnabled = true;
             view.SetBinding(ListView.IsRefreshingProperty, new Binding("IsBusy"));
-            view.SetBinding(ListView.ItemsSourceProperty, new Binding("Items", BindingMode.TwoWay));
+            view.SetBinding(ListView.ItemsSourceProperty, new Binding("Items"));
             view.SetBinding(ListView.RefreshCommandProperty, new Binding("LoadItemCommand"));
             view.SetBinding(ListView.SelectedItemProperty, new Binding("SelectedItem", BindingMode.TwoWay));
             view.ItemTemplate = GetListViewItemTemplate();
@@ -94,7 +94,7 @@ namespace CashApp.Pages
                     grid.Children.Add(labelCurrency);
                     grid.Children.Add(labelAmount);
 
-                    return new ViewCell { View = grid };
+                    return new ViewCell { View = labelAmount };
                 })
             };
             repeater.SetBinding(RepeaterView<GroupingAmount>.ItemsSourceProperty, new Binding("Amounts"));
@@ -111,8 +111,7 @@ namespace CashApp.Pages
                 grid.Padding = new Thickness(10);
                 grid.RowDefinitions.Add(new RowDefinition { Height = GridLength.Auto });
                 grid.ColumnDefinitions.Add(new ColumnDefinition { Width = new GridLength(1, GridUnitType.Star) });
-                grid.ColumnDefinitions.Add(new ColumnDefinition { Width = new GridLength(50) });
-                grid.ColumnDefinitions.Add(new ColumnDefinition { Width = new GridLength(150) });
+                grid.ColumnDefinitions.Add(new ColumnDefinition { Width = new GridLength(200) });
 
                 var labelDescription = new Label();
                 labelDescription.FontSize = Device.GetNamedSize(NamedSize.Medium, typeof(Label));
@@ -123,7 +122,6 @@ namespace CashApp.Pages
 
                 var amountList = GetRepeaterView();
                 Grid.SetColumn(amountList, 1);
-                Grid.SetColumnSpan(amountList, 2);
 
                 grid.Children.Add(labelDescription);
                 grid.Children.Add(amountList);
@@ -149,6 +147,17 @@ namespace CashApp.Pages
 
         protected override void OnAppearing()
         {
+            var formLayout = new AbsoluteLayout();
+            formLayout.VerticalOptions = LayoutOptions.FillAndExpand;
+            formLayout.HorizontalOptions = LayoutOptions.FillAndExpand;
+
+            formLayout.Children.Add(GetScrollView());
+
+            fab = GetFloatingButton();
+            formLayout.Children.Add(fab);
+
+            this.Content = formLayout;
+
             base.OnAppearing();
             list.ItemAppearing += List_ItemAppearing;
             list.ItemDisappearing += List_ItemDisappearing;
