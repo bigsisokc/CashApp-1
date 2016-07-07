@@ -38,6 +38,7 @@ namespace CashApp.PageModels
                 if (valid)
                 {
                     RefreshData().RunForget();
+                    MessagingCenter.Send<FreshBasePageModel>(this.PreviousPageModel, "refresh");
                 }
             }
         }

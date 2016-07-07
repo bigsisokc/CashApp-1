@@ -17,11 +17,21 @@ namespace CashApp.PageModels
     [ImplementPropertyChanged]
     public class PeriodPageModel : FreshBasePageModel
     {
+        private bool shouldRefresh;
         private readonly IRestService service;
 
         public PeriodPageModel(IRestService service)
         {
             this.service = service;
+            MessagingCenter.Subscribe<FreshBasePageModel>(this, "refresh", (sender) =>
+            {
+                shouldRefresh = true;
+            });
+        }
+
+        public override void Init(object initData)
+        {
+            RefreshData().RunForget();
         }
 
         public override void ReverseInit(object returnData)
@@ -39,7 +49,10 @@ namespace CashApp.PageModels
 
         protected override void ViewIsAppearing(object sender, EventArgs e)
         {
-            RefreshData().RunForget();
+            if (shouldRefresh)
+            {
+                RefreshData().RunForget();
+            }
         }
 
         private async Task RefreshData()
@@ -64,6 +77,7 @@ namespace CashApp.PageModels
             }
             IsBusy = false;
             loading.Hide();
+            shouldRefresh = false;
         }
 
         private ObservableCollection<Grouping> items;
