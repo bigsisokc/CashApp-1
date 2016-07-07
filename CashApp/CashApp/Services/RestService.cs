@@ -1,11 +1,14 @@
-﻿using CashApp.Models;
+﻿using Acr.UserDialogs;
+using CashApp.Models;
 using ModernHttpClient;
 using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
 using System.Diagnostics;
+using System.Net;
 using System.Net.Http;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 
 namespace CashApp.Services
@@ -27,7 +30,7 @@ namespace CashApp.Services
                 if (client == null)
                 {
                     var httpClient = new HttpClient(new NativeMessageHandler());
-                    httpClient.Timeout = TimeSpan.FromSeconds(10);
+                    httpClient.Timeout = TimeSpan.FromSeconds(20);
                     client = httpClient;
                 }
                 return client;
@@ -46,38 +49,41 @@ namespace CashApp.Services
             Debug.WriteLine("Run {1} for {0}ms", sw.ElapsedMilliseconds, method);
         }
 
-        public async Task<List<Transaction>> GetPeriodData(int year, int month)
+        public async Task<List<Transaction>> GetPeriodData(int year, int month, CancellationTokenSource cts)
         {
             StartDiagnostic();
             var uri = new Uri(string.Format(Constants.TransactionRestUrl, string.Format("period/{0}/{1}", year, month)));
-            List<Transaction> result = await GetData<List<Transaction>>(uri);
+            List<Transaction> result = await GetData<List<Transaction>>(uri, cts);
             StopDiagnostic(nameof(GetPeriodData));
             return result;
         }
 
-        public async Task<List<TransactionWithPeriod>> GetPeriodData()
+        public async Task<List<TransactionWithPeriod>> GetPeriodData(CancellationTokenSource cts)
         {
             StartDiagnostic();
             var uri = new Uri(string.Format(Constants.TransactionRestUrl, "period"));
-            List<TransactionWithPeriod> result = await GetData<List<TransactionWithPeriod>>(uri);
-            foreach (var res in result)
+            List<TransactionWithPeriod> result = await GetData<List<TransactionWithPeriod>>(uri, cts);
+            if (result != null)
             {
-                res.TransDate = new DateTime(res.Year, res.Month, 1);
+                foreach (var res in result)
+                {
+                    res.TransDate = new DateTime(res.Year, res.Month, 1);
+                }
             }
             StopDiagnostic(nameof(GetPeriodData));
             return result;
         }
 
-        public async Task<List<Transaction>> GetAllData()
+        public async Task<List<Transaction>> GetAllData(CancellationTokenSource cts)
         {
             StartDiagnostic();
             var uri = new Uri(string.Format(Constants.TransactionRestUrl, string.Empty));
-            List<Transaction> result = await GetData<List<Transaction>>(uri);
+            List<Transaction> result = await GetData<List<Transaction>>(uri, cts);
             StopDiagnostic(nameof(GetAllData));
             return result;
         }
 
-        private async Task<TData> GetData<TData>(Uri uri)
+        private async Task<TData> GetData<TData>(Uri uri, CancellationTokenSource cts)
         {
             TData result = default(TData);
 
@@ -92,6 +98,28 @@ namespace CashApp.Services
                         result = JsonConvert.DeserializeObject<TData>(json);
                     }
                 }
+                else if (response.StatusCode == HttpStatusCode.NotFound)
+                {
+                    UserDialogs.Instance.ErrorToast("Cannot reach My Cash Service");
+                    Debug.WriteLine("Cannot reach the services");
+                }
+            }
+            catch (WebException ex)
+            {
+                UserDialogs.Instance.ErrorToast(string.Format("Request Failed : {0}", ex.Message));
+                Debug.WriteLine("Request Failed, Ex : {0}", ex);
+            }
+            catch (TaskCanceledException ex)
+            {
+                if (cts != null && ex.CancellationToken == cts.Token)
+                {
+                    Debug.WriteLine("Request canceled");
+                }
+                else
+                {
+                    UserDialogs.Instance.ErrorToast("Request timed out");
+                    Debug.WriteLine("Request Timeout, Ex : {0}", ex);
+                }
             }
             catch (Exception ex)
             {
@@ -100,7 +128,7 @@ namespace CashApp.Services
             return result;
         }
 
-        public async Task<bool> SaveItem(Transaction item)
+        public async Task<bool> SaveItem(Transaction item, CancellationTokenSource cts)
         {
             StartDiagnostic();
             bool result = false;
@@ -126,8 +154,31 @@ namespace CashApp.Services
                 }
                 if (response.IsSuccessStatusCode)
                 {
+                    UserDialogs.Instance.SuccessToast("Transaction saved");
                     Debug.WriteLine("Successfully save the information");
                     result = true;
+                }
+                else if (response.StatusCode == HttpStatusCode.NotFound)
+                {
+                    UserDialogs.Instance.ErrorToast("Cannot reach My Cash Service");
+                    Debug.WriteLine("Cannot reach the services");
+                }
+            }
+            catch (WebException ex)
+            {
+                UserDialogs.Instance.ErrorToast(string.Format("Request Failed : {0}", ex.Message));
+                Debug.WriteLine("Request Failed, Ex : {0}", ex);
+            }
+            catch (TaskCanceledException ex)
+            {
+                if (cts != null && ex.CancellationToken == cts.Token)
+                {
+                    Debug.WriteLine("Request canceled");
+                }
+                else
+                {
+                    UserDialogs.Instance.ErrorToast("Request timed out");
+                    Debug.WriteLine("Request Timeout, Ex : {0}", ex);
                 }
             }
             catch (Exception ex)
@@ -138,7 +189,7 @@ namespace CashApp.Services
             return result;
         }
 
-        public async Task DeleteItem(int id)
+        public async Task DeleteItem(int id, CancellationTokenSource cts)
         {
             StartDiagnostic();
             var uri = new Uri(string.Format(Constants.TransactionRestUrl, id));
@@ -149,7 +200,30 @@ namespace CashApp.Services
 
                 if (response.IsSuccessStatusCode)
                 {
+                    UserDialogs.Instance.SuccessToast("Transaction deleted");
                     Debug.WriteLine("Successfully delete the information");
+                }
+                else if (response.StatusCode == HttpStatusCode.NotFound)
+                {
+                    UserDialogs.Instance.ErrorToast("Cannot reach My Cash Service");
+                    Debug.WriteLine("Cannot reach the services");
+                }
+            }
+            catch (WebException ex)
+            {
+                UserDialogs.Instance.ErrorToast(string.Format("Request Failed : {0}", ex.Message));
+                Debug.WriteLine("Request Failed, Ex : {0}", ex);
+            }
+            catch (TaskCanceledException ex)
+            {
+                if (cts != null && ex.CancellationToken == cts.Token)
+                {
+                    Debug.WriteLine("Request canceled");
+                }
+                else
+                {
+                    UserDialogs.Instance.ErrorToast("Request timed out");
+                    Debug.WriteLine("Request Timeout, Ex : {0}", ex);
                 }
             }
             catch (Exception ex)
@@ -159,7 +233,7 @@ namespace CashApp.Services
             StopDiagnostic(nameof(DeleteItem));
         }
 
-        public async Task<Transaction> GetData(int id)
+        public async Task<Transaction> GetData(int id, CancellationTokenSource cts)
         {
             StartDiagnostic();
             Transaction result = null;
@@ -174,22 +248,37 @@ namespace CashApp.Services
                     if (response.IsSuccessStatusCode)
                     {
                         var json = await response.Content.ReadAsStringAsync();
-                        if (string.IsNullOrEmpty(json))
+                        if (!string.IsNullOrEmpty(json))
                         {
-                            result = null;
+                            result = JsonConvert.DeserializeObject<Transaction>(json);
                         }
-
-                        result = JsonConvert.DeserializeObject<Transaction>(json);
+                    }
+                    else if (response.StatusCode == HttpStatusCode.NotFound)
+                    {
+                        UserDialogs.Instance.ErrorToast("Cannot reach My Cash Service");
+                        Debug.WriteLine("Cannot reach the services");
+                    }
+                }
+                catch (WebException ex)
+                {
+                    UserDialogs.Instance.ErrorToast(string.Format("Request Failed : {0}", ex.Message));
+                    Debug.WriteLine("Request Failed, Ex : {0}", ex);
+                }
+                catch (TaskCanceledException ex)
+                {
+                    if (cts != null && ex.CancellationToken == cts.Token)
+                    {
+                        Debug.WriteLine("Request canceled");
                     }
                     else
                     {
-                        result = null;
+                        UserDialogs.Instance.ErrorToast("Request timed out");
+                        Debug.WriteLine("Request Timeout, Ex : {0}", ex);
                     }
                 }
                 catch (Exception ex)
                 {
                     Debug.WriteLine("Ooops! Something went wrong fetching information for: GetData {0}. Exception: {1}", id, ex);
-                    result = null;
                 }
             }
             StopDiagnostic(nameof(GetData));

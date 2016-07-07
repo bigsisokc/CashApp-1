@@ -1,5 +1,8 @@
 ﻿#Release Notes
 ##[1.6.15] - 2016-07-07
+### Added
+- Error handling for when services go wrong
+
 ### Fixed
 - Currency missing in Period page
 

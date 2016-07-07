@@ -50,7 +50,7 @@ namespace CashApp.PageModels
 
                 loading.Show();
                 IsBusy = true;
-                var result = await service.GetPeriodData(GroupingData.Year, GroupingData.Month);
+                var result = await service.GetPeriodData(GroupingData.Year, GroupingData.Month, null);
 
                 if (result != null)
                 {

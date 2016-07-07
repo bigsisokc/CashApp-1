@@ -48,7 +48,7 @@ namespace CashApp.PageModels
 
             loading.Show();
             IsBusy = true;
-            var result = await service.GetPeriodData();
+            var result = await service.GetPeriodData(null);
 
             var grouping = new Grouping();
             var groupingList = new List<Grouping> { grouping };

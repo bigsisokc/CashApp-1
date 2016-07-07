@@ -54,7 +54,7 @@ namespace CashApp.PageModels
             var loading = UserDialogs.Instance.Loading("Loading transaction", show: false);
             loading.Show();
             IsBusy = true;
-            item = await service.GetData(id);
+            item = await service.GetData(id, null);
             if (item != null)
             {
                 Description = item.Description;
@@ -157,7 +157,7 @@ namespace CashApp.PageModels
                 Description = Description,
                 Id = id,
                 TransDate = TransDate
-            });
+            }, null);
             IsBusy = false;
             loading.Hide();
 
@@ -176,7 +176,7 @@ namespace CashApp.PageModels
                 {
                     var loading = UserDialogs.Instance.Loading("Deleting transaction");
                     loading.Show();
-                    await service.DeleteItem(id);
+                    await service.DeleteItem(id, null);
                     loading.Hide();
                 }
                 else
