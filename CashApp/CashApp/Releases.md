@@ -1,4 +1,8 @@
 ﻿#Release Notes
+##[1.6.14] - 2016-07-07
+### Fixed
+- Null Exception when navigating to Transaction page from About page
+
 ##[1.6.13] - 2016-07-06
 ### Added
 - New page for showing period amount
