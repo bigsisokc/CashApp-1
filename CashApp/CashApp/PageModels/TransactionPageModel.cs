@@ -16,11 +16,13 @@ namespace CashApp.PageModels
     public class TransactionPageModel : FreshBasePageModel
     {
         private readonly IRestService service;
+        private readonly IUserDialogs userDialog;
         private Grouping GroupingData;
 
-        public TransactionPageModel(IRestService service)
+        public TransactionPageModel(IRestService service, IUserDialogs userDialog)
         {
             this.service = service;
+            this.userDialog = userDialog;
         }
         
         public override void Init(object initData)
@@ -47,7 +49,7 @@ namespace CashApp.PageModels
         {
             if (GroupingData != null)
             {
-                var loading = UserDialogs.Instance.Loading("Loading data");
+                var loading = userDialog.Loading("Loading data");
 
                 loading.Show();
                 IsBusy = true;

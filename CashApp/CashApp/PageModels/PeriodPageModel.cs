@@ -19,10 +19,12 @@ namespace CashApp.PageModels
     {
         private bool shouldRefresh;
         private readonly IRestService service;
+        private readonly IUserDialogs userDialog;
 
-        public PeriodPageModel(IRestService service)
+        public PeriodPageModel(IRestService service, IUserDialogs userDialog)
         {
             this.service = service;
+            this.userDialog = userDialog;
             MessagingCenter.Subscribe<FreshBasePageModel>(this, "refresh", (sender) =>
             {
                 shouldRefresh = true;
@@ -57,7 +59,7 @@ namespace CashApp.PageModels
 
         private async Task RefreshData()
         {
-            var loading = UserDialogs.Instance.Loading("Loading data");
+            var loading = userDialog.Loading("Loading data");
 
             loading.Show();
             IsBusy = true;

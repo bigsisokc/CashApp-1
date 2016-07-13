@@ -4,7 +4,7 @@ using Xamarin.Forms;
 
 namespace CashApp.Pages
 {
-    public class ItemPage : ContentPage
+    public class ItemPage : BaseContentPage
     {
         public ItemPage()
         {

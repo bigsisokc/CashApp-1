@@ -37,21 +37,25 @@
   <ItemGroup>
     <Compile Include="App.cs" />
     <Compile Include="Constants.cs" />
+    <Compile Include="Containers\CustomMasterDetailContainer.cs" />
     <Compile Include="Converters\BooleanNegationConverter.cs" />
     <Compile Include="Converters\DecimalConverter.cs" />
     <Compile Include="Converters\DateConverter.cs" />
     <Compile Include="Converters\CurrencyConverter.cs" />
     <Compile Include="Mixins\AsyncMixin.cs" />
+    <Compile Include="Models\GoogleInfo.cs" />
     <Compile Include="Models\IIInfoService.cs" />
     <Compile Include="Models\MenuItem.cs" />
     <Compile Include="Models\MenuListData.cs" />
+    <Compile Include="Models\OAuthSettings.cs" />
     <Compile Include="PageModels\AboutPageModel.cs" />
     <Compile Include="PageModels\PeriodPageModel.cs" />
     <Compile Include="PageModels\TransactionPageModel.cs" />
     <Compile Include="Pages\AboutPage.cs" />
+    <Compile Include="Pages\BaseContentPage.cs" />
     <Compile Include="Pages\ItemPage.cs" />
     <Compile Include="Models\GroupingAmount.cs" />
-    <Compile Include="Pages\MainPage.cs" />
+    <Compile Include="Pages\LoginPage.cs" />
     <Compile Include="Models\CurrencyModel.cs" />
     <Compile Include="Models\Grouping.cs" />
     <Compile Include="Pages\PeriodPage.cs" />
@@ -63,8 +67,6 @@
     <Compile Include="PageModels\MainPageModel.cs" />
     <Compile Include="Pages\FloatingActionButtonSize.cs" />
     <Compile Include="Pages\FloatingActionButtonView.cs" />
-    <Compile Include="Pages\MenuListView.cs" />
-    <Compile Include="Pages\MenuPage.cs" />
     <Compile Include="Pages\TransactionPage.cs" />
   </ItemGroup>
   <ItemGroup>

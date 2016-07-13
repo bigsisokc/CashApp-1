@@ -8,7 +8,7 @@ using Xamarin.Forms;
 
 namespace CashApp.Pages
 {
-    public class TransactionPage : ContentPage
+    public class TransactionPage : BaseContentPage
     {
         private FloatingActionButtonView fab;
         private ListView list;

@@ -29,7 +29,7 @@ namespace CashApp.Droid
 
             global::Xamarin.Forms.Forms.Init(this, bundle);
 
-            LoadApplication(new App());
+            LoadApplication(App.Instance);
         }
 
         void CheckForUpdates()

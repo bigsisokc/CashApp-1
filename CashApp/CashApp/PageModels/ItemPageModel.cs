@@ -18,10 +18,12 @@ namespace CashApp.PageModels
         int id;
         Transaction item;
         private readonly IRestService service;
+        private readonly IUserDialogs userDialog;
 
-        public ItemPageModel(IRestService service)
+        public ItemPageModel(IRestService service, IUserDialogs userDialog)
         {
             this.service = service;
+            this.userDialog = userDialog;
             CurrencyList = new List<CurrencyModel>
             {
                 new CurrencyModel { Id = 1, Code = "IDR" },
@@ -51,7 +53,7 @@ namespace CashApp.PageModels
 
         private async Task InitializeData(int id)
         {
-            var loading = UserDialogs.Instance.Loading("Loading transaction", show: false);
+            var loading = userDialog.Loading("Loading transaction", show: false);
             loading.Show();
             IsBusy = true;
             item = await service.GetData(id, null);
@@ -146,7 +148,7 @@ namespace CashApp.PageModels
 
         public async Task SaveItem()
         {
-            var loading = UserDialogs.Instance.Loading("Saving transaction");
+            var loading = userDialog.Loading("Saving transaction");
 
             loading.Show();
             IsBusy = true;
@@ -170,11 +172,11 @@ namespace CashApp.PageModels
 
             if (canDelete)
             {
-                var confirmDelete = await UserDialogs.Instance.ConfirmAsync("Are you sure you want to delete this transaction?");
+                var confirmDelete = await userDialog.ConfirmAsync("Are you sure you want to delete this transaction?");
 
                 if (confirmDelete)
                 {
-                    var loading = UserDialogs.Instance.Loading("Deleting transaction");
+                    var loading = userDialog.Loading("Deleting transaction");
                     loading.Show();
                     await service.DeleteItem(id, null);
                     loading.Hide();

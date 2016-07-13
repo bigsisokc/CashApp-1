@@ -7,7 +7,7 @@ using XLabs.Forms.Controls;
 
 namespace CashApp.Pages
 {
-    public class PeriodPage : ContentPage
+    public class PeriodPage : BaseContentPage
     {
         private FloatingActionButtonView fab;
         private ListView list;
