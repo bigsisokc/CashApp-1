@@ -32,6 +32,14 @@ namespace CashApp.Droid
             LoadApplication(App.Instance);
         }
 
+        public override void OnBackPressed()
+        {
+            if (App.Instance.IsAuthenticated)
+            {
+                base.OnBackPressed();
+            }
+        }
+
         void CheckForUpdates()
         {
             // Remove this for store builds!

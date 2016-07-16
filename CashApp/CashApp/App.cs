@@ -60,74 +60,46 @@ namespace CashApp
 
         public Page GetMainPage()
         {
-            var masterDetailNav = new FreshMasterDetailNavigationContainer();
+            var masterDetailNav = new CustomMasterDetailContainer();
             masterDetailNav.Init("Menu", "Menu.png");
             masterDetailNav.AddPage<PeriodPageModel>("Transactions", null);
             masterDetailNav.AddPage<AboutPageModel>("About", null);
             _NavPage = masterDetailNav;
-            
             return _NavPage;
         }
 
         public bool IsAuthenticated
         {
-            get { return !string.IsNullOrWhiteSpace(_Token); }
+            get { return !string.IsNullOrWhiteSpace(Token); }
         }
-
-        string _Token;
+        
         public string Token
         {
-            get { return _Token; }
-        }
-
-        public string Picture
-        {
             get
             {
-                string result = string.Empty;
-                if (GoogleInfo != null)
-                {
-                    result = GoogleInfo.picture;
-                }
-                return result;
+                return Properties.ContainsKey("Token") ? Properties["Token"].ToString() : string.Empty;
             }
-        }
-
-        public string Name
-        {
-            get
+            set
             {
-                string result = string.Empty;
-                if (GoogleInfo != null)
-                {
-                    result = GoogleInfo.name;
-                }
-                return result;
+                Properties["Token"] = value;
             }
         }
-
-        public string Email
-        {
-            get
-            {
-                string result = string.Empty;
-                if (GoogleInfo != null)
-                {
-                    result = GoogleInfo.email;
-                }
-                return result;
-            }
-        }
-
-        GoogleInfo _googleInfo;
+        
         public GoogleInfo GoogleInfo
         {
-            get { return _googleInfo; }
+            get
+            {
+                return Properties.ContainsKey("GoogleInfo") ? (GoogleInfo)Properties["GoogleInfo"] : null;
+            }
+            set
+            {
+                Properties["GoogleInfo"] = value;
+            }
         }
 
         public async Task SaveToken(string token)
         {
-            _Token = token;
+            Token = token;
 
             await GetProfileInfoFromGoogle(token);
 
@@ -146,14 +118,14 @@ namespace CashApp
         const string googUesrInfoAccessleUrl = "https://www.googleapis.com/oauth2/v1/userinfo?access_token={0}";
         async Task<bool> GetProfileInfoFromGoogle(string access_token)
         {
-            var progress = UserDialogs.Instance.Loading("Please wait...");
+            //var progress = UserDialogs.Instance.Loading("Please wait...");
             bool isValid = false;
             //Google API REST request
             string userInfo = await DownloadString(string.Format(googUesrInfoAccessleUrl, access_token));
             if (userInfo != "Exception")
             {
                 //step 4: Deserialize the JSON response to get data in class object
-                _googleInfo = JsonConvert.DeserializeObject<GoogleInfo>(userInfo);
+                GoogleInfo = JsonConvert.DeserializeObject<GoogleInfo>(userInfo);
                 isValid = true;
             }
             else
@@ -161,7 +133,7 @@ namespace CashApp
                 isValid = false;
                 await UserDialogs.Instance.AlertAsync("Failed retrieving user information");
             }
-            progress.Hide();
+            //progress.Hide();
             return isValid;
         }
 

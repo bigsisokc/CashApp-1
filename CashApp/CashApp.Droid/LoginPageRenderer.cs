@@ -28,10 +28,11 @@ namespace CashApp.Droid
             auth.Completed += async (sender, eventArgs) => {
                 if (eventArgs.IsAuthenticated)
                 {
-                    App.Instance.SuccessfulLoginAction.Invoke();
                     string access_token;
                     eventArgs.Account.Properties.TryGetValue("access_token", out access_token);
                     await App.Instance.SaveToken(access_token);
+                    AccountStore.Create(this.Context).Save(eventArgs.Account, "Google");
+                    App.Instance.SuccessfulLoginAction.Invoke();
                 }
                 else
                 {
@@ -42,5 +43,6 @@ namespace CashApp.Droid
 
             activity.StartActivity(auth.GetUI(activity));
         }
+
     }
 }
