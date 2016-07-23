@@ -1,12 +1,14 @@
 ﻿using Acr.UserDialogs;
+using CashApp.Interfaces;
 using CashApp.Mixins;
 using CashApp.Models;
-using CashApp.Services;
 using FreshMvvm;
+using Microsoft.WindowsAzure.MobileServices;
 using PropertyChanged;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
+using System.Diagnostics;
 using System.Linq;
 using System.Threading.Tasks;
 using System.Windows.Input;
@@ -18,10 +20,10 @@ namespace CashApp.PageModels
     public class PeriodPageModel : FreshBasePageModel
     {
         private bool shouldRefresh;
-        private readonly IRestService service;
+        private readonly IDataService service;
         private readonly IUserDialogs userDialog;
 
-        public PeriodPageModel(IRestService service, IUserDialogs userDialog)
+        public PeriodPageModel(IDataService service, IUserDialogs userDialog)
         {
             this.service = service;
             this.userDialog = userDialog;
@@ -33,6 +35,10 @@ namespace CashApp.PageModels
 
         public override void Init(object initData)
         {
+            //service.Purge();
+            //service.Logout();
+            //CashApp.Helpers.Settings.UserId = string.Empty;
+            //CashApp.Helpers.Settings.AuthToken = string.Empty;
             RefreshData().RunForget();
         }
 
@@ -59,26 +65,44 @@ namespace CashApp.PageModels
 
         private async Task RefreshData()
         {
-            var loading = userDialog.Loading("Loading data");
-
-            loading.Show();
-            IsBusy = true;
-            var result = await service.GetPeriodData(null);
-
-            var grouping = new Grouping();
-            var groupingList = new List<Grouping> { grouping };
-
-            Items = new ObservableCollection<Grouping>(groupingList);
-            if (result != null)
+            var isLoggedIn = false;
+            try
             {
-                var sorted = from record in result
-                             orderby record.PeriodSort descending
-                             group record by new { record.Year, record.Month, record.Period } into gr
-                             select new Grouping(gr.Key.Year, gr.Key.Month, gr.Key.Period, gr);
-                Items = new ObservableCollection<Grouping>(sorted);
+                isLoggedIn = CashApp.Helpers.Settings.IsLoggedIn;
             }
-            IsBusy = false;
-            loading.Hide();
+            catch (Exception ex)
+            {
+                Debug.WriteLine(ex.Message);
+                return;
+            }
+            if (!CashApp.Helpers.Settings.IsLoggedIn)
+            {
+                await service.Initialize();
+                var user = await DependencyService.Get<IAuthentication>().LoginAsync(service.MobileService, MobileServiceAuthenticationProvider.Google);
+                if (user == null)
+                    return;
+            }
+
+            using (var loading = userDialog.Loading("Loading data"))
+            {
+                IsBusy = true;
+
+                var result = await service.GetTransactions();
+
+                var grouping = new Grouping();
+                var groupingList = new List<Grouping> { grouping };
+
+                Items = new ObservableCollection<Grouping>(groupingList);
+                if (result != null)
+                {
+                    var sorted = from record in result
+                                 orderby record.PeriodSort descending
+                                 group record by new { record.Year, record.Month, record.Period } into gr
+                                 select new Grouping(gr.Key.Year, gr.Key.Month, gr.Key.Period, gr);
+                    Items = new ObservableCollection<Grouping>(sorted);
+                }
+                IsBusy = false;
+            }
             shouldRefresh = false;
         }
 
@@ -126,7 +150,7 @@ namespace CashApp.PageModels
         {
             get
             {
-                return new Command(Add, () => !IsBusy);
+                return new Command(Add);
             }
         }
 
@@ -145,7 +169,7 @@ namespace CashApp.PageModels
 
         public void Add()
         {
-            CoreMethods.PushPageModel<ItemPageModel>(data: 0);
+            CoreMethods.PushPageModel<ItemPageModel>(data: string.Empty);
         }
 
         public void Select()

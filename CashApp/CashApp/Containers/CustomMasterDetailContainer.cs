@@ -15,12 +15,12 @@ namespace CashApp.Containers
         public CustomMasterDetailContainer()
             : base()
         {
-            MessagingCenter.Subscribe<App>(this, "Authenticated", (sender) =>
-            {
-                userImage.Source = sender.GoogleInfo.picture;
-                userLabel.Text = sender.GoogleInfo.name;
-                userEmail.Text = sender.GoogleInfo.email;
-            });
+            //MessagingCenter.Subscribe<App>(this, "Authenticated", (sender) =>
+            //{
+            //    userImage.Source = sender.GoogleInfo.picture;
+            //    userLabel.Text = sender.GoogleInfo.name;
+            //    userEmail.Text = sender.GoogleInfo.email;
+            //});
         }
 
         protected override void CreateMenuPage(string menuPageTitle, string menuIcon = null)

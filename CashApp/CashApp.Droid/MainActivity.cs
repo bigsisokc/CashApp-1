@@ -22,6 +22,7 @@ namespace CashApp.Droid
         {
             base.OnCreate(bundle);
 
+            Microsoft.WindowsAzure.MobileServices.CurrentPlatform.Init();
             CrashManager.Register(this, "21d237e64379458aa960e50d0bc15cb0");
             MetricsManager.Register(this, Application, "21d237e64379458aa960e50d0bc15cb0");
             UserDialogs.Init(this);
@@ -29,16 +30,16 @@ namespace CashApp.Droid
 
             global::Xamarin.Forms.Forms.Init(this, bundle);
 
-            LoadApplication(App.Instance);
+            LoadApplication(new App());
         }
 
-        public override void OnBackPressed()
-        {
-            if (App.Instance.IsAuthenticated)
-            {
-                base.OnBackPressed();
-            }
-        }
+        //public override void OnBackPressed()
+        //{
+        //    if (App.Instance.IsAuthenticated)
+        //    {
+        //        base.OnBackPressed();
+        //    }
+        //}
 
         void CheckForUpdates()
         {

@@ -1,7 +1,7 @@
 ﻿using Acr.UserDialogs;
+using CashApp.Interfaces;
 using CashApp.Mixins;
 using CashApp.Models;
-using CashApp.Services;
 using FreshMvvm;
 using PropertyChanged;
 using System;
@@ -15,12 +15,11 @@ namespace CashApp.PageModels
     [ImplementPropertyChanged]
     public class ItemPageModel : FreshBasePageModel
     {
-        int id;
-        Transaction item;
-        private readonly IRestService service;
+        public Transactions Item { get; set; }
+        private readonly IDataService service;
         private readonly IUserDialogs userDialog;
 
-        public ItemPageModel(IRestService service, IUserDialogs userDialog)
+        public ItemPageModel(IDataService service, IUserDialogs userDialog)
         {
             this.service = service;
             this.userDialog = userDialog;
@@ -34,35 +33,34 @@ namespace CashApp.PageModels
         
         public override void Init(object initData)
         {
-            if (initData != null)
+            if (initData != null && initData.ToString() != string.Empty)
             {
-                int.TryParse(initData.ToString(), out id);
+                InitializeData(initData.ToString()).RunForget();
             }
-            if (item != null) return;
-
-            Description = string.Empty;
-            Amount = 0;
-            TransDate = DateTime.Today;
-            Currency = "IDR";
-
-            if (id > 0)
+            else
             {
-                InitializeData(id).RunForget();
+                Description = string.Empty;
+                Amount = 0;
+                TransDate = DateTime.Today;
+                Currency = "IDR";
             }
         }
 
-        private async Task InitializeData(int id)
+        private async Task InitializeData(string id)
         {
             var loading = userDialog.Loading("Loading transaction", show: false);
             loading.Show();
             IsBusy = true;
-            item = await service.GetData(id, null);
-            if (item != null)
+            Item = await service.GetTransaction(id);
+            if (Item != null)
             {
-                Description = item.Description;
-                TransDate = item.TransDate;
-                Amount = item.Amount;
-                Currency = item.Currency;
+                id = Item.Id;
+                Description = Item.Description;
+                TransDate = Item.TransDate;
+                Amount = Item.Amount;
+                Currency = Item.Currency;
+                Username = Item.Username;
+                Category = Item.Category;
             }
             IsBusy = false;
             loading.Hide();
@@ -78,6 +76,16 @@ namespace CashApp.PageModels
             }
         }
 
+        private string category;
+        public string Category
+        {
+            get { return category; }
+            set
+            {
+                category = value;
+            }
+        }
+
         private string description;
         public string Description
         {
@@ -85,6 +93,16 @@ namespace CashApp.PageModels
             set
             {
                 description = value;
+            }
+        }
+
+        private string username;
+        public string Username
+        {
+            get { return username; }
+            set
+            {
+                username = value;
             }
         }
 
@@ -152,25 +170,31 @@ namespace CashApp.PageModels
 
             loading.Show();
             IsBusy = true;
-            bool result = await service.SaveItem(new Transaction
+            if (Item == null)
             {
-                Amount = Amount,
-                Currency = Currency,
-                Description = Description,
-                Id = id,
-                TransDate = TransDate
-            }, null);
+                await service.AddTransaction(new Transactions
+                {
+                    Amount = Amount,
+                    Currency = Currency,
+                    Description = Description,
+                    Id = Guid.NewGuid().ToString(),
+                    TransDate = TransDate,
+                    Category = Category
+                });
+            }
+            else
+            {
+                await service.UpdateTransaction(Item);
+            }
             IsBusy = false;
             loading.Hide();
 
-            await CoreMethods.PopPageModel(data: result);
+            await CoreMethods.PopPageModel();
         }
 
         public async Task DeleteItem()
         {
-            bool canDelete = id > 0;
-
-            if (canDelete)
+            if (Item != null)
             {
                 var confirmDelete = await userDialog.ConfirmAsync("Are you sure you want to delete this transaction?");
 
@@ -178,7 +202,7 @@ namespace CashApp.PageModels
                 {
                     var loading = userDialog.Loading("Deleting transaction");
                     loading.Show();
-                    await service.DeleteItem(id, null);
+                    await service.DeleteTransaction(Item);
                     loading.Hide();
                 }
                 else
@@ -208,7 +232,7 @@ namespace CashApp.PageModels
         {
             get
             {
-                return new Command(async () => await DeleteItem(), () => id > 0);
+                return new Command(async () => await DeleteItem(), () => Item != null);
             }
         }
 

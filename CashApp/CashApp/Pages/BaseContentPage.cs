@@ -8,10 +8,10 @@ namespace CashApp.Pages
         {
             base.OnAppearing();
 
-            if (!App.Instance.IsAuthenticated)
-            {
-                Navigation.PushModalAsync(new LoginPage());
-            }
+            //if (!App.Instance.IsAuthenticated)
+            //{
+            //    Navigation.PushModalAsync(new LoginPage());
+            //}
         }
     }
 }

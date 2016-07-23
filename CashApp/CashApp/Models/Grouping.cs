@@ -6,17 +6,17 @@ using System.Linq;
 namespace CashApp.Models
 {
     [ImplementPropertyChanged]
-    public class Grouping : ObservableCollection<TransactionWithPeriod>
+    public class Grouping : ObservableCollection<Transactions>
     {
         public int Year { get; private set; }
         public int Month { get; private set; }
         public string Period { get; private set; }
         public ObservableCollection<GroupingAmount> Amounts { get; set; }
-        public ObservableCollection<TransactionWithPeriod> Transactions
+        public ObservableCollection<Transactions> Transactions
         {
             get
             {
-                return new ObservableCollection<TransactionWithPeriod>(Items);
+                return new ObservableCollection<Transactions>(Items);
             }
         }
 
@@ -25,7 +25,7 @@ namespace CashApp.Models
             Amounts = new ObservableCollection<GroupingAmount>();
         }
 
-        public Grouping(int year, int month, string period, IEnumerable<TransactionWithPeriod> items)
+        public Grouping(int year, int month, string period, IEnumerable<Transactions> items)
         {
             Year = year;
             Month = month;
